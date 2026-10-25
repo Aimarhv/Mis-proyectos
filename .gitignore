@@ -1,0 +1,25 @@
+# .NET / Visual Studio
+bin/
+obj/
+.vs/
+
+# Java / IntelliJ / Eclipse
+.idea/
+*.class
+out/
+target/
+.classpath
+.project
+.settings/
+
+# Unity
+Library/
+Temp/
+Obj/
+Logs/
+UserSettings/
+Builds/
+
+# Sistema
+.DS_Store
+Thumbs.db
