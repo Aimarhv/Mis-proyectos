@@ -59,6 +59,12 @@ Builds/
 *_Data/
 *_BackUpThisFolder_ButDontShipItWithYourGame/
 MonoBleedingEdge/
+*.exe
+*.dll
+!**/Assets/**/*.dll
+.vsconfig
+Assembly-CSharp*.csproj
+Assembly-CSharp-Editor*.csproj
 
 # ===== Datu atzipena =====
 *.aad
