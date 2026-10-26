@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">OperacionesApp</string>
+    <string name="titulua">OperacionesApp</string>
+    <string name="suma">Batuketa</string>
+    <string name="resta">Kenketa</string>
+    <string name="multiplicacion">Biderketa</string>
+    <string name="division">Zatiketa</string>
+    <string name="zenbakia1">1. zenbakia :</string>
+    <string name="zenbakia2">2. zenbakia :</string>
+    <string name="erakutsi">KALKULATU</string>
+    <string name="garbitu">GARBITU</string>
+    <string name="errorea">Errorea</string>
+    <string name="hutsik1">1. zenbakia sartu behar duzu</string>
+    <string name="hutsik2">2. zenbakia sartu behar duzu</string>
+    <string name="zenbaki_baliogabea">Zenbaki baliogabea sartu duzu</string>
+</resources>

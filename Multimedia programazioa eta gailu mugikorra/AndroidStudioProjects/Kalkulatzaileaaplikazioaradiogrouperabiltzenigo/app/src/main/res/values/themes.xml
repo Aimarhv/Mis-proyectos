@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Base.Theme.KalkulatzaileaAplikazioaRadiogroupErabiltzenIgo" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Color de la barra superior (ActionBar) -->
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryDark">#303F9F</item>
+        <!-- Color de los elementos seleccionados (RadioButtons y botones) -->
+        <item name="colorAccent">#FF4081</item>
+    </style>
+
+    <style name="Theme.KalkulatzaileaAplikazioaRadiogroupErabiltzenIgo" parent="Base.Theme.KalkulatzaileaAplikazioaRadiogroupErabiltzenIgo" />
+</resources>
