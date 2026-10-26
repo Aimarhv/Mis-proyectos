@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="I01._12_Landetxeren_erreserba.MainPage"
+             Title="Landetxe erreserba"
+             BackgroundColor="Black">
+
+    <!-- Hiru zutabe: gelak, gehigarriak eta datak -->
+    <Grid ColumnDefinitions="260,*,260" Padding="25" ColumnSpacing="20">
+
+        <!-- 1. zutabea: gelen argazkiak -->
+        <VerticalStackLayout Grid.Column="0" Spacing="10">
+            <Border Stroke="#555" StrokeThickness="1" BackgroundColor="#1A1A18"
+                    StrokeShape="RoundRectangle 4" Padding="6">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="2">
+
+                    <!-- Aurreko gelara pasatzeko gezia -->
+                    <Button x:Name="btnAurrekoa" Grid.Column="0" Text="◀" Clicked="BtnAurrekoa_Clicked"
+                            BackgroundColor="Transparent" TextColor="White" Padding="0" WidthRequest="30"
+                            VerticalOptions="Center" />
+
+                    <!-- Gelaren izena eta argazkia -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="6" HorizontalOptions="Center">
+                        <Label x:Name="lblGela" FontSize="18" FontAttributes="Bold"
+                               TextColor="White" HorizontalOptions="Center" />
+                        <Image x:Name="imgGela" Aspect="AspectFill"
+                               HeightRequest="170" WidthRequest="170" />
+                    </VerticalStackLayout>
+
+                    <!-- Hurrengo gelara pasatzeko gezia -->
+                    <Button x:Name="btnHurrengoa" Grid.Column="2" Text="▶" Clicked="BtnHurrengoa_Clicked"
+                            BackgroundColor="Transparent" TextColor="White" Padding="0" WidthRequest="30"
+                            VerticalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <!-- Zein gela dagoen erakusten duten puntuak -->
+            <Label x:Name="lblPuntuak" TextColor="White" FontSize="14" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <!-- 2. zutabea: gehigarriak eta prezioak -->
+        <VerticalStackLayout Grid.Column="1" Spacing="12">
+            <Label Text="Gehigarriak" TextColor="White" FontSize="16" />
+
+            <!-- Gehigarrien aukerak -->
+            <Border Stroke="#666" StrokeThickness="1" Padding="12">
+                <VerticalStackLayout Spacing="6">
+                    <HorizontalStackLayout>
+                        <CheckBox x:Name="chkAireportua" CheckedChanged="Aldaketa" />
+                        <Label Text="Aireportura trasladoa" TextColor="White" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <CheckBox x:Name="chkBisita" CheckedChanged="Aldaketa" />
+                        <Label Text="Bisita gidatu paketea" TextColor="White" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <CheckBox x:Name="chkUme" CheckedChanged="Aldaketa" />
+                        <Label Text="Ume zaintza (eguneko)" TextColor="White" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Prezioak: kodeak kalkulatzen ditu, ezin dira aldatu -->
+            <Border Stroke="#666" StrokeThickness="1" Padding="12">
+                <Grid ColumnDefinitions="*,90,20" RowDefinitions="Auto,Auto,Auto"
+                      RowSpacing="8" ColumnSpacing="6">
+
+                    <!-- Egonaldiaren prezioa -->
+                    <Label Grid.Row="0" Text="Egonaldiaren prezioa" TextColor="White"
+                           HorizontalOptions="End" VerticalOptions="Center" />
+                    <Entry x:Name="txtEgonaldia" Grid.Row="0" Grid.Column="1"
+                           IsEnabled="False" IsReadOnly="True"
+                           TextColor="Grey" BackgroundColor="DimGrey" />
+                    <Label Grid.Row="0" Grid.Column="2" Text="€" TextColor="White" VerticalOptions="Center" />
+
+                    <!-- Gehigarrien prezioa -->
+                    <Label Grid.Row="1" Text="Gehigarrien prezioa" TextColor="White"
+                           HorizontalOptions="End" VerticalOptions="Center" />
+                    <Entry x:Name="txtGehigarriak" Grid.Row="1" Grid.Column="1"
+                           IsEnabled="False" IsReadOnly="True"
+                           TextColor="Grey" BackgroundColor="DimGrey" />
+                    <Label Grid.Row="1" Grid.Column="2" Text="€" TextColor="White" VerticalOptions="Center" />
+
+                    <!-- Guztizko prezioa -->
+                    <Label Grid.Row="2" Text="Guztizkoa" TextColor="White"
+                           HorizontalOptions="End" VerticalOptions="Center" />
+                    <Entry x:Name="txtGuztira" Grid.Row="2" Grid.Column="1"
+                           IsEnabled="False" IsReadOnly="True"
+                           TextColor="Grey" BackgroundColor="DimGrey" />
+                    <Label Grid.Row="2" Grid.Column="2" Text="€" TextColor="White" VerticalOptions="Center" />
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+
+        <!-- 3. zutabea: datak, erreserba botoia eta erreserben zerrenda -->
+        <VerticalStackLayout Grid.Column="2" Spacing="8">
+
+            <!-- Hasiera eta amaiera datak -->
+            <Label Text="Hasiera data" TextColor="White" FontSize="12" />
+            <DatePicker x:Name="dpHasiera" TextColor="White" DateSelected="DpHasiera_DateSelected" />
+
+            <Label Text="Amaiera data" TextColor="White" FontSize="12" />
+            <DatePicker x:Name="dpAmaiera" TextColor="White" DateSelected="DpAmaiera_DateSelected" />
+
+            <!-- Erreserba egiteko botoia -->
+            <Button x:Name="btnErreserba" Text="Erreserba egin" BackgroundColor="Turquoise"
+                    TextColor="Black" Clicked="BtnErreserba_Clicked" />
+
+            <!-- Gela honen erreserbak -->
+            <Label Text="Erreserbatutako asteak" TextColor="White" FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <CollectionView x:Name="lstErreserbak" HeightRequest="170">
+                <CollectionView.ItemTemplate>
+                    <!-- Erreserba bakoitza testu bat da -->
+                    <DataTemplate x:DataType="x:String">
+                        <Label Text="{Binding .}" TextColor="White" FontSize="13" Padding="0,4" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

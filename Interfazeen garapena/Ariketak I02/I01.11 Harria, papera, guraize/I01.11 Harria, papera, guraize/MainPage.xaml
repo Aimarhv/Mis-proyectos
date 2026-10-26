@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="I01._11_Harria__papera__guraize.MainPage">
+
+    <!-- Orri osoa: 6 errenkada eta 3 zutabe -->
+    <Grid Padding="30"
+          RowDefinitions="Auto, Auto, Auto, Auto, Auto, *"
+          ColumnDefinitions="3*, *, 2*"
+          Background="Grey">
+
+        <!-- Izenburua -->
+        <Label Grid.Row="0" Grid.ColumnSpan="3"
+               Text="Harria, papera eta guraizea"
+               FontSize="25"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <!-- Zutabeen izenburuak: jokalaria eta makina -->
+        <Label Grid.Row="1" Grid.Column="0"
+               Text="Zure aukera"
+               FontSize="22"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="0,25,0,0"/>
+
+        <Label Grid.Row="1" Grid.Column="2"
+               Text="Makina"
+               FontSize="22"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="0,30,0,0"/>
+
+        <!-- Jokalariaren hiru botoiak: harria, papera eta guraizea -->
+        <HorizontalStackLayout Grid.Row="2" Grid.Column="0"
+                               HorizontalOptions="Center" Spacing="20" Margin="0,15,0,0">
+            <ImageButton Source="harria.png" WidthRequest="120" HeightRequest="120"
+                         Clicked="OnHarriaClicked"/>
+            <ImageButton Source="papera.png" WidthRequest="120" HeightRequest="120"
+                         Clicked="OnPaperaClicked"/>
+            <ImageButton Source="guraizea.png" WidthRequest="120" HeightRequest="120"
+                         Clicked="OnGuraizeaClicked"/>
+        </HorizontalStackLayout>
+
+        <!-- Makinak aukeratu duen irudia -->
+        <Image x:Name="imgMakina" Grid.Row="2" Grid.Column="2"
+               WidthRequest="120" HeightRequest="120" HorizontalOptions="Center"/>
+
+        <!-- Jokalariak aukeratu duena (hasieran ezkutatuta dago) -->
+        <VerticalStackLayout Grid.Row="3" Grid.Column="0"
+                             HorizontalOptions="Center" Margin="0,40,0,0">
+            <Label x:Name="lblAukeratu" Text="Hau aukeratu duzu"
+                   FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" IsVisible="False"/>
+            <Image x:Name="imgZure" WidthRequest="100" HeightRequest="100"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <!-- Puntuen taula: 3 zutabe eta 2 errenkada -->
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+              ColumnDefinitions="*, *, *"
+              RowDefinitions="Auto, Auto"
+              ColumnSpacing="-1" RowSpacing="-1"
+              Margin="0,10,0,0">
+
+            <!-- Goiko errenkada: izenburuak -->
+            <Border Grid.Row="0" Grid.Column="0" Stroke="Black" StrokeThickness="1" Padding="10">
+                <Label Text="Zure Puntuak" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1" Stroke="Black" StrokeThickness="1" Padding="10">
+                <Label Text="Puntuak" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2" Stroke="Black" StrokeThickness="1" Padding="10">
+                <Label Text="Makinaren Puntuak" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </Border>
+
+            <!-- Beheko errenkada: puntuak (erdikoa hutsik dago) -->
+            <Border Grid.Row="1" Grid.Column="0" Stroke="Black" StrokeThickness="1" Padding="20">
+                <Label x:Name="lblZurePuntuak" Text="0" FontSize="20" HorizontalOptions="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" Stroke="Black" StrokeThickness="1" Padding="10"/>
+            <Border Grid.Row="1" Grid.Column="2" Stroke="Black" StrokeThickness="1" Padding="20">
+                <Label x:Name="lblMakinaPuntuak" Text="0" FontSize="20" HorizontalOptions="Center"/>
+            </Border>
+        </Grid>
+
+        <!-- Aplikazioa ixteko botoia -->
+        <Button Grid.Row="5" Grid.Column="1" Text="Irten" WidthRequest="100"
+                VerticalOptions="End" Clicked="Irten_Clicked"/>
+    </Grid>
+</ContentPage>

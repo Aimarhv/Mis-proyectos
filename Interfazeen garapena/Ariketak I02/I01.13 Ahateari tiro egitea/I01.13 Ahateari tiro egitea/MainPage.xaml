@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="I01._13_Ahateari_tiro_egitea.MainPage">
+
+    <!-- Bi errenkada: goikoa jokoarentzat eta behekoa botoientzat -->
+    <Grid RowDefinitions="*,90">
+
+        <!-- Hemen mugitzen dira ahateak -->
+        <AbsoluteLayout x:Name="Zelaia" Grid.Row="0" IsClippedToBounds="True" BackgroundColor="Black">
+
+            <!-- Atzealdeko irudia -->
+            <Image Source="zelaia.jpg" InputTransparent="True"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
+
+            <!-- Oztopoak: ahateak atzean daudenean ezin dira jo -->
+            <Image x:Name="imgZuhaitza" Source="zuhaitza.png" InputTransparent="True" Aspect="AspectFit"
+                   AbsoluteLayout.LayoutBounds="0.15,1,0.22,0.8"
+                   AbsoluteLayout.LayoutFlags="All"/>
+            <Image x:Name="imgHarria" Source="harria.png" InputTransparent="True" Aspect="AspectFit"
+                   AbsoluteLayout.LayoutBounds="0.75,1,0.18,0.3"
+                   AbsoluteLayout.LayoutFlags="All"/>
+
+            <!-- Tiro-mira (sagua) -->
+            <Image x:Name="imgDiana" Source="diana.png" InputTransparent="True" IsVisible="False"
+                   AbsoluteLayout.LayoutBounds="0,0,50,50"/>
+        </AbsoluteLayout>
+
+        <!-- Beheko barra -->
+        <Grid Grid.Row="1" BackgroundColor="Black" Padding="20,0" ColumnSpacing="15"
+              ColumnDefinitions="*,Auto,Auto,*">
+
+            <!-- Hasteko botoia -->
+            <Button x:Name="btnHasi" Text="Hasi" Grid.Column="0"
+                    HeightRequest="50" MaximumWidthRequest="180"
+                    HorizontalOptions="End" VerticalOptions="Center"
+                    TextColor="White" FontAttributes="Bold" FontSize="14" CornerRadius="14"/>
+
+            <!-- Denbora -->
+            <Label x:Name="lblDenbora" Grid.Column="1" Text="00:00" TextColor="White"
+                   FontAttributes="Bold" FontSize="14"
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+
+            <!-- Puntuak -->
+            <Label x:Name="lblPuntuak" Grid.Column="2" Text="0" TextColor="White"
+                   FontAttributes="Bold" FontSize="14"
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+
+            <!-- Amaitzeko botoia -->
+            <Button x:Name="btnAmaitu" Text="Amaitu" Grid.Column="3"
+                    HeightRequest="50" MaximumWidthRequest="180"
+                    HorizontalOptions="End" VerticalOptions="Center"
+                    TextColor="White" FontAttributes="Bold" FontSize="14" CornerRadius="14"/>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="I01._09_Erosketa_orgatxoa___Drag_and_Drop.MainPage">
+
+    <!-- Orri osoa: 3 errenkada eta 3 zutabe -->
+    <Grid Padding="30" Background="MintCream"
+          RowDefinitions="Auto, *, Auto"
+          ColumnDefinitions="Auto, *, Auto">
+
+        <!-- Izenburua -->
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="3"
+               Text="Erosketa karroa"
+               FontSize="20"
+               FontAttributes="Bold"
+               Margin="0,0,0,20"/>
+
+        <!-- Ezkerreko aldea: fruta guztiak (arrastatu daitezke) -->
+        <Grid Grid.Row="1" Grid.Column="0"
+              RowDefinitions="Auto, Auto, Auto"
+              ColumnDefinitions="Auto, Auto"
+              ColumnSpacing="10"
+              RowSpacing="10"
+              HorizontalOptions="Start"
+              VerticalOptions="Center">
+
+            <!-- Sandia. DragGestureRecognizer: irudia arrastatzeko -->
+            <Image Source="sandia.png" WidthRequest="100" HeightRequest="100" Grid.Row="0" Grid.Column="0">
+                <Image.GestureRecognizers>
+                    <DragGestureRecognizer DragStarting="OnDragStarting"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Sagarra -->
+            <Image Source="sagarra.png" WidthRequest="100" HeightRequest="100" Grid.Row="0" Grid.Column="1">
+                <Image.GestureRecognizers>
+                    <DragGestureRecognizer DragStarting="OnDragStarting"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Pera -->
+            <Image Source="pera.png" WidthRequest="100" HeightRequest="100" Grid.Row="1" Grid.Column="0">
+                <Image.GestureRecognizers>
+                    <DragGestureRecognizer DragStarting="OnDragStarting"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Naranja -->
+            <Image Source="naranja.png" WidthRequest="100" HeightRequest="100" Grid.Row="1" Grid.Column="1">
+                <Image.GestureRecognizers>
+                    <DragGestureRecognizer DragStarting="OnDragStarting"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Piña -->
+            <Image Source="pina.png" WidthRequest="100" HeightRequest="100" Grid.Row="2" Grid.Column="0">
+                <Image.GestureRecognizers>
+                    <DragGestureRecognizer DragStarting="OnDragStarting"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Meloia -->
+            <Image Source="meloia.png" WidthRequest="100" HeightRequest="100" Grid.Row="2" Grid.Column="1">
+                <Image.GestureRecognizers>
+                    <DragGestureRecognizer DragStarting="OnDragStarting"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+        </Grid>
+
+        <!-- Erdian: erosketa karroa. DropGestureRecognizer: hemen askatzen dira frutak -->
+        <Image Grid.Row="1" Grid.Column="1"
+               Source="karrito.png"
+               WidthRequest="150"
+               HeightRequest="150"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+            <Image.GestureRecognizers>
+                <DropGestureRecognizer AllowDrop="True" Drop="OnCartDrop"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!-- Eskuineko aldea: karroan sartutakoen zerrenda eta Itzuli botoia -->
+        <VerticalStackLayout Grid.Row="1" Grid.Column="2"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Spacing="20"
+                     WidthRequest="150">
+
+            <!-- Karroan dauden frutak (kodeak betetzen du) -->
+            <Frame BackgroundColor="White"
+           BorderColor="White"
+           WidthRequest="100"
+           HeightRequest="165"
+           CornerRadius="0"
+           HasShadow="False"
+           Padding="5">
+                <CollectionView x:Name="CartCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <!-- Fruta bakoitza testu bat da -->
+                        <DataTemplate>
+                            <Label Text="{Binding Display}" FontSize="14" TextColor="Black" Margin="2"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame>
+
+            <!-- Itzuli botoia -->
+            <Button Text="Itzuli"
+            Clicked="OnItzuliClicked"
+            WidthRequest="100"
+            BackgroundColor="LightBlue"
+            TextColor="Black"
+            BorderColor="Navy"
+            BorderWidth="1"
+            HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <!-- Desegiteko botoia -->
+        <Button Grid.Row="2" Grid.Column="0"
+                Text="Desegin"
+                Clicked="OnDeseginClicked"
+                WidthRequest="100"
+                BackgroundColor="LightBlue"
+                TextColor="Black"
+                BorderColor="Navy"
+                BorderWidth="1"
+                VerticalOptions="End"
+                HorizontalOptions="Start"/>
+
+        <!-- Aplikazioa ixteko botoia -->
+        <Button Grid.Row="2" Grid.Column="2"
+                Text="Irten"
+                Clicked="OnIrtenClicked"
+                WidthRequest="100"
+                BackgroundColor="LightBlue"
+                TextColor="Black"
+                BorderColor="Navy"
+                BorderWidth="1"
+                VerticalOptions="End"
+                HorizontalOptions="End"/>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Txandak_ausaz_osatzeko_aplikazioa.MainPage">
+
+    <!-- Pantaila nagusiaren egitura: 3 errenkada (Goian, Erdialdean eta Behean) -->
+    <Grid Padding="20" RowDefinitions="Auto,*,Auto" RowSpacing="12">
+
+        <!-- 0. ERRENKADA: Goiko barra (fitxategia kargatzeko eta datuak) -->
+        <HorizontalStackLayout Grid.Row="0" Spacing="12" VerticalOptions="Center">
+
+            <!-- Ikasleen izenak dituen fitxategia bilatzeko botoia -->
+            <Button x:Name="Ireki"
+                    Text="Ireki fitxategia"
+                    Clicked="OnIrekiClicked" />
+
+            <!-- Aukeratutako fitxategiaren izena edo bidea -->
+            <Label x:Name="Fitxategia"
+                   Text="Ez dago fitxategirik aukeratuta"
+                   VerticalOptions="Center"
+                   TextColor="Gray" />
+
+            <!-- Kargatutako izen guztien kontagailua -->
+            <Label x:Name="IzenKopurua"
+                   Text="0 izen kargatuta"
+                   VerticalOptions="Center" />
+
+        </HorizontalStackLayout>
+
+
+        <!-- 1. ERRENKADA: Erdialdea bi zutabetan banatuta -->
+        <Grid Grid.Row="1" ColumnDefinitions="1.3*,*" ColumnSpacing="20">
+
+            <!-- EZKERREKO ZUTABEA: Atera den izenaren koadroa + kontrolak -->
+            <VerticalStackLayout Grid.Column="0" Spacing="16" Padding="20" VerticalOptions="Center">
+
+                <Label Text="Atera den izena"
+                       FontSize="14" />
+
+                <!-- Koadro bat ertz biribilduekin ikaslearen izena handi ikusteko -->
+                <Border Stroke="#185FA5" StrokeThickness="2" Padding="12,28">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="6">
+                        <!-- Atera den ikaslearen zenbakia edo ID-a -->
+                        <Label x:Name="IkasleZenbakia"
+                               Text=""
+                               FontSize="12"
+                               HorizontalOptions="Center"
+                               TextColor="Blue" />
+
+                        <!-- Ausaz egokitu den izena (tamaina handian) -->
+                        <Label x:Name="Izena"
+                               Text="-"
+                               FontSize="32"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               TextColor="Blue" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Hurrengo ikaslea ateratzeko botoi nagusia -->
+                <Button x:Name="Atera"
+                        Text="Atera hurrengoa"
+                        FontSize="18"
+                        Padding="22,10"
+                        HorizontalOptions="Center"
+                        IsEnabled="False"
+                        Clicked="OnAteraClicked" />
+
+                <!-- Progresuaren testua: "3 / 25" -->
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Grid.Column="0" Text="Aurrera" FontSize="12" TextColor="Gray" />
+                    <Label x:Name="ProgresuaLbl" Grid.Column="1" Text="0 / 0" FontSize="12" TextColor="Gray" />
+                </Grid>
+
+                <!-- Aurrerapena erakusteko barra -->
+                <ProgressBar x:Name="ProgresuBarra" Progress="0" />
+
+                <!-- Zenbat geratzen diren -->
+                <Label x:Name="GeratzenDiraLbl"
+                       Text="0 geratzen dira"
+                       FontSize="12"
+                       TextColor="Gray" />
+            </VerticalStackLayout>
+
+
+            <!-- ESKUINEKO ZUTABEA: Ateratakoen zerrenda / historia -->
+            <Grid Grid.Column="1" RowDefinitions="Auto,*" RowSpacing="8">
+
+                <!-- Zerrendaren goiburua eta kopurua -->
+                <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+                    <Label Grid.Column="0"
+                           Text="Ateratako ordena"
+                           FontSize="16"
+                           FontAttributes="Bold" />
+
+                    <Label x:Name="ZerrendaKopurua"
+                           Grid.Column="1"
+                           Text="0 izen"
+                           FontSize="12"
+                           TextColor="Gray"
+                           VerticalOptions="Center" />
+                </Grid>
+
+                <!-- Zein ordenatan atera diren erakusten duen zerrenda -->
+                <CollectionView x:Name="Zerrenda" Grid.Row="1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <Label Text="{Binding .}"
+                                   Padding="12,8"
+                                   FontSize="14" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
+
+        </Grid>
+
+
+        <!-- 2. ERRENKADA: Beheko botoiak (berrabiarazi eta gorde) -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto">
+
+            <!-- Zozketa hutsetik hasteko botoia -->
+            <Button Grid.Column="0"
+                    Text="Berrabiarazi"
+                    HorizontalOptions="Start"
+                    Clicked="OnBerrabiaraziClicked" />
+
+            <!-- Emaitza fitxategi batean esportatzeko botoia -->
+            <Button Grid.Column="1"
+                    x:Name="Gorde"
+                    Text="Gorde zerrenda fitxategian..."
+                    IsEnabled="False"
+                    Clicked="OnGordezerrendafitxateginClicked" />
+        </Grid>
+
+    </Grid>
+</ContentPage>

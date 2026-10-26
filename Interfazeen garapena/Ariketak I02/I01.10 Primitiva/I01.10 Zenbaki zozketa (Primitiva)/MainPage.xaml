@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="I01._10_Zenbaki_zozketa__Primitiva_.MainPage">
+
+    <!-- Orri osoa: 3 errenkada (izenburua, zenbakien taula eta behekoa) -->
+    <Grid Padding="30" RowDefinitions="Auto, *, Auto" RowSpacing="20">
+
+        <!-- Izenburua -->
+        <Label Grid.Row="0"
+               Text="Zenbaki zozketa"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <!-- Zenbakien taula 7x7: laukiak kodean sortzen dira -->
+        <Grid x:Name="GridZenbakia"
+              Grid.Row="1"
+              ColumnDefinitions="*, *, *, *, *, *, *"
+              RowDefinitions="*, *, *, *, *, *, *"
+              ColumnSpacing="10"
+              RowSpacing="10"/>
+
+        <!-- Beheko aldea: botoiak, saritutako zenbakiak eta asmatuak -->
+        <VerticalStackLayout Grid.Row="2" Spacing="10">
+
+            <!-- Botoiak: Zozketa eta Berria hasieran desgaituta daude -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button x:Name="btnZozketa" Text="Zozketa" IsEnabled="False" Clicked="btnZozketaClicked"/>
+                <Button x:Name="btnBerria" Text="Berria" IsEnabled="False" Clicked="btnBerriaClicked"/>
+
+                <!-- "Irten" botoia gorriz -->
+                <Button x:Name="btnIrten" 
+                        Text="Irten" 
+                        BackgroundColor="Red" 
+                        TextColor="White" 
+                        Clicked="btnIrtenClicked"/>
+            </HorizontalStackLayout>
+
+            <!-- Zozketan ateratako zenbakiak (kodeak betetzen du) -->
+            <HorizontalStackLayout x:Name="stackSaritutakoak" Spacing="8" HorizontalOptions="Center"/>
+
+            <!-- Zenbat zenbaki asmatu diren -->
+            <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                <Label Text="Asmatuak" VerticalOptions="Center"/>
+                <Entry x:Name="txtAsmatuak" WidthRequest="120" IsReadOnly="True" HorizontalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
