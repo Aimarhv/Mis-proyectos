@@ -13,6 +13,19 @@ dependency-reduced-pom.xml
 .settings/
 bin/
 
+# ===== Eclipse workspace / instalación =====
+.metadata/
+configuration/
+features/
+plugins/
+dropins/
+p2/
+eclipse.exe
+eclipsec.exe
+eclipse.ini
+artifacts.xml
+.eclipseproduct
+
 # ===== IntelliJ =====
 .idea/
 *.iml
@@ -80,4 +93,5 @@ venv/
 # ===== Sistema y editores =====
 .DS_Store
 Thumbs.db
+desktop.ini
 .vscode/
