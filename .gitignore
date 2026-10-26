@@ -11,7 +11,6 @@ dependency-reduced-pom.xml
 .classpath
 .project
 .settings/
-bin/
 
 # ===== Eclipse workspace / instalación =====
 .metadata/
@@ -31,7 +30,7 @@ artifacts.xml
 *.iml
 out/
 
-# ===== .NET / Visual Studio =====
+# ===== .NET / Visual Studio / Eclipse (compilados) =====
 bin/
 obj/
 .vs/
@@ -56,14 +55,10 @@ Library/
 Temp/
 Logs/
 UserSettings/
-Build/
 Builds/
-*.exe
-*.dll
 *_Data/
 *_BackUpThisFolder_ButDontShipItWithYourGame/
 MonoBleedingEdge/
-D3D12/
 
 # ===== Datu atzipena =====
 *.aad
