@@ -49,6 +49,7 @@ local.properties
 *.keystore
 captures/
 .cxx/
+**/.gitignore
 
 # ===== Unity =====
 Library/
