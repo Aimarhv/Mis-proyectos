@@ -1,25 +1,83 @@
-# .NET / Visual Studio
-bin/
-obj/
-.vs/
-
-# Java / IntelliJ / Eclipse
-.idea/
+# ===== Java compilado =====
 *.class
-out/
+
+# ===== Maven / NetBeans =====
 target/
+nbactions.xml
+nbproject/private/
+dependency-reduced-pom.xml
+
+# ===== Eclipse =====
 .classpath
 .project
 .settings/
+bin/
 
-# Unity
+# ===== IntelliJ =====
+.idea/
+*.iml
+out/
+
+# ===== .NET / Visual Studio =====
+obj/
+.vs/
+*.user
+*.suo
+
+# ===== Android Studio =====
+.gradle/
+build/
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+captures/
+.cxx/
+
+# ===== Unity =====
 Library/
 Temp/
-Obj/
 Logs/
 UserSettings/
+Build/
 Builds/
+*.exe
+*.dll
+*_Data/
+*_BackUpThisFolder_ButDontShipItWithYourGame/
+MonoBleedingEdge/
+D3D12/
 
-# Sistema
+# ===== Datu atzipena =====
+*.aad
+*.aux
+*.jar
+!lib/*.jar
+Pruebas/
+proba/
+kontz.txt
+kopia.txt
+
+# ===== ERP (Odoo / Python) =====
+__pycache__/
+*.pyc
+filestore/
+*.sql
+*.dump
+odoo.conf
+venv/
+
+# ===== Archivos pesados =====
+*.zip
+
+# ===== Seguridad (repositorio público) =====
+.env
+.env.*
+*.env
+*.log
+
+# ===== Sistema y editores =====
 .DS_Store
 Thumbs.db
+.vscode/
