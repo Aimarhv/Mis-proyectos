@@ -1,0 +1,32 @@
+
+Configuraci¢n IP de Windows
+
+
+Adaptador de Ethernet Ethernet 3:
+
+   Sufijo DNS espec¡fico para la conexi¢n. . : 
+   V¡nculo: direcci¢n IPv6 local. . . : fe80::2eb9:398d:151c:94a8%19
+   Direcci¢n IPv4. . . . . . . . . . . . . . : 192.168.56.1
+   M scara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . : 
+
+Adaptador de LAN inal mbrica Conexi¢n de  rea local* 3:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS espec¡fico para la conexi¢n. . : 
+
+Adaptador de LAN inal mbrica Wi-Fi:
+
+   Sufijo DNS espec¡fico para la conexi¢n. . : 
+   Direcci¢n IPv6 . . . . . . . . . . : 2a02:9130:982e:8462:d476:f380:8104:84b1
+   Direcci¢n IPv6 temporal. . . . . . : 2a02:9130:982e:8462:5c1f:7259:f42f:5037
+   V¡nculo: direcci¢n IPv6 local. . . : fe80::36d0:4146:890f:cab5%2
+   Direcci¢n IPv4. . . . . . . . . . . . . . : 10.113.155.218
+   M scara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . : fe80::491:13ff:fe49:d67c%2
+                                       10.113.155.248
+
+Adaptador de Ethernet Conexi¢n de red Bluetooth:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS espec¡fico para la conexi¢n. . : 
