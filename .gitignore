@@ -32,10 +32,13 @@ artifacts.xml
 out/
 
 # ===== .NET / Visual Studio =====
+bin/
 obj/
 .vs/
 *.user
 *.suo
+packages/
+*.csproj.user
 
 # ===== Android Studio =====
 .gradle/
