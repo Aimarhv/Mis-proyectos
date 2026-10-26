@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_enkan_produktua_user,enkan.produktua user,model_enkan_produktua,base.group_user,1,1,1,1
+access_enkan_lotea_user,enkan.lotea user,model_enkan_lotea,base.group_user,1,1,1,1
+access_enkan_parte_hartzailea_user,enkan.parte_hartzailea user,model_enkan_parte_hartzailea,base.group_user,1,1,1,1
+access_enkan_puja_user,enkan.puja user,model_enkan_puja,base.group_user,1,1,1,1

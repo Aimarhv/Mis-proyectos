@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_kontratua_list" model="ir.ui.view">
+        <field name="name">susta.kontratua.list</field>
+        <field name="model">susta.kontratua</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="promozioa_id"/>
+                <field name="enpresa_id"/>
+                <field name="zenbatekoa"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_kontratua_form" model="ir.ui.view">
+        <field name="name">susta.kontratua.form</field>
+        <field name="model">susta.kontratua</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="promozioa_id"/>
+                        <field name="enpresa_id"/>
+                        <field name="zenbatekoa"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_kontratua_pivot" model="ir.ui.view">
+        <field name="name">susta.kontratua.pivot</field>
+        <field name="model">susta.kontratua</field>
+        <field name="arch" type="xml">
+            <pivot string="Kontratuak">
+                <field name="promozioa_id" type="row"/>
+                <field name="zenbatekoa" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_kontratua_graph" model="ir.ui.view">
+        <field name="name">susta.kontratua.graph</field>
+        <field name="model">susta.kontratua</field>
+        <field name="arch" type="xml">
+            <graph string="Kontratuak" type="bar">
+                <field name="promozioa_id"/>
+                <field name="zenbatekoa" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_kontratua" model="ir.actions.act_window">
+        <field name="name">Kontratuak</field>
+        <field name="res_model">susta.kontratua</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+    </record>
+</odoo>

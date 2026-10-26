@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_enkan_root" name="EnkanAimar" sequence="10"/>
+    <menuitem id="menu_enkan_produktua" name="Produktuak" parent="menu_enkan_root"
+              action="action_produktua" sequence="10"/>
+    <menuitem id="menu_enkan_lotea" name="Loteak" parent="menu_enkan_root"
+              action="action_lotea" sequence="20"/>
+    <menuitem id="menu_enkan_parte_hartzailea" name="Parte-hartzaileak" parent="menu_enkan_root"
+              action="action_parte_hartzailea" sequence="30"/>
+    <menuitem id="menu_enkan_puja" name="Pujak" parent="menu_enkan_root"
+              action="action_puja" sequence="40"/>
+</odoo>

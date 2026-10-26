@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_etxebizitza_list" model="ir.ui.view">
+        <field name="name">susta.etxebizitza.list</field>
+        <field name="model">susta.etxebizitza</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="promozioa_id"/>
+                <field name="azalera"/>
+                <field name="gelak"/>
+                <field name="bainugelak"/>
+                <field name="prezioa"/>
+                <field name="terraza"/>
+                <field name="jardina"/>
+                <field name="piscina"/>
+                <field name="garajea"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_etxebizitza_form" model="ir.ui.view">
+        <field name="name">susta.etxebizitza.form</field>
+        <field name="model">susta.etxebizitza</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Neurriak">
+                            <field name="promozioa_id"/>
+                            <field name="azalera"/>
+                            <field name="gelak"/>
+                            <field name="bainugelak"/>
+                            <field name="prezioa"/>
+                        </group>
+                        <group string="Ezaugarriak">
+                            <field name="terraza" widget="boolean_toggle"/>
+                            <field name="jardina" widget="boolean_toggle"/>
+                            <field name="piscina" widget="boolean_toggle"/>
+                            <field name="garajea" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="planoa" widget="image" options="{'size': [250, 250]}"/>
+                        <field name="argazkia" widget="image" options="{'size': [250, 250]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_etxebizitza_kanban" model="ir.ui.view">
+        <field name="name">susta.etxebizitza.kanban</field>
+        <field name="model">susta.etxebizitza</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="card">
+                        <div class="row g-0">
+                            <div class="col-5">
+                                <field name="planoa" widget="image" options="{'img_class': 'img-fluid'}"/>
+                            </div>
+                            <div class="col-7 ps-2">
+                                <field name="promozioa_id" class="fw-bold"/>
+                                <div>Gelak: <field name="gelak"/></div>
+                                <div>Bainugelak: <field name="bainugelak"/></div>
+                                <div>Azalera: <field name="azalera"/> m2</div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_etxebizitza_search" model="ir.ui.view">
+        <field name="name">susta.etxebizitza.search</field>
+        <field name="model">susta.etxebizitza</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="promozioa_id"/>
+                <filter name="f_terraza" string="Terrazarekin" domain="[('terraza', '=', True)]"/>
+                <filter name="f_piscina" string="Igerilekuarekin" domain="[('piscina', '=', True)]"/>
+                <filter name="f_garajea" string="Garajearekin" domain="[('garajea', '=', True)]"/>
+                <filter name="f_jardina" string="Lorategiarekin" domain="[('jardina', '=', True)]"/>
+                <group>
+                    <filter name="group_promozioa" string="Promozioa"
+                            context="{'group_by': 'promozioa_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_etxebizitza_pivot" model="ir.ui.view">
+        <field name="name">susta.etxebizitza.pivot</field>
+        <field name="model">susta.etxebizitza</field>
+        <field name="arch" type="xml">
+            <pivot string="Etxebizitzak">
+                <field name="promozioa_id" type="row"/>
+                <field name="azalera" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_etxebizitza_graph" model="ir.ui.view">
+        <field name="name">susta.etxebizitza.graph</field>
+        <field name="model">susta.etxebizitza</field>
+        <field name="arch" type="xml">
+            <graph string="Etxebizitzak" type="bar">
+                <field name="promozioa_id"/>
+                <field name="azalera" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_etxebizitza" model="ir.actions.act_window">
+        <field name="name">Etxebizitzak</field>
+        <field name="res_model">susta.etxebizitza</field>
+        <field name="view_mode">kanban,list,form,pivot,graph</field>
+    </record>
+</odoo>

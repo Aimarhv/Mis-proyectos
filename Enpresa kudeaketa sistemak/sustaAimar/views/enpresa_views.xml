@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_enpresa_list" model="ir.ui.view">
+        <field name="name">susta.enpresa.list</field>
+        <field name="model">susta.enpresa</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="izena"/>
+                <field name="mota"/>
+                <field name="telefonoa"/>
+                <field name="posta"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_enpresa_form" model="ir.ui.view">
+        <field name="name">susta.enpresa.form</field>
+        <field name="model">susta.enpresa</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="izena"/>
+                            <field name="mota"/>
+                            <field name="helbidea"/>
+                        </group>
+                        <group>
+                            <field name="telefonoa"/>
+                            <field name="faxa"/>
+                            <field name="posta" widget="email"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Kontratuak">
+                            <field name="kontratu_ids">
+                                <list editable="bottom">
+                                    <field name="promozioa_id"/>
+                                    <field name="zenbatekoa"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_enpresa" model="ir.actions.act_window">
+        <field name="name">Enpresak</field>
+        <field name="res_model">susta.enpresa</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

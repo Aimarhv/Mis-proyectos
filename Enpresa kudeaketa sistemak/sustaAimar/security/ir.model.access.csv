@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_susta_promozioa_user,susta.promozioa user,model_susta_promozioa,base.group_user,1,1,1,1
+access_susta_etxebizitza_user,susta.etxebizitza user,model_susta_etxebizitza,base.group_user,1,1,1,1
+access_susta_enpresa_user,susta.enpresa user,model_susta_enpresa,base.group_user,1,1,1,1
+access_susta_kontratua_user,susta.kontratua user,model_susta_kontratua,base.group_user,1,1,1,1

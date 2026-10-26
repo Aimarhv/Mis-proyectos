@@ -1,0 +1,296 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- PROMOZIOAK -->
+
+        <record id="demo_promozioa_1" model="susta.promozioa">
+            <field name="kodea">PROM-001</field>
+            <field name="izena">Residencial Eguzki</field>
+            <field name="herria">Tolosa</field>
+            <field name="planoa" type="base64"
+                   file="susta_aimar/static/img/Tolosa.jpg"/>
+        </record>
+
+        <record id="demo_promozioa_2" model="susta.promozioa">
+            <field name="kodea">PROM-002</field>
+            <field name="izena">Itsasargi Etxeak</field>
+            <field name="herria">Zarautz</field>
+            <field name="planoa" type="base64"
+                   file="susta_aimar/static/img/Zarautz.jpg"/>
+        </record>
+
+        <record id="demo_promozioa_3" model="susta.promozioa">
+            <field name="kodea">PROM-003</field>
+            <field name="izena">Mendiko Bizilekua</field>
+            <field name="herria">Azpeitia</field>
+            <field name="planoa" type="base64"
+                   file="susta_aimar/static/img/Azpeitia.jpg"/>
+        </record>
+
+        <record id="demo_promozioa_4" model="susta.promozioa">
+            <field name="kodea">PROM-004</field>
+            <field name="izena">Parke Berria</field>
+            <field name="herria">Donostia</field>
+            <field name="planoa" type="base64"
+                   file="susta_aimar/static/img/Donostia.jpg"/>
+        </record>
+
+
+        <!-- ENPRESAK -->
+
+        <record id="demo_enpresa_1" model="susta.enpresa">
+            <field name="izena">Eraiki Taldea SL</field>
+            <field name="mota">Eraikuntza</field>
+            <field name="helbidea">Euskal Herria kalea 12, Tolosa</field>
+            <field name="telefonoa">943650101</field>
+            <field name="faxa">943650102</field>
+            <field name="posta">info@eraikitaldea.example.com</field>
+        </record>
+
+        <record id="demo_enpresa_2" model="susta.enpresa">
+            <field name="izena">Etxe Berriak SA</field>
+            <field name="mota">Sustapen inmobiliarioa</field>
+            <field name="helbidea">Kale Nagusia 25, Donostia</field>
+            <field name="telefonoa">943650202</field>
+            <field name="posta">info@etxeberriak.example.com</field>
+        </record>
+
+        <record id="demo_enpresa_3" model="susta.enpresa">
+            <field name="izena">Arkitektura Garaia</field>
+            <field name="mota">Arkitektura</field>
+            <field name="helbidea">Foruen plaza 4, Azpeitia</field>
+            <field name="telefonoa">943650303</field>
+            <field name="posta">info@arkitekturagaraia.example.com</field>
+        </record>
+
+        <record id="demo_enpresa_4" model="susta.enpresa">
+            <field name="izena">Eraikuntza Kostaldea SL</field>
+            <field name="mota">Eraikuntza</field>
+            <field name="helbidea">Itsas kalea 8, Zarautz</field>
+            <field name="telefonoa">943650404</field>
+            <field name="posta">info@kostaldea.example.com</field>
+        </record>
+
+
+        <!-- ETXEBIZITZAK: PROM-001 -->
+
+        <record id="demo_etxebizitza_1" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_1"/>
+            <field name="azalera">85</field>
+            <field name="gelak">3</field>
+            <field name="bainugelak">2</field>
+            <field name="prezioa">285000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="False"/>
+            <field name="piscina" eval="True"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza1_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza1_planoa.png"/>
+        </record>
+
+        <record id="demo_etxebizitza_2" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_1"/>
+            <field name="azalera">65</field>
+            <field name="gelak">2</field>
+            <field name="bainugelak">1</field>
+            <field name="prezioa">215000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="False"/>
+            <field name="piscina" eval="False"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza2_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza2_planoa.png"/>
+        </record>
+
+        <record id="demo_etxebizitza_3" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_1"/>
+            <field name="azalera">110</field>
+            <field name="gelak">4</field>
+            <field name="bainugelak">2</field>
+            <field name="prezioa">345000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="True"/>
+            <field name="piscina" eval="True"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza3_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza3_planoa.png"/>
+        </record>
+
+
+        <!-- ETXEBIZITZAK: PROM-002 -->
+
+        <record id="demo_etxebizitza_4" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_2"/>
+            <field name="azalera">75</field>
+            <field name="gelak">3</field>
+            <field name="bainugelak">2</field>
+            <field name="prezioa">310000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="False"/>
+            <field name="piscina" eval="False"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza4_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza4_planoa.png"/>
+        </record>
+
+        <record id="demo_etxebizitza_5" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_2"/>
+            <field name="azalera">95</field>
+            <field name="gelak">3</field>
+            <field name="bainugelak">2</field>
+            <field name="prezioa">385000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="True"/>
+            <field name="piscina" eval="True"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza5_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza5_planoa.png"/>
+        </record>
+
+        <record id="demo_etxebizitza_6" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_2"/>
+            <field name="azalera">55</field>
+            <field name="gelak">2</field>
+            <field name="bainugelak">1</field>
+            <field name="prezioa">195000</field>
+            <field name="terraza" eval="False"/>
+            <field name="jardina" eval="False"/>
+            <field name="piscina" eval="False"/>
+            <field name="garajea" eval="False"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza6_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza6_planoa.png"/>
+        </record>
+
+
+        <!-- ETXEBIZITZAK: PROM-003 -->
+
+        <record id="demo_etxebizitza_7" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_3"/>
+            <field name="azalera">90</field>
+            <field name="gelak">3</field>
+            <field name="bainugelak">2</field>
+            <field name="prezioa">245000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="True"/>
+            <field name="piscina" eval="False"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza7_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza7_planoa.png"/>
+        </record>
+
+        <record id="demo_etxebizitza_8" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_3"/>
+            <field name="azalera">70</field>
+            <field name="gelak">2</field>
+            <field name="bainugelak">1</field>
+            <field name="prezioa">185000</field>
+            <field name="terraza" eval="False"/>
+            <field name="jardina" eval="True"/>
+            <field name="piscina" eval="False"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza8_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza8_planoa.png"/>
+        </record>
+
+        <record id="demo_etxebizitza_9" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_3"/>
+            <field name="azalera">120</field>
+            <field name="gelak">4</field>
+            <field name="bainugelak">2</field>
+            <field name="prezioa">320000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="True"/>
+            <field name="piscina" eval="True"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza9_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza9_planoa.png"/>
+        </record>
+
+
+        <!-- ETXEBIZITZAK: PROM-004 -->
+
+        <record id="demo_etxebizitza_10" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_4"/>
+            <field name="azalera">60</field>
+            <field name="gelak">2</field>
+            <field name="bainugelak">1</field>
+            <field name="prezioa">260000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="False"/>
+            <field name="piscina" eval="False"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza10_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza10_planoa.png"/>
+        </record>
+
+        <record id="demo_etxebizitza_11" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_4"/>
+            <field name="azalera">100</field>
+            <field name="gelak">3</field>
+            <field name="bainugelak">2</field>
+            <field name="prezioa">420000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="False"/>
+            <field name="piscina" eval="True"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza11_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza11_planoa.png"/>
+        </record>
+
+        <record id="demo_etxebizitza_12" model="susta.etxebizitza">
+            <field name="promozioa_id" ref="demo_promozioa_4"/>
+            <field name="azalera">140</field>
+            <field name="gelak">4</field>
+            <field name="bainugelak">3</field>
+            <field name="prezioa">560000</field>
+            <field name="terraza" eval="True"/>
+            <field name="jardina" eval="True"/>
+            <field name="piscina" eval="True"/>
+            <field name="garajea" eval="True"/>
+            <field name="argazkia" type="base64" file="susta_aimar/static/img/etxebizitza12_argazkia.png"/>
+            <field name="planoa" type="base64" file="susta_aimar/static/img/etxebizitza12_planoa.png"/>
+        </record>
+
+
+        <!-- KONTRATUAK -->
+
+        <record id="demo_kontratua_1" model="susta.kontratua">
+            <field name="promozioa_id" ref="demo_promozioa_1"/>
+            <field name="enpresa_id" ref="demo_enpresa_1"/>
+            <field name="zenbatekoa">850000</field>
+        </record>
+
+        <record id="demo_kontratua_2" model="susta.kontratua">
+            <field name="promozioa_id" ref="demo_promozioa_1"/>
+            <field name="enpresa_id" ref="demo_enpresa_3"/>
+            <field name="zenbatekoa">125000</field>
+        </record>
+
+        <record id="demo_kontratua_3" model="susta.kontratua">
+            <field name="promozioa_id" ref="demo_promozioa_2"/>
+            <field name="enpresa_id" ref="demo_enpresa_4"/>
+            <field name="zenbatekoa">970000</field>
+        </record>
+
+        <record id="demo_kontratua_4" model="susta.kontratua">
+            <field name="promozioa_id" ref="demo_promozioa_2"/>
+            <field name="enpresa_id" ref="demo_enpresa_2"/>
+            <field name="zenbatekoa">210000</field>
+        </record>
+
+        <record id="demo_kontratua_5" model="susta.kontratua">
+            <field name="promozioa_id" ref="demo_promozioa_3"/>
+            <field name="enpresa_id" ref="demo_enpresa_1"/>
+            <field name="zenbatekoa">720000</field>
+        </record>
+
+        <record id="demo_kontratua_6" model="susta.kontratua">
+            <field name="promozioa_id" ref="demo_promozioa_4"/>
+            <field name="enpresa_id" ref="demo_enpresa_2"/>
+            <field name="zenbatekoa">1450000</field>
+        </record>
+
+    </data>
+</odoo>

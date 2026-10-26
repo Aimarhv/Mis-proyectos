@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_susta_root" name="SustaAimar" sequence="10"/>
+    <menuitem id="menu_susta_promozioa" name="Promozioak" parent="menu_susta_root"
+              action="action_promozioa" sequence="10"/>
+    <menuitem id="menu_susta_etxebizitza" name="Etxebizitzak" parent="menu_susta_root"
+              action="action_etxebizitza" sequence="20"/>
+    <menuitem id="menu_susta_enpresa" name="Enpresak" parent="menu_susta_root"
+              action="action_enpresa" sequence="30"/>
+    <menuitem id="menu_susta_kontratua" name="Kontratuak" parent="menu_susta_root"
+              action="action_kontratua" sequence="40"/>
+</odoo>

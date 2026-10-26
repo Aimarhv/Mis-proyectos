@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ==================== IKASLEAK ==================== -->
+    <record id="view_ikasleak_form" model="ir.ui.view">
+        <field name="name">adibidea.ikasleak.form</field>
+        <field name="model">adibidea.ikasleak</field>
+        <field name="arch" type="xml">
+            <form string="Ikaslea">
+                <sheet>
+                    <group>
+                        <field name="izena"/>
+                        <field name="abizena"/>
+                        <field name="nan"/>
+                        <field name="maila"/>
+                        <field name="taldea"/>
+                    </group>
+                    <group>
+                        <field name="helbidea"/>
+                        <field name="herria"/>
+                        <field name="jaiotza"/>
+                        <field name="kotxea"/>
+                        <field name="adinHandia"/>
+                        <field name="bestelakoak"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ikasleak_list" model="ir.ui.view">
+        <field name="name">adibidea.ikasleak.list</field>
+        <field name="model">adibidea.ikasleak</field>
+        <field name="arch" type="xml">
+            <list string="Ikasleak">
+                <field name="izena"/>
+                <field name="abizena"/>
+                <field name="nan"/>
+                <field name="maila"/>
+                <field name="herria"/>
+                <field name="taldea"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_ikasleak" model="ir.actions.act_window">
+        <field name="name">Ikasleak</field>
+        <field name="res_model">adibidea.ikasleak</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- ==================== ENPRESAK ==================== -->
+    <record id="view_enpresak_form" model="ir.ui.view">
+        <field name="name">adibidea.enpresak.form</field>
+        <field name="model">adibidea.enpresak</field>
+        <field name="arch" type="xml">
+            <form string="Enpresa">
+                <sheet>
+                    <group>
+                        <field name="izena"/>
+                        <field name="sektorea"/>
+                        <field name="tamaina"/>
+                        <field name="telefonoa"/>
+                    </group>
+                    <group>
+                        <field name="helbidea"/>
+                        <field name="auzoa"/>
+                        <field name="herria"/>
+                        <field name="instruktorea"/>
+                        <field name="instruktorearen_posta"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_enpresak_list" model="ir.ui.view">
+        <field name="name">adibidea.enpresak.list</field>
+        <field name="model">adibidea.enpresak</field>
+        <field name="arch" type="xml">
+            <list string="Enpresak">
+                <field name="izena"/>
+                <field name="sektorea"/>
+                <field name="herria"/>
+                <field name="telefonoa"/>
+                <field name="instruktorea"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_enpresak" model="ir.actions.act_window">
+        <field name="name">Enpresak</field>
+        <field name="res_model">adibidea.enpresak</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- ==================== TALDEAK ==================== -->
+    <record id="view_taldeak_form" model="ir.ui.view">
+        <field name="name">adibidea.taldeak.form</field>
+        <field name="model">adibidea.taldeak</field>
+        <field name="arch" type="xml">
+            <form string="Taldea">
+                <sheet>
+                    <group>
+                        <field name="taldearenIzena"/>
+                        <field name="tutorea"/>
+                        <field name="ikasturtea"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_taldeak_list" model="ir.ui.view">
+        <field name="name">adibidea.taldeak.list</field>
+        <field name="model">adibidea.taldeak</field>
+        <field name="arch" type="xml">
+            <list string="Taldeak">
+                <field name="taldearenIzena"/>
+                <field name="tutorea"/>
+                <field name="ikasturtea"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_taldeak" model="ir.actions.act_window">
+        <field name="name">Taldeak</field>
+        <field name="res_model">adibidea.taldeak</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- ==================== PRAKTIKAK ==================== -->
+    <record id="view_praktikak_form" model="ir.ui.view">
+        <field name="name">adibidea.praktikak.form</field>
+        <field name="model">adibidea.praktikak</field>
+        <field name="arch" type="xml">
+            <form string="Praktika">
+                <sheet>
+                    <group>
+                        <field name="ikaslea"/>
+                        <field name="enpresa"/>
+                        <field name="ikasturtea"/>
+                    </group>
+                    <group>
+                        <field name="hasiera"/>
+                        <field name="bukaera"/>
+                        <field name="ordutegia"/>
+                        <field name="iraupena"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_praktikak_list" model="ir.ui.view">
+        <field name="name">adibidea.praktikak.list</field>
+        <field name="model">adibidea.praktikak</field>
+        <field name="arch" type="xml">
+            <list string="Praktikak">
+                <field name="ikaslea"/>
+                <field name="enpresa"/>
+                <field name="ikasturtea"/>
+                <field name="hasiera"/>
+                <field name="bukaera"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_praktikak" model="ir.actions.act_window">
+        <field name="name">Praktikak</field>
+        <field name="res_model">adibidea.praktikak</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- ==================== MENUAK ==================== -->
+    <!-- Menu nagusia (erroa) -->
+    <menuitem id="menu_adibidea_root" 
+              name="Praktiken Kudeaketa" 
+              sequence="10"/>
+
+    <!-- Eredu bakoitzeko azpimenurak -->
+    <menuitem id="menu_ikasleak" 
+              name="Ikasleak" 
+              parent="menu_adibidea_root" 
+              action="action_ikasleak" 
+              sequence="10"/>
+
+    <menuitem id="menu_enpresak" 
+              name="Enpresak" 
+              parent="menu_adibidea_root" 
+              action="action_enpresak" 
+              sequence="20"/>
+
+    <menuitem id="menu_taldeak" 
+              name="Taldeak" 
+              parent="menu_adibidea_root" 
+              action="action_taldeak" 
+              sequence="30"/>
+
+    <menuitem id="menu_praktikak" 
+              name="Praktikak" 
+              parent="menu_adibidea_root" 
+              action="action_praktikak" 
+              sequence="40"/>
+
+</odoo>

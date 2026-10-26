@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_parte_hartzailea_list" model="ir.ui.view">
+        <field name="name">enkan.parte_hartzailea.list</field>
+        <field name="model">enkan.parte_hartzailea</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="erabiltzailea"/>
+                <field name="izena"/>
+                <field name="posta"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_parte_hartzailea_form" model="ir.ui.view">
+        <field name="name">enkan.parte_hartzailea.form</field>
+        <field name="model">enkan.parte_hartzailea</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="erabiltzailea"/>
+                            <field name="gakoa" password="True"/>
+                        </group>
+                        <group>
+                            <field name="izena"/>
+                            <field name="posta" widget="email"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Pujak">
+                            <field name="puja_ids" readonly="1">
+                                <tree>
+                                    <field name="lotea_id"/>
+                                    <field name="kantitatea"/>
+                                    <field name="eguna"/>
+                                    <field name="ordua" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_parte_hartzailea_search" model="ir.ui.view">
+        <field name="name">enkan.parte_hartzailea.search</field>
+        <field name="model">enkan.parte_hartzailea</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="erabiltzailea"/>
+                <field name="izena"/>
+                <field name="posta"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_parte_hartzailea" model="ir.actions.act_window">
+        <field name="name">Parte-hartzaileak</field>
+        <field name="res_model">enkan.parte_hartzailea</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_puja_list" model="ir.ui.view">
+        <field name="name">enkan.puja.list</field>
+        <field name="model">enkan.puja</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="lotea_id"/>
+                <field name="parte_hartzailea_id"/>
+                <field name="kantitatea"/>
+                <field name="eguna"/>
+                <field name="ordua" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_puja_form" model="ir.ui.view">
+        <field name="name">enkan.puja.form</field>
+        <field name="model">enkan.puja</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="lotea_id"/>
+                            <field name="parte_hartzailea_id"/>
+                            <field name="kantitatea"/>
+                        </group>
+                        <group>
+                            <field name="eguna"/>
+                            <field name="ordua" widget="float_time"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_puja_pivot" model="ir.ui.view">
+    <field name="name">enkan.puja.pivot</field>
+    <field name="model">enkan.puja</field>
+    <field name="arch" type="xml">
+        <pivot string="Pujak">
+            <field name="lotea_id" type="row"/>
+            <field name="eguna" interval="day" type="col"/>
+            <field name="kantitatea" type="measure"/>
+        </pivot>
+    </field>
+</record>
+
+<record id="view_puja_graph" model="ir.ui.view">
+    <field name="name">enkan.puja.graph</field>
+    <field name="model">enkan.puja</field>
+    <field name="arch" type="xml">
+        <graph string="Pujen bilakaera" type="line">
+            <field name="eguna" interval="day"/>
+            <field name="lotea_id"/>
+            <field name="kantitatea" type="measure"/>
+        </graph>
+    </field>
+</record>
+
+    <record id="view_puja_search" model="ir.ui.view">
+        <field name="name">enkan.puja.search</field>
+        <field name="model">enkan.puja</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="lotea_id"/>
+                <field name="parte_hartzailea_id"/>
+                <group expand="0" string="Multzokatu">
+                    <filter name="group_lotea" string="Lotea" context="{'group_by': 'lotea_id'}"/>
+                    <filter name="group_parte" string="Parte-hartzailea"
+                            context="{'group_by': 'parte_hartzailea_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_puja" model="ir.actions.act_window">
+        <field name="name">Pujak</field>
+        <field name="res_model">enkan.puja</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+</odoo>

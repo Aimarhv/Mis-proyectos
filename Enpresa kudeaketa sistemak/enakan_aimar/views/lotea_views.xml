@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_lotea_list" model="ir.ui.view">
+        <field name="name">enkan.lotea.list</field>
+        <field name="model">enkan.lotea</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="zenbakia"/>
+                <field name="irteera_prezioa"/>
+                <field name="pujamax"/>
+                <field name="amaiera_data"/>
+                <field name="denbora" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_lotea_form" model="ir.ui.view">
+        <field name="name">enkan.lotea.form</field>
+        <field name="model">enkan.lotea</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="zenbakia"/>
+                            <field name="irteera_prezioa"/>
+                        </group>
+                        <group>
+                            <field name="amaiera_data"/>
+                            <field name="denbora" widget="float_time"/>
+                            <field name="pujamax"/>
+                            <field name="puja_kopurua"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Produktuak">
+                            <field name="produktu_ids">
+                                <tree>
+                                    <field name="kodea"/>
+                                    <field name="izena"/>
+                                    <field name="deskribapena"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Pujak">
+                            <field name="puja_ids" readonly="1">
+                                <tree>
+                                    <field name="parte_hartzailea_id"/>
+                                    <field name="kantitatea"/>
+                                    <field name="eguna"/>
+                                    <field name="ordua" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lotea_pivot" model="ir.ui.view">
+        <field name="name">enkan.lotea.pivot</field>
+        <field name="model">enkan.lotea</field>
+        <field name="arch" type="xml">
+            <pivot string="Loteak">
+                <field name="zenbakia" type="row"/>
+                <field name="irteera_prezioa" type="measure"/>
+                <field name="pujamax" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_lotea_graph" model="ir.ui.view">
+        <field name="name">enkan.lotea.graph</field>
+        <field name="model">enkan.lotea</field>
+        <field name="arch" type="xml">
+            <graph string="Loteak" type="bar">
+                <field name="zenbakia"/>
+                <field name="pujamax" type="measure"/>
+                <field name="irteera_prezioa" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_lotea_search" model="ir.ui.view">
+        <field name="name">enkan.lotea.search</field>
+        <field name="model">enkan.lotea</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="zenbakia"/>
+                <field name="produktu_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_lotea" model="ir.actions.act_window">
+        <field name="name">Loteak</field>
+        <field name="res_model">enkan.lotea</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+</odoo>

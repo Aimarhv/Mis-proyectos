@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--
+        Datos de prueba para el módulo enakan_aimar.
+        Copia este archivo a:
+        /mnt/extra-addons/enakan_aimar/data/test_demo_data.xml
+
+        Para cargarlo, añade 'data/test_demo_data.xml' al apartado 'data'
+        de __manifest__.py y actualiza el módulo.
+        Los IDs externos son propios de este archivo; no borres datos existentes.
+    -->
+    <data noupdate="1">
+
+        <!-- LOTES -->
+        <record id="test_lote_001" model="enkan.lotea">
+            <field name="zenbakia">TEST-LOTE-001</field>
+            <field name="irteera_prezioa">50.0</field>
+            <field name="amaiera_data">2026-12-31 18:00:00</field>
+        </record>
+        <record id="test_lote_002" model="enkan.lotea">
+            <field name="zenbakia">TEST-LOTE-002</field>
+            <field name="irteera_prezioa">120.0</field>
+            <field name="amaiera_data">2026-12-31 19:00:00</field>
+        </record>
+        <record id="test_lote_003" model="enkan.lotea">
+            <field name="zenbakia">TEST-LOTE-003</field>
+            <field name="irteera_prezioa">25.0</field>
+            <field name="amaiera_data">2026-12-31 20:00:00</field>
+        </record>
+        <record id="test_lote_004" model="enkan.lotea">
+            <field name="zenbakia">TEST-LOTE-004</field>
+            <field name="irteera_prezioa">300.0</field>
+            <field name="amaiera_data">2026-12-31 21:00:00</field>
+        </record>
+        <record id="test_lote_005" model="enkan.lotea">
+            <field name="zenbakia">TEST-LOTE-005</field>
+            <field name="irteera_prezioa">15.0</field>
+            <field name="amaiera_data">2026-12-31 22:00:00</field>
+        </record>
+
+        <!-- PRODUKTUAK -->
+        <record id="test_produktua_001" model="enkan.produktua">
+            <field name="kodea">TEST-PR-001</field>
+            <field name="izena">Bizikleta mendikoa</field>
+            <field name="deskribapena">Bizikleta mendikoa erabilia, egoera onean.</field>
+            <field name="lotea_id" ref="test_lote_001"/>
+        </record>
+        <record id="test_produktua_002" model="enkan.produktua">
+            <field name="kodea">TEST-PR-002</field>
+            <field name="izena">Argazki kamera</field>
+            <field name="deskribapena">Kamera digitala eta osagarriak.</field>
+            <field name="lotea_id" ref="test_lote_001"/>
+        </record>
+        <record id="test_produktua_003" model="enkan.produktua">
+            <field name="kodea">TEST-PR-003</field>
+            <field name="izena">Ordenagailu eramangarria</field>
+            <field name="deskribapena">Ordenagailu eramangarria, ikasketetarako egokia.</field>
+            <field name="lotea_id" ref="test_lote_002"/>
+        </record>
+        <record id="test_produktua_004" model="enkan.produktua">
+            <field name="kodea">TEST-PR-004</field>
+            <field name="izena">Monitore handia</field>
+            <field name="deskribapena">27 hazbeteko monitorea.</field>
+            <field name="lotea_id" ref="test_lote_002"/>
+        </record>
+        <record id="test_produktua_005" model="enkan.produktua">
+            <field name="kodea">TEST-PR-005</field>
+            <field name="izena">Liburu bilduma</field>
+            <field name="deskribapena">Hamar liburuko bilduma.</field>
+            <field name="lotea_id" ref="test_lote_003"/>
+        </record>
+        <record id="test_produktua_006" model="enkan.produktua">
+            <field name="kodea">TEST-PR-006</field>
+            <field name="izena">Gitarra akustikoa</field>
+            <field name="deskribapena">Gitarra akustikoa, funda barne.</field>
+            <field name="lotea_id" ref="test_lote_003"/>
+        </record>
+        <record id="test_produktua_007" model="enkan.produktua">
+            <field name="kodea">TEST-PR-007</field>
+            <field name="izena">Eskumuturreko erlojua</field>
+            <field name="deskribapena">Erloju klasikoa.</field>
+            <field name="lotea_id" ref="test_lote_004"/>
+        </record>
+        <record id="test_produktua_008" model="enkan.produktua">
+            <field name="kodea">TEST-PR-008</field>
+            <field name="izena">Mahai-lanpara</field>
+            <field name="deskribapena">Mahai gaineko lanpara.</field>
+            <field name="lotea_id" ref="test_lote_004"/>
+        </record>
+        <record id="test_produktua_009" model="enkan.produktua">
+            <field name="kodea">TEST-PR-009</field>
+            <field name="izena">Futbol baloia</field>
+            <field name="deskribapena">Futbol baloi berria.</field>
+            <field name="lotea_id" ref="test_lote_005"/>
+        </record>
+        <record id="test_produktua_010" model="enkan.produktua">
+            <field name="kodea">TEST-PR-010</field>
+            <field name="izena">Entzungailuak</field>
+            <field name="deskribapena">Haririk gabeko entzungailuak.</field>
+            <field name="lotea_id" ref="test_lote_005"/>
+        </record>
+
+        <!-- PARTE-HARTZAILEAK: datu faltsuak soilik -->
+        <record id="test_parte_hartzailea_001" model="enkan.parte_hartzailea">
+            <field name="erabiltzailea">proba_ane</field>
+            <field name="gakoa">Proba123!</field>
+            <field name="izena">Ane Proba</field>
+            <field name="posta">ane.proba@example.com</field>
+        </record>
+        <record id="test_parte_hartzailea_002" model="enkan.parte_hartzailea">
+            <field name="erabiltzailea">proba_jon</field>
+            <field name="gakoa">Proba123!</field>
+            <field name="izena">Jon Proba</field>
+            <field name="posta">jon.proba@example.com</field>
+        </record>
+        <record id="test_parte_hartzailea_003" model="enkan.parte_hartzailea">
+            <field name="erabiltzailea">proba_miren</field>
+            <field name="gakoa">Proba123!</field>
+            <field name="izena">Miren Proba</field>
+            <field name="posta">miren.proba@example.com</field>
+        </record>
+        <record id="test_parte_hartzailea_004" model="enkan.parte_hartzailea">
+            <field name="erabiltzailea">proba_iker</field>
+            <field name="gakoa">Proba123!</field>
+            <field name="izena">Iker Proba</field>
+            <field name="posta">iker.proba@example.com</field>
+        </record>
+        <record id="test_parte_hartzailea_005" model="enkan.parte_hartzailea">
+            <field name="erabiltzailea">proba_nora</field>
+            <field name="gakoa">Proba123!</field>
+            <field name="izena">Nora Proba</field>
+            <field name="posta">nora.proba@example.com</field>
+        </record>
+
+        <!-- PUJAK -->
+        <record id="test_puja_001" model="enkan.puja">
+            <field name="lotea_id" ref="test_lote_001"/>
+            <field name="parte_hartzailea_id" ref="test_parte_hartzailea_001"/>
+            <field name="kantitatea">60.0</field>
+            <field name="eguna">2026-10-20</field>
+            <field name="ordua">10.0</field>
+        </record>
+        <record id="test_puja_002" model="enkan.puja">
+            <field name="lotea_id" ref="test_lote_001"/>
+            <field name="parte_hartzailea_id" ref="test_parte_hartzailea_002"/>
+            <field name="kantitatea">75.0</field>
+            <field name="eguna">2026-10-20</field>
+            <field name="ordua">10.5</field>
+        </record>
+        <record id="test_puja_003" model="enkan.puja">
+            <field name="lotea_id" ref="test_lote_002"/>
+            <field name="parte_hartzailea_id" ref="test_parte_hartzailea_003"/>
+            <field name="kantitatea">130.0</field>
+            <field name="eguna">2026-10-20</field>
+            <field name="ordua">11.0</field>
+        </record>
+        <record id="test_puja_004" model="enkan.puja">
+            <field name="lotea_id" ref="test_lote_002"/>
+            <field name="parte_hartzailea_id" ref="test_parte_hartzailea_004"/>
+            <field name="kantitatea">145.0</field>
+            <field name="eguna">2026-10-20</field>
+            <field name="ordua">11.5</field>
+        </record>
+        <record id="test_puja_005" model="enkan.puja">
+            <field name="lotea_id" ref="test_lote_003"/>
+            <field name="parte_hartzailea_id" ref="test_parte_hartzailea_005"/>
+            <field name="kantitatea">30.0</field>
+            <field name="eguna">2026-10-20</field>
+            <field name="ordua">12.0</field>
+        </record>
+        <record id="test_puja_006" model="enkan.puja">
+            <field name="lotea_id" ref="test_lote_003"/>
+            <field name="parte_hartzailea_id" ref="test_parte_hartzailea_001"/>
+            <field name="kantitatea">35.0</field>
+            <field name="eguna">2026-10-20</field>
+            <field name="ordua">12.5</field>
+        </record>
+        <record id="test_puja_007" model="enkan.puja">
+            <field name="lotea_id" ref="test_lote_004"/>
+            <field name="parte_hartzailea_id" ref="test_parte_hartzailea_002"/>
+            <field name="kantitatea">320.0</field>
+            <field name="eguna">2026-10-20</field>
+            <field name="ordua">13.0</field>
+        </record>
+        <record id="test_puja_008" model="enkan.puja">
+            <field name="lotea_id" ref="test_lote_005"/>
+            <field name="parte_hartzailea_id" ref="test_parte_hartzailea_003"/>
+            <field name="kantitatea">20.0</field>
+            <field name="eguna">2026-10-20</field>
+            <field name="ordua">13.5</field>
+        </record>
+
+    </data>
+</odoo>

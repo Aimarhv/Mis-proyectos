@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_promozioa_list" model="ir.ui.view">
+        <field name="name">susta.promozioa.list</field>
+        <field name="model">susta.promozioa</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="kodea"/>
+                <field name="izena"/>
+                <field name="herria"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_promozioa_form" model="ir.ui.view">
+        <field name="name">susta.promozioa.form</field>
+        <field name="model">susta.promozioa</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="planoa" widget="image" class="oe_avatar"/>
+                    <group>
+                        <field name="kodea"/>
+                        <field name="izena"/>
+                        <field name="herria"/>
+                    </group>
+                    <notebook>
+                        <page string="Etxebizitzak">
+                            <field name="etxebizitza_ids">
+                                <list>
+                                    <field name="azalera"/>
+                                    <field name="gelak"/>
+                                    <field name="bainugelak"/>
+                                    <field name="prezioa"/>
+                                    <field name="terraza"/>
+                                    <field name="jardina"/>
+                                    <field name="piscina"/>
+                                    <field name="garajea"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Kontratuak">
+                            <field name="kontratu_ids">
+                                <list editable="bottom">
+                                    <field name="enpresa_id"/>
+                                    <field name="zenbatekoa"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_promozioa_kanban" model="ir.ui.view">
+        <field name="name">susta.promozioa.kanban</field>
+        <field name="model">susta.promozioa</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="herria">
+                <templates>
+                    <t t-name="card">
+                        <div class="row g-0">
+                            <div class="col-5">
+                                <field name="planoa" widget="image" options="{'img_class': 'img-fluid'}"/>
+                            </div>
+                            <div class="col-7 ps-2">
+                                <field name="izena" class="fw-bold"/>
+                                <div>Kodea: <field name="kodea"/></div>
+                                <div t-if="record.herria.value"><field name="herria"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_promozioa_search" model="ir.ui.view">
+        <field name="name">susta.promozioa.search</field>
+        <field name="model">susta.promozioa</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="kodea"/>
+                <field name="izena"/>
+                <field name="herria"/>
+                <filter name="f_etxebizitzarik_gabe" string="Etxebizitzarik gabe"
+                        domain="[('etxebizitza_ids', '=', False)]"/>
+                <group>
+                    <filter name="group_herria" string="Herria" context="{'group_by': 'herria'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_promozioa" model="ir.actions.act_window">
+        <field name="name">Promozioak</field>
+        <field name="res_model">susta.promozioa</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>
