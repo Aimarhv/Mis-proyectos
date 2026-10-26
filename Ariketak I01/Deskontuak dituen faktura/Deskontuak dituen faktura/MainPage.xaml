@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Deskontuak_dituen_faktura.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <Label Text="Deskontuak"
+                   FontSize="24"
+                   Margin="0,0,0,10" />
+
+            <!-- Faktura kalkulatzeko eremu guztiak: sarrerak (kantitatea, prezioa, BEZa)
+                 eta irakurtzeko soilik diren emaitzak (denera, deskontua, BEZ denera...) -->
+            <Grid Padding="0"
+                  RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+                  ColumnDefinitions="Auto, Auto"
+                  ColumnSpacing="40"
+                  RowSpacing="15">
+
+                <!-- Kantitatea: erositako unitate kopurua -->
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="0" Spacing="15" VerticalOptions="Center">
+                    <Label Text="Kantitatea" VerticalTextAlignment="Center" WidthRequest="130"/>
+                    <Entry x:Name="KantitateaText" Text="0" WidthRequest="180"/>
+                </HorizontalStackLayout>
+
+
+                <!-- Prezioa: unitate bakoitzaren prezioa -->
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="0" Spacing="15" VerticalOptions="Center">
+                    <Label Text="Prezioa" VerticalTextAlignment="Center" WidthRequest="130"/>
+                    <Entry x:Name="Prezioa" Text="0" WidthRequest="180"/>
+                </HorizontalStackLayout>
+
+
+                <!-- Denera: subtotala (kantitatea x prezioa, deskonturik eta BEZik gabe) -->
+                <HorizontalStackLayout Grid.Row="2" Grid.Column="0" Spacing="15" VerticalOptions="Center">
+                    <Label Text="Denera" VerticalTextAlignment="Center" WidthRequest="130"/>
+                    <Entry x:Name="Denera" Background="Turquoise" TextColor="White" WidthRequest="180" IsReadOnly="True" Text="0"/>
+                </HorizontalStackLayout>
+
+                <!-- Deskontua (%): kantitatearen arabera automatikoki kalkulatzen den portzentaia -->
+                <HorizontalStackLayout Grid.Row="3" Grid.Column="0" Spacing="15" VerticalOptions="Center">
+                    <Label Text="Deskontua (%)" VerticalTextAlignment="Center" WidthRequest="130"/>
+                    <Entry x:Name="DeskontuaEntry" Text="0" WidthRequest="180"/>
+                </HorizontalStackLayout>
+
+                <!-- Deskontua denera: deskontuaren zenbateko osoa, euroetan -->
+                <HorizontalStackLayout Grid.Row="3" Grid.Column="1" Spacing="15" VerticalOptions="Center">
+                    <Label Text="Deskontua denera" VerticalTextAlignment="Center" WidthRequest="130"/>
+                    <Entry x:Name="Deskontuadenera" Background="Turquoise" TextColor="White" WidthRequest="180" IsReadOnly="True" Text="0"/>
+                </HorizontalStackLayout>
+
+
+                <!-- BEZ (%): erabiltzaileak alda dezakeen BEZ portzentaia, %21 lehenetsita -->
+                <HorizontalStackLayout Grid.Row="4" Grid.Column="0" Spacing="15" VerticalOptions="Center">
+                    <Label Text="BEZ (%)" VerticalTextAlignment="Center" WidthRequest="130"/>
+                    <Entry x:Name="BEZEntry" Text="0" WidthRequest="180"/>
+                </HorizontalStackLayout>
+
+                <!-- BEZ denera: BEZaren zenbateko osoa, euroetan -->
+                <HorizontalStackLayout Grid.Row="4" Grid.Column="1" Spacing="15" VerticalOptions="Center">
+                    <Label Text="BEZ denera" VerticalTextAlignment="Center" WidthRequest="130"/>
+                    <Entry x:Name="BEZdenera" Background="Turquoise" TextColor="White" WidthRequest="180" IsReadOnly="True" Text="0"/>
+                </HorizontalStackLayout>
+
+
+                <!-- Ordaintzeko denera: azken zenbateko ordaingarria (base + BEZ) -->
+                <HorizontalStackLayout Grid.Row="5" Grid.Column="0" Spacing="15" VerticalOptions="Center">
+                    <Label Text="Ordaintzeko denera" VerticalTextAlignment="Center" WidthRequest="130"/>
+                    <Entry x:Name="OrdaintzekoDenera" Background="Turquoise" TextColor="White" WidthRequest="180" IsReadOnly="True" Text="0"/>
+                </HorizontalStackLayout>
+
+
+                <!-- Ekintza-botoiak: kalkulatu faktura edo irten aplikaziotik -->
+                <HorizontalStackLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Spacing="20" HorizontalOptions="Center" Margin="0,25,0,0">
+                    <Button x:Name="Kalkulatu" Text="Kalkulatu" Clicked="OnKalkulatuClicked" BackgroundColor="Green" TextColor="White" WidthRequest="140"/>
+                    <Button x:Name="Irten" Text="Irten" Clicked="OnIrtenClicked" BackgroundColor="Black" TextColor="White" WidthRequest="130"/>
+                </HorizontalStackLayout>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

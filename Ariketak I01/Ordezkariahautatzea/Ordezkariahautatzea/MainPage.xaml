@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ordezkariahautatzea.MainPage"
+             BackgroundColor="#1E1E1E">
+
+    <ScrollView>
+        <Grid Padding="20"
+              RowDefinitions="Auto, Auto, *, Auto"
+              ColumnDefinitions="*, Auto, *">
+
+            <!-- Orriaren izenburua -->
+            <Label Grid.Row="0"
+                   Grid.ColumnSpan="3"
+                   Text="Klaseko ordezkariak"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="Green"
+                   Margin="0,0,0,15"/>
+
+            <!-- Ikasle berri bat gehitzeko eremua -->
+            <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="3" Spacing="5" Margin="0,0,0,15">
+                <Label Text="Ikasle berria" TextColor="Green"/>
+                <HorizontalStackLayout Spacing="10">
+                    <Entry x:Name="TxtIkasleBerria" WidthRequest="200" BackgroundColor="Grey" TextColor="White"/>
+                    <Button Text="+" Clicked="OnGehituClicked" BackgroundColor="Green" TextColor="Black"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Ezkerreko zutabea: ikasle guztien zerrenda -->
+            <VerticalStackLayout Grid.Row="2" Grid.Column="0" Spacing="5">
+                <Label Text="Ikasleak" TextColor="Green"/>
+                <ListView x:Name="LstIkasleak" HeightRequest="250" BackgroundColor="Grey">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding ErakustekoIzena}" TextColor="White" VerticalTextAlignment="Center" Padding="10"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+
+            <!-- Erdiko zutabea: ikasleak ordezkari zerrendara pasatzeko botoiak -->
+            <VerticalStackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Spacing="10" Padding="15,0">
+                <Button Text="Ausaz" Clicked="OnAusazClicked" BackgroundColor="Green" TextColor="Black" WidthRequest="100"/>
+                <Button Text="Izendatu ▶" Clicked="OnIzendatuClicked" BackgroundColor="Green" TextColor="Black" WidthRequest="100"/>
+                <Button x:Name="BtnKendu" Text="◀ Kendu" Clicked="OnKenduClicked" BackgroundColor="Grey" TextColor="White" WidthRequest="100" IsEnabled="False"/>
+                <Button x:Name="BtnHustu" Text="◀ Hutsa" Clicked="OnHustuClicked" BackgroundColor="Grey" TextColor="White" WidthRequest="100" IsEnabled="False"/>
+            </VerticalStackLayout>
+
+            <!-- Eskuineko zutabea: aukeratutako ordezkarien zerrenda, ordena botoiekin -->
+            <VerticalStackLayout Grid.Row="2" Grid.Column="2" Spacing="5">
+                <Label Text="Ordezkariak" TextColor="Green"/>
+                <Grid ColumnDefinitions="*, Auto">
+                    <ListView x:Name="ListOrdezkariak" Grid.Column="0" HeightRequest="250" BackgroundColor="Grey">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding ErakustekoIzena}" TextColor="White" VerticalTextAlignment="Center" Padding="10"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5" Margin="5,0,0,0">
+                        <Button Text="▲" Clicked="OnGoraClicked" BackgroundColor="Grey" TextColor="White" WidthRequest="40"/>
+                        <Button Text="▼" Clicked="OnBeheraClicked" BackgroundColor="Grey" TextColor="White" WidthRequest="40"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- Ikasle eta ordezkari zerrenda guztiak garbitzeko botoia -->
+            <Button Grid.Row="3" Grid.ColumnSpan="3" 
+                    Text="Kendu denak" 
+                    Clicked="OnKenduDenakClicked" 
+                    BackgroundColor="Green" TextColor="Black" 
+                    HorizontalOptions="Start" Margin="0,15,0,0"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

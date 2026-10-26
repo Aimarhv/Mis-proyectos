@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="I01._01_Gorputz_masaren_indizea.MainPage"
+             BackgroundColor="#1B1B1F">
+
+    <ScrollView>
+        <Grid Padding="30,20"
+              RowDefinitions="Auto,60,Auto,60,Auto,60,220,*,Auto"
+              ColumnDefinitions="*,*,Auto"
+              ColumnSpacing="10">
+
+            <!-- Orriaren izenburua -->
+            <Label Grid.Row="0" Grid.ColumnSpan="3"
+                   Text="GMK"
+                   FontSize="34"
+                   FontAttributes="Bold"
+                   TextColor="#A78BFA" />
+
+            <!-- Altuera sartzeko eremua (zentimetrotan) -->
+            <Label Grid.Row="1" Grid.Column="0"
+                   Text="Altuera" VerticalOptions="Center" TextColor="White" />
+            <Entry x:Name="AltueraEntry"
+                   Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                   Keyboard="Numeric"
+                   TextColor="White"
+                   HorizontalTextAlignment="End" />
+
+            <!-- Pisua sartzeko eremua (kilotan) -->
+            <Label Grid.Row="3" Grid.Column="0"
+                   Text="Pisua" VerticalOptions="Center" TextColor="White" />
+            <Entry x:Name="PisuaEntry"
+                   Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                   Keyboard="Numeric"
+                   TextColor="White"
+                   HorizontalTextAlignment="End" />
+
+            <!-- Emaitza (irakurtzeko soilik) eta kalkulatzeko botoia -->
+            <Label Grid.Row="5" Grid.Column="0"
+                   Text="GMK" VerticalOptions="Center" TextColor="White" />
+            <Entry x:Name="GmkEntry"
+                   Grid.Row="5" Grid.Column="1"
+                   IsReadOnly="True"
+                   TextColor="White"
+                   HorizontalTextAlignment="End" />
+            <Button Grid.Row="5" Grid.Column="2"
+                    Text="Kalkulatu"
+                    BackgroundColor="#A78BFA"
+                    TextColor="#1B1B1F"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    Clicked="OnKalkulatuClicked" />
+
+            <Image Grid.Row="6" Grid.ColumnSpan="3"
+                   Source="dotnet_bot.png"
+                   HeightRequest="180"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center" />
+
+            <!-- Aplikaziotik irteteko botoia -->
+            <Button Grid.Row="8" Grid.Column="2"
+                    Text="Irten"
+                    BackgroundColor="#F5DEB3"
+                    TextColor="#1B1B1F"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    WidthRequest="100"
+                    HorizontalOptions="End"
+                    Clicked="OnIrtenClicked" />
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

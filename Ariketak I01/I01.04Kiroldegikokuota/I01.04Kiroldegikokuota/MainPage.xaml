@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="I01._04Kiroldegikokuota.MainPage">
+
+    <Grid Padding="30"
+          RowDefinitions="Auto, Auto, Auto"
+          ColumnDefinitions="*, *, *">
+
+        <!-- Orriaren izenburua -->
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="3"
+               Text="Kiroldegi Txartela"
+               FontSize="22"
+               FontAttributes="Bold"
+               Margin="0,0,0,10"/>
+
+        <!-- Kolektiboa aukeratzeko RadioButton-ak (elkarren artean baztertzaileak) -->
+        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="15">
+            <Label Text="Kategoria" Style="{StaticResource Headline}"/>
+            <RadioButton x:Name="Umeak" Content="Umeak" CheckedChanged="OnAldaketaGertatuDa"/>
+            <RadioButton x:Name="Familia" Content="Familia" CheckedChanged="OnAldaketaGertatuDa"/>
+            <RadioButton x:Name="Jubilatuak" Content="Jubilatuak" CheckedChanged="OnAldaketaGertatuDa" IsChecked="True"/>
+        </VerticalStackLayout>
+
+        <!-- Deskontu gehigarrien checkbox-ak (elkarrekin metatu daitezke) -->
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="15">
+            <Label Text="Mota" Style="{StaticResource SubHeadline}"/>
+
+            <HorizontalStackLayout Spacing="10">
+                <CheckBox x:Name="Desgaitasuna" IsChecked="False" CheckedChanged="OnAldaketaGertatuDa"/>
+                <Label Text="Desgaitasuna" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <CheckBox x:Name="FamiliaUgaria" IsChecked="False" CheckedChanged="OnAldaketaGertatuDa"/>
+                <Label Text="Familia ugaria" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Iraupena aukeratzeko Picker eta azken prezioa -->
+        <VerticalStackLayout Grid.Row="1" Grid.Column="2" Spacing="15">
+            <Label Text="Iraupena" Style="{StaticResource SubHeadline}"/>
+
+            <Picker x:Name="Iraupena" Title="Hilabeta" SelectedIndexChanged="OnAldaketaGertatuDa">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Hilabetekoa</x:String>
+                        <x:String>Urtekoa</x:String>
+                        <x:String>2 astekoa</x:String>
+                        <x:String>Asteburukoa</x:String>
+                        <x:String>Egunekoa</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label x:Name="LblPrezioa" Text="0,00€" FontSize="24" FontAttributes="Bold"/>
+        </VerticalStackLayout>
+
+        <!-- Ekintza-botoiak: kalkulatu, garbitu edo irten -->
+        <HorizontalStackLayout Grid.Row="2" 
+                               Grid.ColumnSpan="3" 
+                               Spacing="15" 
+                               HorizontalOptions="Start" 
+                               Margin="0,20,0,0">
+            <Button Text="Kalkulatu" Clicked="OnKalkulatuClicked" BackgroundColor="Green" TextColor="White" />
+            <Button Text="Garbitu" Clicked="OnGarbituClicked" BackgroundColor="Red" TextColor="White" />
+            <Button Text="Irten" Clicked="OnIrtenClicked" BackgroundColor="Black" TextColor="White" />
+        </HorizontalStackLayout>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hiru_marran.MainPage"
+             BackgroundColor="#F6E4C3">
+
+    <ScrollView>
+        <Grid Padding="40,30" RowDefinitions="Auto,Auto,Auto" RowSpacing="25">
+
+            <!-- Goiko txanda-adierazlea: uneko jokalariaren ikonoa + testua -->
+            <HorizontalStackLayout Grid.Row="0" Spacing="12" HorizontalOptions="Center">
+                <Grid x:Name="TxandaIkurraKutxa" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"/>
+                <Label x:Name="TxandaTestua"
+                       Text="jokalariaren txanda"
+                       FontSize="26"
+                       TextColor="#3A3A3A"
+                       VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- Jokoaren gorputza: ezkerrean taula, eskuinean emaitzak -->
+            <Grid Grid.Row="1" ColumnDefinitions="Auto,Auto" ColumnSpacing="50" HorizontalOptions="Center">
+
+                <!-- 3x3 taula: 9 Border+Grid, bakoitzak bere kokapena (errenkada+zutabea)
+                     bidaltzen dio Laukia_Sakatuta gertaerari CommandParameter bidez -->
+                <Grid Grid.Column="0"
+                      RowDefinitions="76,76,76" ColumnDefinitions="76,76,76"
+                      RowSpacing="6" ColumnSpacing="6"
+                      BackgroundColor="#D8BD8E" Padding="6">
+
+                    <!-- 0. errenkada (goikoa): laukiak 00, 01, 02 -->
+                    <Border Grid.Row="0" Grid.Column="0" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="00"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono00" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="1" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="01"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono01" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="2" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="02"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono02" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                    <!-- 1. errenkada (erdikoa): laukiak 10, 11, 12 -->
+                    <Border Grid.Row="1" Grid.Column="0" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="10"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono10" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="11"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono11" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="2" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="12"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono12" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                    <!-- 2. errenkada (behekoa): laukiak 20, 21, 22 -->
+                    <Border Grid.Row="2" Grid.Column="0" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="20"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.Column="1" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="21"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono21" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.Column="2" StrokeShape="RoundRectangle 14" BackgroundColor="#E9D6AE" Stroke="Transparent">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Laukia_Sakatuta" CommandParameter="22"/>
+                        </Border.GestureRecognizers>
+                        <Grid x:Name="Ikono22" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                </Grid>
+
+                <!-- Emaitzen panela: bi jokalarien markagailuak (X eta O) -->
+                <VerticalStackLayout Grid.Column="1" Spacing="12" VerticalOptions="Center">
+                    <Label Text="Emaitzak" FontSize="20" TextColor="#3A3A3A"/>
+
+                    <!-- X jokalariaren markagailua -->
+                    <HorizontalStackLayout Spacing="10">
+                        <Grid x:Name="XikonoTxikia" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
+                        <Label Text="irabazitako partidak:" FontSize="15" VerticalOptions="Center" TextColor="#3A3A3A"/>
+                        <Label x:Name="MarkagailuaX" Text="0" FontSize="22" FontAttributes="Bold" TextColor="#3A3A3A" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <!-- O jokalariaren markagailua -->
+                    <HorizontalStackLayout Spacing="10">
+                        <Grid x:Name="OikonoTxikia" WidthRequest="22" HeightRequest="22" VerticalOptions="Center"/>
+                        <Label Text="irabazitako partidak:" FontSize="15" VerticalOptions="Center" TextColor="#3A3A3A"/>
+                        <Label x:Name="MarkagailuaO" Text="0" FontSize="22" FontAttributes="Bold" TextColor="#3A3A3A" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+            </Grid>
+
+            <!-- Partida berri bat hasteko botoia -->
+            <Button Grid.Row="2"
+                    Text="&#8635;  Berriro hasi"
+                    Clicked="OnBerrirohasiClicked"
+                    BackgroundColor="#9BA27C"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="10"
+                    WidthRequest="200"
+                    HeightRequest="46"
+                    HorizontalOptions="Center"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

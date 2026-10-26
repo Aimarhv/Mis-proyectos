@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="I01._03_Opariak_lista.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid Padding="20"
+          RowDefinitions="Auto, *, Auto"
+          ColumnDefinitions="220, 1, *, 200">
+
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="4"
+               Text="Opariak"
+               FontSize="24"
+               FontAttributes="Bold"
+               Margin="0,0,0,15" />
+
+        <!-- Aukeratu daitezkeen opari guztien zerrenda (ezkerreko zutabea) -->
+        <CollectionView x:Name="OpariakCollectionView"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        SelectionMode="Single"
+                        SelectionChanged="OpariakCollectionView_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10,8">
+                        <Grid.GestureRecognizers>
+                        </Grid.GestureRecognizers>
+                        <HorizontalStackLayout Spacing="12">
+                            <Image Source="{Binding IconoPath}"
+                                   HeightRequest="32"
+                                   WidthRequest="32"
+                                   Aspect="AspectFit" />
+                            <Label Text="{Binding Name}"
+                                   FontSize="18"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Zerrenda eta xehetasunak bereizten dituen marra bertikala -->
+        <BoxView Grid.Row="1"
+                 Grid.Column="1"
+                 Color="#DDDDDD"
+                 WidthRequest="1"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Fill" />
+
+        <!-- Hautatutako opariaren xehetasunak: irudi handia, izenburua eta azpititulua -->
+        <VerticalStackLayout Grid.Row="1"
+                             Grid.Column="2"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Spacing="10">
+            <Image x:Name="ImagenOparia"
+                   Source="erlojua.jpg"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   Aspect="AspectFit" />
+            <Label x:Name="LblTituloOpari"
+                   Text="Erlojua"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label x:Name="LblSubtituloOpari"
+                   Text="Smartwatch Pro X"
+                   FontSize="14"
+                   FontAttributes="Italic"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <!-- Lehen eta bigarren aukeratutako opariak erakusten dituen zutabea -->
+        <VerticalStackLayout Grid.Row="1"
+                     Grid.Column="3"
+                     Spacing="8"
+                     Padding="10,0,0,0">
+            <Label Text="Lehen oparia" FontAttributes="Bold" FontSize="14" />
+            <Label x:Name="LblLehenOparia" Text="" TextColor="Gray" FontSize="13" />
+            <Label Text="Bigarren oparia" FontAttributes="Bold" FontSize="14" Margin="0,10,0,0" />
+            <Label x:Name="LblBigarrenOparia" Text="" TextColor="Gray" FontSize="13" />
+        </VerticalStackLayout>
+
+        <!-- Ekintza-botoiak: opari bat aukeratu edo aukeratutakoak ezabatu -->
+        <HorizontalStackLayout Grid.Row="2"
+                               Grid.ColumnSpan="2"
+                               Spacing="15"
+                               Margin="0,15,0,0">
+            <Button Text="Aukeratu"
+                    BackgroundColor="#0099db"
+                    TextColor="White"
+                    CornerRadius="4"
+                    Clicked="OnAukeratuClicked" />
+            <Button Text="Opariak ezabatu"
+                    BackgroundColor="#0099db"
+                    TextColor="White"
+                    CornerRadius="4"
+                    Clicked="OnEzabatuClicked" />
+        </HorizontalStackLayout>
+
+        <!-- Aplikaziotik irteteko botoia -->
+        <Button Grid.Row="2"
+                Grid.Column="3"
+                Text="Irten"
+                BackgroundColor="#0099db"
+                TextColor="White"
+                CornerRadius="4"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Clicked="OnIrtenClicked" />
+
+    </Grid>
+</ContentPage>
