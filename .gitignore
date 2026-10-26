@@ -71,6 +71,7 @@ Assembly-CSharp-Editor*.csproj
 *.aux
 *.jar
 !lib/*.jar
+!gradle/wrapper/gradle-wrapper.jar
 Pruebas/
 proba/
 kontz.txt
