@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TableLayout-en adibidea</string>
+    <string name="Producto">Produktua</string>
+    <string name="Jabondemanosx1">Eskutako jaboia</string>
+    <string name="ShampooMonsterx1">Monster Txampua</string>
+    <string name="Subtotal">Subtotala\n</string>
+    <string name="Detergentelimpiadorx1">Detergente garbitzailea x 1</string>
+    <string name="Pastasduriax1">Pastas Duria x 1</string>
+
+
+    <string name="precio_2">$2</string>
+    <string name="precio_10">$10</string>
+    <string name="precio_18">$18</string>
+    <string name="precio_13">$13,4</string>
+
+    <string name="Costedeenvio">Bidalketa Kostua</string>
+    <string name="Cupon">Kupoia</string>
+    <string name="Total">Totala</string>
+
+
+    <string name="precio_menos_5">$-5\n</string>
+    <string name="precio_48">$48</string>
+    <string name="precio_43">43,4</string>
+</resources>

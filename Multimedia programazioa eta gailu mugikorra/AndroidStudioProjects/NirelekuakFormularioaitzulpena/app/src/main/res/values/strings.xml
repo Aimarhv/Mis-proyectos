@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Nire Lekuak</string>
+
+    <string name="izena">Izena:</string>
+    <string name="hint_izena">lekua identifikatzen duen zerbait</string>
+
+    <string name="tipo">Tipo:</string>
+
+    <string name="helbidea">Helbidea:</string>
+    <string name="hint_helbidea">tokiaren helbidea</string>
+
+    <string name="telefonoa">Telefonoa:</string>
+    <string name="hint_telefonoa">harremanetan jartzeko telefono zenbakia</string>
+
+    <string name="url">Url:</string>
+    <string name="hint_url">Web orria</string>
+
+    <string name="iruzkina">Iruzkina:</string>
+    <string name="hint_iruzkina">Sartu zure oharrak</string>
+
+    <string-array name="mota_array">
+        <item>Besteak</item>
+        <item>Jatetxea</item>
+        <item>Taberna</item>
+        <item>Kopak</item>
+        <item>Ikuskizuna</item>
+        <item>Hotela</item>
+    </string-array>
+</resources>

@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="280dp"
+    android:height="200dp"
+    android:viewportWidth="280"
+    android:viewportHeight="200">
+
+    <!-- Triángulo -->
+    <path
+        android:fillColor="#7FB0CC"
+        android:pathData="M40,20 L40,170 L250,170 Z"
+        android:strokeColor="#0B6A9B"
+        android:strokeWidth="2" />
+
+    <!-- Ángulo recto -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M40,150 L60,150 L60,170"
+        android:strokeColor="#0B6A9B"
+        android:strokeWidth="2" />
+</vector>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Asteroideak</string>
+    <string name="Asteroides">Asteroides</string>
+    <string name="Arrancar">Jugar</string>
+    <string name="Configurar">Configurar</string>
+    <string name="Acercade">Acerca de</string>
+    <string name="Salir">Salir</string>
+    <string name="contenido">contenido</string>
+</resources>

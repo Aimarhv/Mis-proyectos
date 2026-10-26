@@ -1,0 +1,12 @@
+<resources>
+    <style name="EstiloBoton" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EstiloBoton.Alternativo">
+        <item name="android:textColor">#FFEB3B</item>
+        <item name="android:padding">20dp</item>
+    </style>
+</resources>

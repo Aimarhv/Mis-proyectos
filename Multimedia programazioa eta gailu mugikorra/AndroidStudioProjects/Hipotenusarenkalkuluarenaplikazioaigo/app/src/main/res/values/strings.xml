@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">HipotenusaApp</string>
+    <string name="titulua">HipotenusaApp:</string>
+    <string name="Kateto_a">a katetoa:</string>
+    <string name="Kateto_b">b katetoa:</string>
+    <string name="garbitu">GARBITU</string>
+    <string name="kalkulatu">KALKULATU</string>
+    <string name="errorea">Errorea</string>
+    <string name="itxi">Itxi</string>
+    <string name="hutsik_a">a katetoa sartu behar duzu</string>
+    <string name="hutsik_b">b katetoa sartu behar duzu</string>
+    <string name="zenbaki_baliogabea">Zenbaki baliogabea sartu duzu</string>
+    <string name="positiboa">Katetoak 0 baino handiagoak izan behar dira</string>
+    <string name="kalkulu_errorea">Ezin izan da hipotenusa kalkulatu</string>
+    <string name="hipotenusa_da">Hipotenusa %1$s da</string>
+    <string name="triangelua">Triangelu angeluzuzena</string>
+    <string name="C">C</string>
+    <string name="A">A</string>
+    <string name="B">B</string>
+</resources>

@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.UrteBisurteaAplikazioaIgo" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryDark">#303F9F</item>
+        <item name="colorSecondary">#FF4081</item>
+        <item name="colorControlActivated">#FF4081</item>
+        <item name="colorControlNormal">#FF4081</item>
+    </style>
+
+    <style name="Theme.UrteBisurteaAplikazioaIgo" parent="Base.Theme.UrteBisurteaAplikazioaIgo" />
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Android jakinarazpenak (III) Dialog</string>
+    <string name="Alerta">Alerta</string>
+    <string name="Baieztapena">Baieztapena</string>
+    <string name="Simple">Selekzio simplea</string>
+    <string name="Multiple">Selekzio Multiplea</string>
+</resources>

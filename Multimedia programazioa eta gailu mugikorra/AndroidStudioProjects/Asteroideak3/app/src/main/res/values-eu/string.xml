@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Asteroideak</string>
+    <string name="Asteroides">Asteroideak</string>
+    <string name="Arrancar">Jolastu</string>
+    <string name="Configurar">Ezarpenak</string>
+    <string name="Acercade">Buruz</string>
+    <string name="Salir">Irten</string>
+</resources>

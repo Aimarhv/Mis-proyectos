@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema base de la aplicación -->
+    <style name="Base.Theme.IkasleBatenKalifikazioarenAplikazioaIgo" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- Barra de título azul con texto blanco -->
+        <item name="actionBarStyle">@style/Widget.App.ActionBar</item>
+    </style>
+
+    <style name="Widget.App.ActionBar" parent="Widget.Material3.ActionBar.Solid">
+        <item name="background">?attr/colorPrimary</item>
+        <item name="titleTextStyle">@style/TextAppearance.App.ActionBarTitle</item>
+    </style>
+
+    <style name="TextAppearance.App.ActionBarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Theme.IkasleBatenKalifikazioarenAplikazioaIgo" parent="Base.Theme.IkasleBatenKalifikazioarenAplikazioaIgo" />
+
+    <!-- Imagen redonda -->
+    <style name="CircleImage" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

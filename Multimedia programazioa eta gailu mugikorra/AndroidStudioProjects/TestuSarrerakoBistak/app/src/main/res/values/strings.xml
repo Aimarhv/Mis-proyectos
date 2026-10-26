@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Testu Sarrerako Bistak</string>
+    <string name="NireDatuak">NIRE DATUAK</string>
+    <string name="Izena">IZENA: Aimar</string>
+    <string name="Abizenak">ABIZENAK: Heras Vega</string>
+    <string name="Helbidea">HELBIDEA: Etxezarreta 19</string>
+    <string name="PostaKodea">POSTA KODEA: 20271</string>
+    <string name="Email">EMAIL: aimar@gmail.com/net/eus</string>
+    <string name="Password">PASAHITZA: abcde</string>
+    <string name="Phone">TELEFONOA: 677 676 794</string>
+    <string name="Pin">PIN: 12345</string>
+    <string name="Esperientzia">LAN-ESPERIENTZIA: Garatzailea X enpresan (2022-2025)...</string>
+    <string name="Bidaltzeko">Bidali</string>
+    <string name="Irten">Irten</string>
+</resources>

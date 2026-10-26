@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fondo">#FFF8E7</color>
+    <color name="turquesa">#33B5E5</color>
+    <color name="turquesa_oscuro">#0099CC</color>
+    <color name="texto_boton">#FFFFFF</color>
+</resources>

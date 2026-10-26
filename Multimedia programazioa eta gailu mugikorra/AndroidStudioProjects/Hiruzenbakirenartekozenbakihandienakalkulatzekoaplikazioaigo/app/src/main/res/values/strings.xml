@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MayorTresApp</string>
+    <string name="titulua">Zenbaki Handiena</string>
+    <string name="zenbakia1">1. zenbakia :</string>
+    <string name="zenbakia2">2. zenbakia :</string>
+    <string name="zenbakia3">3. zenbakia :</string>
+    <string name="erakutsi">ERAKUTSI</string>
+    <string name="garbitu">GARBITU</string>
+    <string name="errorea">Errorea</string>
+    <string name="itxi">Itxi</string>
+    <string name="hutsik1">1. zenbakia sartu behar duzu</string>
+    <string name="hutsik2">2. zenbakia sartu behar duzu</string>
+    <string name="hutsik3">3. zenbakia sartu behar duzu</string>
+    <string name="zenbaki_baliogabea">Zenbaki baliogabea sartu duzu</string>
+    <string name="handiena_da">Zenbaki handiena %1$s da</string>
+</resources>

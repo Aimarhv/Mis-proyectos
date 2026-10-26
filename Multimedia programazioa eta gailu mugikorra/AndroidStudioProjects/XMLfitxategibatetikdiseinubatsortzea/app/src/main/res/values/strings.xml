@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">XML fitxategi batetik diseinu bat sortzea</string>
+    <string name="Botoitestua">Hasi saioa</string>
+    <string name="Konektatu">Konektatu</string>
+    <string name="KorreoaJarri">Korreoa</string>
+    <string name="Pasahitzajarri">Pasahitza</string>
+    <string name="Pasahitzaahaztu">Pasahitza ahaztu duzu?</string>
+</resources>

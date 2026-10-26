@@ -1,0 +1,17 @@
+
+<resources>
+    <string name="app_name">Oinarrizko bisten funtzionaltasuna</string>
+    <string name="titulo">23 ariketa</string>
+    <string name="Testua">Hello</string>
+    <string name="BotoiTestua">Botoia</string>
+    <string name="Checkbox">Kontrol-laukia</string>
+    <string name="RadioButton0">Erradio botoia0</string>
+    <string name="RadioButton1">Erradio botoia1</string>
+    <string name="SpinnerPrompt">Aukeratu aukera bat</string>
+    
+    <string-array name="SpinnerArray">
+        <item>1 Aukera </item>
+        <item>2 Aukera </item>
+        <item>3 Aukera </item>
+    </string-array>
+</resources>

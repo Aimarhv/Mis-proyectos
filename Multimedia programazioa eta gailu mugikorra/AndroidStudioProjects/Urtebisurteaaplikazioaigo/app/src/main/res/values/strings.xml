@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Bisurtea</string>
+    <string name="titulua">Urte Bisurtea</string>
+    <string name="urtea">Urtea :</string>
+    <string name="egiaztatu">EGIAZTATU</string>
+    <string name="errorea_hutsik">Sartu urte bat, mesedez</string>
+    <string name="da_bisurtea">%1$d urte bisurtea da</string>
+    <string name="ez_da_bisurtea">%1$d ez da urte bisurtea</string>
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="App">Kalifikazio Aplikazioa</string>
+    <string name="Ikaslea">Ikaslea:</string>
+    <string name="Nota">Kalifikazioa:</string>
+    <string name="Garbitu">GARBITU</string>
+    <string name="Erakutsi">ERAKUTSI</string>
+    <string name="txarra">Txarra</string>
+    <string name="erdipurdikoa">Erdipurdikoa</string>
+    <string name="ona">Ona</string>
+    <string name="bikaina">Bikaina</string>
+    <string name="rellena_campos">Bete eremu guztiak</string>
+    <string name="nota_invalida">Nota 0 eta 20 artekoa izan behar da</string>
+    <string name="Kalifikazioa">Kalifikazioa 0 eta 20 artean</string>
+    <string name="Izena">Ikaslearen izena sartu</string>
+    <string name="emaitza">%1$s ikaslearen nota: %2$s → %3$s</string>
+    <string name="izena_hutsik">Izena idatzi behar da</string>
+    <string name="nota_hutsik">Nota idatzi behar da</string>
+    <string name="nota_baliogabea">Nota ez da baliozkoa</string>
+    <string name="nota_tartea">Nota 0 eta 20 artekoa izan behar da</string>
+</resources>
