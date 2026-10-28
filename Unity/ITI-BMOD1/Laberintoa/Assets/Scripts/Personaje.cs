@@ -15,6 +15,14 @@ public class Personaje : MonoBehaviour
     [SerializeField] Image[] corazones;          // Corazon1, Corazon2, Corazon3
     [SerializeField] float tiempoInvulnerable = 1f;
 
+    [Header("Linterna")]
+    [SerializeField] Linterna linterna;          // si lo dejas vacío, la busca sola
+
+    [Header("Susto al perder")]
+    [SerializeField] GameObject imagenSusto;     // Image a pantalla completa (desactivada)
+    [SerializeField] AudioSource sonidoSusto;    // Grito (opcional)
+    [SerializeField] float tiempoSusto = 1.5f;
+
     [Header("Derrota")]
     [SerializeField] GameObject mensajeDerrota;  // texto "Partida galdu duzu"
     [SerializeField] float esperaDerrota = 4f;
@@ -28,6 +36,8 @@ public class Personaje : MonoBehaviour
         posicionInicial = transform.position;
         rotacionInicial = transform.rotation;
         rb = GetComponent<Rigidbody>();
+
+        if (linterna == null) linterna = FindAnyObjectByType<Linterna>();
     }
 
     void Update()
@@ -66,6 +76,19 @@ public class Personaje : MonoBehaviour
     IEnumerator Derrota()
     {
         enabled = false;                       // la bola deja de moverse
+
+        if (linterna != null)
+        {
+            linterna.Reiniciar();              // linterna apagada
+            linterna.enabled = false;          // y sin poder encenderla mientras sale el susto
+        }
+
+        // Susto: imagen del monstruo + grito
+        if (imagenSusto != null) imagenSusto.SetActive(true);
+        if (sonidoSusto != null) sonidoSusto.Play();
+        yield return new WaitForSeconds(tiempoSusto);
+        if (imagenSusto != null) imagenSusto.SetActive(false);
+
         mensajeDerrota.SetActive(true);        // "Partida galdu duzu"
         yield return new WaitForSeconds(esperaDerrota);
         SceneManager.LoadScene(0);             // Menua
@@ -78,6 +101,8 @@ public class Personaje : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
+
+        if (linterna != null) linterna.Reiniciar();   // vuelves con la linterna apagada
 
         transform.SetPositionAndRotation(posicionInicial, rotacionInicial);
     }
