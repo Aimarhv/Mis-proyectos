@@ -1,0 +1,62 @@
+<odoo>
+    <record id="klini_atencion_tree" model="ir.ui.view">
+        <field name="name">klini.atencion.tree</field>
+        <field name="model">klini.atencion</field>
+        <field name="arch" type="xml">
+            <list><field name="doctor_id"/><field name="paciente_id"/><field name="fecha"/><field name="sintoma"/><field name="trat"/></list>
+        </field>
+    </record>
+    <record id="klini_atencion_form" model="ir.ui.view">
+        <field name="name">klini.atencion.form</field>
+        <field name="model">klini.atencion</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group><field name="doctor_id"/><field name="doctor_espec"/><field name="paciente_id"/><field name="paciente_ss"/></group>
+                        <group><field name="fecha"/><field name="sintoma"/></group>
+                    </group>
+                    <group string="Tratamiento"><field name="trat" nolabel="1"/></group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="klini_atencion_kanban" model="ir.ui.view">
+        <field name="name">klini.atencion.kanban</field>
+        <field name="model">klini.atencion</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="doctor_id"/><field name="paciente_id"/><field name="fecha"/><field name="sintoma"/>
+                <field name="trat"/><field name="doctor_espec"/><field name="paciente_ss"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="paciente_id"/></strong> (SS: <field name="paciente_ss"/>)
+                            <div>Dr/a: <field name="doctor_id"/> (<field name="doctor_espec"/>)</div>
+                            <div>Fecha: <field name="fecha"/></div>
+                            <div>Síntoma: <field name="sintoma"/></div>
+                            <div>Tratamiento: <field name="trat"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="klini_atencion_search" model="ir.ui.view">
+        <field name="name">klini.atencion.search</field>
+        <field name="model">klini.atencion</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="doctor_id"/><field name="paciente_id"/><field name="sintoma"/><field name="trat"/>
+                <filter name="g_doctor" string="Doctor" context="{'group_by': 'doctor_id'}"/>
+                    <filter name="g_paciente" string="Paciente" context="{'group_by': 'paciente_id'}"/>
+                    <filter name="g_fecha" string="Fecha" context="{'group_by': 'fecha'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="klini_atencion_action" model="ir.actions.act_window">
+        <field name="name">Atenciones</field>
+        <field name="res_model">klini.atencion</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>

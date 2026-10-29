@@ -1,0 +1,161 @@
+<odoo noupdate="1">
+
+    <!-- DOCTORES -->
+    <record id="doctor_1" model="klini.doctor">
+        <field name="codigo">D001</field>
+        <field name="nombre">Dr. Mikel Etxeberria</field>
+        <field name="espec">Cardiología</field>
+    </record>
+    <record id="doctor_2" model="klini.doctor">
+        <field name="codigo">D002</field>
+        <field name="nombre">Dra. Amaia Goikoetxea</field>
+        <field name="espec">Traumatología</field>
+    </record>
+    <record id="doctor_3" model="klini.doctor">
+        <field name="codigo">D003</field>
+        <field name="nombre">Dr. Iker Zubiaurre</field>
+        <field name="espec">Neurología</field>
+    </record>
+    <record id="doctor_4" model="klini.doctor">
+        <field name="codigo">D004</field>
+        <field name="nombre">Dra. Nerea Ugarte</field>
+        <field name="espec">Pediatría</field>
+    </record>
+
+    <!-- UNIDADES -->
+    <record id="unidad_1" model="klini.unidad">
+        <field name="identificador">U01</field>
+        <field name="nombre">Unidad Coronaria</field>
+        <field name="planta">1</field>
+        <field name="doctor_id" ref="doctor_1"/>
+    </record>
+    <record id="unidad_2" model="klini.unidad">
+        <field name="identificador">U02</field>
+        <field name="nombre">Traumatología</field>
+        <field name="planta">2</field>
+        <field name="doctor_id" ref="doctor_2"/>
+    </record>
+    <record id="unidad_3" model="klini.unidad">
+        <field name="identificador">U03</field>
+        <field name="nombre">Neurología</field>
+        <field name="planta">3</field>
+        <field name="doctor_id" ref="doctor_3"/>
+    </record>
+    <record id="unidad_4" model="klini.unidad">
+        <field name="identificador">U04</field>
+        <field name="nombre">Pediatría</field>
+        <field name="planta">1</field>
+        <field name="doctor_id" ref="doctor_4"/>
+    </record>
+
+    <!-- PACIENTES -->
+    <record id="paciente_1" model="klini.paciente">
+        <field name="ss">48/1234567/01</field>
+        <field name="nombre">Jon Aranburu</field>
+        <field name="edad">72</field>
+    </record>
+    <record id="paciente_2" model="klini.paciente">
+        <field name="ss">20/7654321/02</field>
+        <field name="nombre">Maite Olano</field>
+        <field name="edad">45</field>
+    </record>
+    <record id="paciente_3" model="klini.paciente">
+        <field name="ss">01/1112223/03</field>
+        <field name="nombre">Unai Larrañaga</field>
+        <field name="edad">8</field>
+    </record>
+    <record id="paciente_4" model="klini.paciente">
+        <field name="ss">01/9998887/04</field>
+        <field name="nombre">Garazi Mendizabal</field>
+        <field name="edad">67</field>
+    </record>
+    <record id="paciente_5" model="klini.paciente">
+        <field name="ss">48/5554443/05</field>
+        <field name="nombre">Andoni Ibarra</field>
+        <field name="edad">34</field>
+    </record>
+
+    <!-- INGRESOS (N:M paciente - unidad) -->
+    <record id="ingreso_1" model="klini.ingreso">
+        <field name="paciente_id" ref="paciente_1"/>
+        <field name="unidad_id" ref="unidad_1"/>
+        <field name="fecha">2026-10-01</field>
+    </record>
+    <record id="ingreso_2" model="klini.ingreso">
+        <field name="paciente_id" ref="paciente_1"/>
+        <field name="unidad_id" ref="unidad_3"/>
+        <field name="fecha">2026-10-10</field>
+    </record>
+    <record id="ingreso_3" model="klini.ingreso">
+        <field name="paciente_id" ref="paciente_2"/>
+        <field name="unidad_id" ref="unidad_2"/>
+        <field name="fecha">2026-10-05</field>
+    </record>
+    <record id="ingreso_4" model="klini.ingreso">
+        <field name="paciente_id" ref="paciente_3"/>
+        <field name="unidad_id" ref="unidad_4"/>
+        <field name="fecha">2026-10-12</field>
+    </record>
+    <record id="ingreso_5" model="klini.ingreso">
+        <field name="paciente_id" ref="paciente_4"/>
+        <field name="unidad_id" ref="unidad_1"/>
+        <field name="fecha">2026-10-15</field>
+    </record>
+    <record id="ingreso_6" model="klini.ingreso">
+        <field name="paciente_id" ref="paciente_5"/>
+        <field name="unidad_id" ref="unidad_2"/>
+        <field name="fecha">2026-10-20</field>
+    </record>
+
+    <!-- ATENCIONES (N:M doctor - paciente) -->
+    <record id="atencion_1" model="klini.atencion">
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="paciente_id" ref="paciente_1"/>
+        <field name="fecha">2026-10-02</field>
+        <field name="sintoma">Dolor torácico</field>
+        <field name="trat">Nitroglicerina y reposo absoluto</field>
+    </record>
+    <record id="atencion_2" model="klini.atencion">
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="paciente_id" ref="paciente_1"/>
+        <field name="fecha">2026-10-11</field>
+        <field name="sintoma">Mareos y pérdida de equilibrio</field>
+        <field name="trat">Resonancia magnética y observación</field>
+    </record>
+    <record id="atencion_3" model="klini.atencion">
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="paciente_id" ref="paciente_2"/>
+        <field name="fecha">2026-10-06</field>
+        <field name="sintoma">Fractura de tibia</field>
+        <field name="trat">Escayola e inmovilización 6 semanas</field>
+    </record>
+    <record id="atencion_4" model="klini.atencion">
+        <field name="doctor_id" ref="doctor_4"/>
+        <field name="paciente_id" ref="paciente_3"/>
+        <field name="fecha">2026-10-13</field>
+        <field name="sintoma">Fiebre alta</field>
+        <field name="trat">Paracetamol pediátrico e hidratación</field>
+    </record>
+    <record id="atencion_5" model="klini.atencion">
+        <field name="doctor_id" ref="doctor_1"/>
+        <field name="paciente_id" ref="paciente_4"/>
+        <field name="fecha">2026-10-16</field>
+        <field name="sintoma">Arritmia</field>
+        <field name="trat">Betabloqueantes y monitorización</field>
+    </record>
+    <record id="atencion_6" model="klini.atencion">
+        <field name="doctor_id" ref="doctor_2"/>
+        <field name="paciente_id" ref="paciente_5"/>
+        <field name="fecha">2026-10-21</field>
+        <field name="sintoma">Rotura de ligamento cruzado</field>
+        <field name="trat">Cirugía artroscópica y rehabilitación</field>
+    </record>
+    <record id="atencion_7" model="klini.atencion">
+        <field name="doctor_id" ref="doctor_3"/>
+        <field name="paciente_id" ref="paciente_4"/>
+        <field name="fecha">2026-10-18</field>
+        <field name="sintoma">Cefalea intensa</field>
+        <field name="trat">Analgésicos y electroencefalograma</field>
+    </record>
+
+</odoo>

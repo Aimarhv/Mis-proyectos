@@ -1,0 +1,64 @@
+<odoo>
+    <record id="klini_unidad_tree" model="ir.ui.view">
+        <field name="name">klini.unidad.tree</field>
+        <field name="model">klini.unidad</field>
+        <field name="arch" type="xml">
+            <list><field name="identificador"/><field name="nombre"/><field name="planta"/><field name="doctor_id"/></list>
+        </field>
+    </record>
+    <record id="klini_unidad_form" model="ir.ui.view">
+        <field name="name">klini.unidad.form</field>
+        <field name="model">klini.unidad</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="identificador"/><field name="nombre"/><field name="planta"/>
+                        <field name="doctor_id"/><field name="doctor_espec"/>
+                    </group>
+                    <notebook>
+                        <page string="Pacientes ingresados">
+                            <field name="ingreso_ids"><list editable="bottom"><field name="paciente_id"/><field name="fecha"/></list></field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="klini_unidad_kanban" model="ir.ui.view">
+        <field name="name">klini.unidad.kanban</field>
+        <field name="model">klini.unidad</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="identificador"/><field name="nombre"/><field name="planta"/>
+                <field name="doctor_id"/><field name="doctor_espec"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="nombre"/></strong> (<field name="identificador"/>)
+                            <div>Planta: <field name="planta"/></div>
+                            <div>Responsable: <field name="doctor_id"/></div>
+                            <div>Especialidad: <field name="doctor_espec"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="klini_unidad_search" model="ir.ui.view">
+        <field name="name">klini.unidad.search</field>
+        <field name="model">klini.unidad</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/><field name="identificador"/><field name="doctor_id"/>
+                <filter name="g_planta" string="Planta" context="{'group_by': 'planta'}"/>
+                    <filter name="g_doctor" string="Doctor" context="{'group_by': 'doctor_id'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="klini_unidad_action" model="ir.actions.act_window">
+        <field name="name">Unidades</field>
+        <field name="res_model">klini.unidad</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>

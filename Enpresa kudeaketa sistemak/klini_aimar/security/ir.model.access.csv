@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_klini_doctor,klini.doctor,model_klini_doctor,base.group_user,1,1,1,1
+access_klini_unidad,klini.unidad,model_klini_unidad,base.group_user,1,1,1,1
+access_klini_paciente,klini.paciente,model_klini_paciente,base.group_user,1,1,1,1
+access_klini_ingreso,klini.ingreso,model_klini_ingreso,base.group_user,1,1,1,1
+access_klini_atencion,klini.atencion,model_klini_atencion,base.group_user,1,1,1,1

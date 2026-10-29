@@ -1,0 +1,59 @@
+<odoo>
+    <record id="klini_ingreso_tree" model="ir.ui.view">
+        <field name="name">klini.ingreso.tree</field>
+        <field name="model">klini.ingreso</field>
+        <field name="arch" type="xml">
+            <list><field name="paciente_id"/><field name="unidad_id"/><field name="fecha"/></list>
+        </field>
+    </record>
+    <record id="klini_ingreso_form" model="ir.ui.view">
+        <field name="name">klini.ingreso.form</field>
+        <field name="model">klini.ingreso</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group><field name="paciente_id"/><field name="unidad_id"/><field name="fecha"/></group>
+                        <group><field name="paciente_ss"/><field name="paciente_edad"/><field name="unidad_planta"/><field name="doctor_resp"/></group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="klini_ingreso_kanban" model="ir.ui.view">
+        <field name="name">klini.ingreso.kanban</field>
+        <field name="model">klini.ingreso</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="paciente_id"/><field name="unidad_id"/><field name="fecha"/>
+                <field name="paciente_ss"/><field name="paciente_edad"/><field name="unidad_planta"/><field name="doctor_resp"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="paciente_id"/></strong> (SS: <field name="paciente_ss"/>, <field name="paciente_edad"/> años)
+                            <div>Unidad: <field name="unidad_id"/> - planta <field name="unidad_planta"/></div>
+                            <div>Responsable: <field name="doctor_resp"/></div>
+                            <div>Ingreso: <field name="fecha"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="klini_ingreso_search" model="ir.ui.view">
+        <field name="name">klini.ingreso.search</field>
+        <field name="model">klini.ingreso</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="paciente_id"/><field name="unidad_id"/><field name="fecha"/>
+                <filter name="g_unidad" string="Unidad" context="{'group_by': 'unidad_id'}"/>
+                    <filter name="g_fecha" string="Fecha" context="{'group_by': 'fecha'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="klini_ingreso_action" model="ir.actions.act_window">
+        <field name="name">Ingresos</field>
+        <field name="res_model">klini.ingreso</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>

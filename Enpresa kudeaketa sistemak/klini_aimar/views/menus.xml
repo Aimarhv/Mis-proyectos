@@ -1,0 +1,8 @@
+<odoo>
+    <menuitem id="klini_menu_root" name="KliniAimar" sequence="10"/>
+    <menuitem id="klini_menu_doctor" name="Doctores" parent="klini_menu_root" action="klini_doctor_action" sequence="1"/>
+    <menuitem id="klini_menu_unidad" name="Unidades" parent="klini_menu_root" action="klini_unidad_action" sequence="2"/>
+    <menuitem id="klini_menu_paciente" name="Pacientes" parent="klini_menu_root" action="klini_paciente_action" sequence="3"/>
+    <menuitem id="klini_menu_ingreso" name="Ingresos" parent="klini_menu_root" action="klini_ingreso_action" sequence="4"/>
+    <menuitem id="klini_menu_atencion" name="Atenciones" parent="klini_menu_root" action="klini_atencion_action" sequence="5"/>
+</odoo>

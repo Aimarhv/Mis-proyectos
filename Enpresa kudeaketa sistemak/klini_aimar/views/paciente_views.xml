@@ -1,0 +1,62 @@
+<odoo>
+    <record id="klini_paciente_tree" model="ir.ui.view">
+        <field name="name">klini.paciente.tree</field>
+        <field name="model">klini.paciente</field>
+        <field name="arch" type="xml">
+            <list><field name="ss"/><field name="nombre"/><field name="edad"/></list>
+        </field>
+    </record>
+    <record id="klini_paciente_form" model="ir.ui.view">
+        <field name="name">klini.paciente.form</field>
+        <field name="model">klini.paciente</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group><field name="ss"/><field name="nombre"/><field name="edad"/></group>
+                    <notebook>
+                        <page string="Ingresos">
+                            <field name="ingreso_ids"><list editable="bottom"><field name="unidad_id"/><field name="fecha"/></list></field>
+                        </page>
+                        <page string="Historial de atenciones">
+                            <field name="atencion_ids"><list editable="bottom"><field name="doctor_id"/><field name="fecha"/><field name="sintoma"/><field name="trat"/></list></field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="klini_paciente_kanban" model="ir.ui.view">
+        <field name="name">klini.paciente.kanban</field>
+        <field name="model">klini.paciente</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="ss"/><field name="nombre"/><field name="edad"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="nombre"/></strong>
+                            <div>SS: <field name="ss"/></div>
+                            <div>Edad: <field name="edad"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="klini_paciente_search" model="ir.ui.view">
+        <field name="name">klini.paciente.search</field>
+        <field name="model">klini.paciente</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/><field name="ss"/>
+                <filter name="f_mayores" string="Mayores de 65" domain="[('edad', '&gt;=', 65)]"/>
+                <filter name="g_edad" string="Edad" context="{'group_by': 'edad'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="klini_paciente_action" model="ir.actions.act_window">
+        <field name="name">Pacientes</field>
+        <field name="res_model">klini.paciente</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>

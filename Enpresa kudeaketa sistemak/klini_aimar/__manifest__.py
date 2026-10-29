@@ -1,0 +1,21 @@
+{
+    'name': 'KliniAimar',
+    'version': '1.0',
+    'summary': 'Historial de pacientes hospitalizados',
+    'category': 'Healthcare',
+    'author': 'Aimar',
+    'depends': ['base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/doctor_views.xml',
+        'views/unidad_views.xml',
+        'views/paciente_views.xml',
+        'views/ingreso_views.xml',
+        'views/atencion_views.xml',
+        'views/menus.xml',
+        'demo/demo.xml',
+    ],
+    'application': True,
+    'installable': True,
+    'license': 'LGPL-3',
+}
