@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Jardueren arteko komunikazioa 1</string>
+    <string name="titulua">Komunikzazio jarduera</string>
+    <string name="izena">Izena:</string>
+    <string name="egiaztatu">Egiaztatu</string>
+    <string name="agurra">Kaixo %1$s</string>
+</resources>
