@@ -4,7 +4,7 @@
     <string name="titulua">Komunikzazio jarduera</string>
     <string name="izena">Izena:</string>
     <string name="egiaztatu">Egiaztatu</string>
-    <string name="agurra">Kaixo %1$s, Baldintzak onartzen dituzu?</string>
+    <string name="agurra"> %1$s</string>
     <string name="onartua">Onartu</string>
     <string name="baztertua">Baztertu</string>
     <string name="emaitza">Emaitza</string>

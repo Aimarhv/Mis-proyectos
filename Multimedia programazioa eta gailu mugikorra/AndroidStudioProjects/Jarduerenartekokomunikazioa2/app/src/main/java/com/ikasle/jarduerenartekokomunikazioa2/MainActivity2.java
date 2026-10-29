@@ -1,41 +1,56 @@
 package com.ikasle.jarduerenartekokomunikazioa2;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class MainActivity2 extends AppCompatActivity {
+
+    // Interfazeko elementuak
+    TextView mezua;     // Agurra eta galdera
+    Button Onartua;     // Onartzeko botoia
+    Button Baztertua;   // Baztertzeko botoia
+    String esaldia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Bigarren pantailaren diseinua kargatu
         setContentView(R.layout.activity_main2);
 
-        // Elementuak lortu
-        TextView agurra = findViewById(R.id.agurra);
-        Button onartu = findViewById(R.id.onartu);
-        Button baztertu = findViewById(R.id.baztertua);
+        // XMLko elementuekin lotu
+        mezua = findViewById(R.id.agurra);
+        Onartua = findViewById(R.id.onartu);
+        Baztertua = findViewById(R.id.baztertua);
 
-        // Lehen pantailatik bidalitako izena jaso eta agurra erakutsi
-        String izena = getIntent().getStringExtra("izena");
-        agurra.setText(getString(R.string.agurra, izena));
+        // MainActivity-tik jasotako izenarekin esaldia osatu
+        Bundle extras = getIntent().getExtras();
+        esaldia = "Kaixo, " + extras.getString("dato") + ",  Baldintzak onartzen dituzu?";
+        mezua.setText(esaldia);
 
-        // Onartu sakatzean, "Onartua" itzuli
-        onartu.setOnClickListener(v -> itzuliEmaitza(getString(R.string.onartua)));
-
-        // Baztertu sakatzean, "Baztertua" itzuli
-        baztertu.setOnClickListener(v -> itzuliEmaitza(getString(R.string.baztertua)));
+        // Botoi bakoitzak bere erantzuna itzultzen du
+        Onartua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                devolverEmaitza("Onartua");
+            }
+        });
+        Baztertua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                devolverEmaitza("Baztertua");
+            }
+        });
     }
 
-    // Emaitza lehen pantailara bidali eta pantaila hau itxi
-    private void itzuliEmaitza(String emaitza) {
-        Intent data = new Intent();
-        data.putExtra("emaitza", emaitza);
-        setResult(RESULT_OK, data);
+    // Erantzuna MainActivity-ra bidali eta pantaila hau itxi
+    private void devolverEmaitza(String emaitza) {
+        Intent intent = new Intent();
+        intent.putExtra("emaitza", emaitza);
+        setResult(RESULT_OK, intent);
         finish();
     }
 }
