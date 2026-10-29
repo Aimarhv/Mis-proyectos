@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#000000"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity2">
+
+
+    <TextView
+        android:id="@+id/Titulua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/barra_fondo"
+        android:gravity="center_vertical|start"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text="@string/titulua"
+        android:textColor="@color/barra_texto"
+        android:textSize="24dp" />
+
+
+    <TextView
+        android:id="@+id/agurra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="left"
+        android:text="@string/agurra"
+        android:textColor="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/onartu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/onartua"
+        android:textColor="@color/grey"/>
+
+    <Button
+        android:id="@+id/baztertua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/baztertua"
+        android:textColor="@color/grey"/>
+
+</LinearLayout>

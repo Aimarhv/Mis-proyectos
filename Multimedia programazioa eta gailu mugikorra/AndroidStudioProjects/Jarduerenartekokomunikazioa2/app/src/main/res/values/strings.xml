@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jardueren arteko komunikazioa 2</string>
+    <string name="titulua">Komunikzazio jarduera</string>
+    <string name="izena">Izena:</string>
+    <string name="egiaztatu">Egiaztatu</string>
+    <string name="agurra">Kaixo %1$s, Baldintzak onartzen dituzu?</string>
+    <string name="onartua">Onartu</string>
+    <string name="baztertua">Baztertu</string>
+    <string name="emaitza">Emaitza</string>
+</resources>
