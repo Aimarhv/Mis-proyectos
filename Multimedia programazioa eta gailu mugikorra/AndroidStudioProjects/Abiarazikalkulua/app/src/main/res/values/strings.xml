@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalkulagailua</string>
+    <string name="titulua">Hiruariketa</string>
+    <string name="izena">Izena sartu</string>
+    <string name="zenbakia">Zenbakia:</string>
+    <string name="kalkulatu">Kalkulatu</string>
+    <string name="biderkatu">Biderkatu x 2</string>
+    <string name="emaitza">Emaitza</string>
+    <string name="atera">Atera</string>
+    <string name="izena_derrigorrezkoa">Zure izena jartzea derrigorrezkoa da</string>
+    <string name="zenbakia_derrigorrezkoa">Zenbaki bag sartu mesedez</string>
+    <string name="kaixo">Kaixo, %1$s</string>
+</resources>
