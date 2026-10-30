@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="publizitatea_revista_view_list" model="ir.ui.view">
+        <field name="name">publizitatea.revista.list</field>
+        <field name="model">publizitatea.revista</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="issn"/>
+                <field name="numero"/>
+                <field name="titulo"/>
+                <field name="año" options="{'format': false}"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="publizitatea_revista_view_form" model="ir.ui.view">
+        <field name="name">publizitatea.revista.form</field>
+        <field name="model">publizitatea.revista</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="issn"/>
+                        <field name="numero"/>
+                        <field name="titulo"/>
+                        <field name="año" options="{'format': false}"/>
+                    </group>
+                    <notebook>
+                        <page string="Artikuluak">
+                            <field name="articulo_id">
+                                <list>
+                                    <field name="titulo"/>
+                                    <field name="fecha_pub"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="publizitatea_revista_action" model="ir.actions.act_window">
+        <field name="name">Aldizkariak</field>
+        <field name="res_model">publizitatea.revista</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

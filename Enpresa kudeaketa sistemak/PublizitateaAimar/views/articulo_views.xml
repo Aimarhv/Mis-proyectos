@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="publizitatea_articulo_view_list" model="ir.ui.view">
+        <field name="name">publizitatea.articulo.list</field>
+        <field name="model">publizitatea.articulo</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="titulo"/>
+                <field name="fecha_pub"/>
+                <field name="revista_id"/>
+                <field name="autor_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="publizitatea_articulo_view_form" model="ir.ui.view">
+        <field name="name">publizitatea.articulo.form</field>
+        <field name="model">publizitatea.articulo</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="titulo"/>
+                        <field name="fecha_pub"/>
+                        <field name="revista_id"/>
+                        <field name="autor_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Contenido">
+                        <field name="contenido" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="publizitatea_articulo_action" model="ir.actions.act_window">
+        <field name="name">Artikuluak</field>
+        <field name="res_model">publizitatea.articulo</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

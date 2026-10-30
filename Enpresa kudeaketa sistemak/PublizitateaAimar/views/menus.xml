@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="publizitatea_menu_root" name="Publizitatea" sequence="10"/>
+
+    <menuitem id="publizitatea_menu_revista" name="Aldizkariak"
+              parent="publizitatea_menu_root"
+              action="publizitatea_revista_action" sequence="10"/>
+
+    <menuitem id="publizitatea_menu_articulo" name="Artikuluak"
+              parent="publizitatea_menu_root"
+              action="publizitatea_articulo_action" sequence="20"/>
+
+    <menuitem id="publizitatea_menu_autor" name="Egileak"
+              parent="publizitatea_menu_root"
+              action="publizitatea_autor_action" sequence="30"/>
+</odoo>

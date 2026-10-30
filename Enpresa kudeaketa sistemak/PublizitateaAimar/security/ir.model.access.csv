@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_publizitatea_revista,publizitatea.revista,model_publizitatea_revista,base.group_user,1,1,1,1
+access_publizitatea_articulo,publizitatea.articulo,model_publizitatea_articulo,base.group_user,1,1,1,1
+access_publizitatea_autor,publizitatea.autor,model_publizitatea_autor,base.group_user,1,1,1,1

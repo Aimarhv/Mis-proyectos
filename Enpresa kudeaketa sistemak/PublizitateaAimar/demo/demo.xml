@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ALDIZKARIAK -->
+        <record id="revista_1" model="publizitatea.revista">
+            <field name="issn">1234-5678</field>
+            <field name="numero">1</field>
+            <field name="titulo">Ciencia Hoy</field>
+            <field name="año">2023</field>
+        </record>
+
+        <record id="revista_2" model="publizitatea.revista">
+            <field name="issn">8765-4321</field>
+            <field name="numero">5</field>
+            <field name="titulo">Tecnología Actual</field>
+            <field name="año">2024</field>
+        </record>
+
+        <!-- EGILEAK -->
+        <record id="autor_1" model="publizitatea.autor">
+            <field name="izena">Ane Etxeberria</field>
+            <field name="email">ane@example.com</field>
+            <field name="adscrirp">Universidad del País Vasco</field>
+        </record>
+
+        <record id="autor_2" model="publizitatea.autor">
+            <field name="izena">Jon Garmendia</field>
+            <field name="email">jon@example.com</field>
+            <field name="adscrirp">Mondragon Unibertsitatea</field>
+        </record>
+
+        <record id="autor_3" model="publizitatea.autor">
+            <field name="izena">Maite Urrutia</field>
+            <field name="email">maite@example.com</field>
+            <field name="adscrirp">Universidad de Navarra</field>
+        </record>
+
+        <!-- ARTIKULUAK -->
+        <record id="articulo_1" model="publizitatea.articulo">
+            <field name="titulo">Introducción a la inteligencia artificial</field>
+            <field name="contenido">Resumen de los conceptos básicos de la IA y sus aplicaciones.</field>
+            <field name="fecha_pub">2023-03-15</field>
+            <field name="revista_id" ref="revista_1"/>
+            <field name="autor_ids" eval="[(6, 0, [ref('autor_1'), ref('autor_2')])]"/>
+        </record>
+
+        <record id="articulo_2" model="publizitatea.articulo">
+            <field name="titulo">Energías renovables en Euskadi</field>
+            <field name="contenido">Estudio sobre el desarrollo de la energía eólica y solar.</field>
+            <field name="fecha_pub">2023-06-20</field>
+            <field name="revista_id" ref="revista_1"/>
+            <field name="autor_ids" eval="[(6, 0, [ref('autor_3')])]"/>
+        </record>
+
+        <record id="articulo_3" model="publizitatea.articulo">
+            <field name="titulo">Desarrollo de módulos en Odoo</field>
+            <field name="contenido">Guía práctica para crear módulos personalizados.</field>
+            <field name="fecha_pub">2024-01-10</field>
+            <field name="revista_id" ref="revista_2"/>
+            <field name="autor_ids" eval="[(6, 0, [ref('autor_2'), ref('autor_3')])]"/>
+        </record>
+
+        <record id="articulo_4" model="publizitatea.articulo">
+            <field name="titulo">Bases de datos relacionales</field>
+            <field name="contenido">Del modelo entidad-relación a las tablas.</field>
+            <field name="fecha_pub">2024-02-05</field>
+            <field name="revista_id" ref="revista_2"/>
+            <field name="autor_ids" eval="[(6, 0, [ref('autor_1')])]"/>
+        </record>
+
+    </data>
+</odoo>
