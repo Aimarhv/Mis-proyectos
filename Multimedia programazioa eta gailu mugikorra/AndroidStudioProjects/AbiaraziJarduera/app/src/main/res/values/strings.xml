@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BEZa kalkulatu</string>
+    <string name="titulua">BEZa erregistratu</string>
+    <string name="iva">+BEZ</string>
+    <string name="artikulua">Artikulua</string>
+    <string name="inportea">Zenbatekoa</string>
+    <string name="irten">Irten</string>
+    <string name="errorArtikulua">Sartu artikuluaren izena</string>
+    <string name="errorInporteaHutsik">Sartu zenbatekoa</string>
+    <string name="errorInporteaOkerra">Zenbateko baliogabea</string>
+    <string name="aukeratuBez">Aukeratu aplikatu beharreko BEZa</string>
+    <string name="zenbatekoTotala">Zenbateko osoa:</string>
+    <string name="errorDatuak">Errorea datuak jasotzean</string>
+</resources>

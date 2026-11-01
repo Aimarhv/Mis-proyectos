@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#000000"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity2">
+
+
+
+    <TextView
+        android:id="@+id/Titulua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/barra_fondo"
+        android:gravity="center_vertical|start"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text="@string/titulua"
+        android:textColor="@color/barra_texto"
+        android:textSize="24dp" />
+
+
+
+    <TextView
+        android:id="@+id/tvTitulua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/aukeratuBez"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp" />
+    <RadioGroup
+        android:id="@+id/rgBez"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="4 %"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rb10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="10 %"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    <RadioButton
+        android:id="@+id/rb21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="21 %"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvTotala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="left"
+        android:text="@string/zenbatekoTotala"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnIrten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/irten"
+        android:textColor="@color/grey" /> />
+</LinearLayout>
