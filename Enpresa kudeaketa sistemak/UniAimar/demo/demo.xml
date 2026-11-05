@@ -1,0 +1,60 @@
+<odoo>
+    <record id="demo_centro_1" model="uni.centro">
+        <field name="nombrec">Ingeniaritza Eskola</field>
+    </record>
+    <record id="demo_centro_2" model="uni.centro">
+        <field name="nombrec">Zientzia Fakultatea</field>
+    </record>
+
+    <record id="demo_profesor_1" model="uni.profesor">
+        <field name="pid">P001</field>
+        <field name="nombre">Miren Goikoetxea</field>
+        <field name="dir">Kale Nagusia 5</field>
+        <field name="telefonoa">943111111</field>
+        <field name="email">miren@uni.eus</field>
+        <field name="dept">Informatika</field>
+        <field name="ded">Osoa</field>
+        <field name="centro_ids" eval="[(6, 0, [ref('demo_centro_1'), ref('demo_centro_2')])]"/>
+    </record>
+    <record id="demo_profesor_2" model="uni.profesor">
+        <field name="pid">P002</field>
+        <field name="nombre">Jon Aranburu</field>
+        <field name="dir">Erribera 12</field>
+        <field name="telefonoa">943222222</field>
+        <field name="email">jon@uni.eus</field>
+        <field name="dept">Fisika</field>
+        <field name="ded">Partziala</field>
+        <field name="centro_ids" eval="[(6, 0, [ref('demo_centro_2')])]"/>
+    </record>
+
+    <record id="demo_alumno_1" model="uni.alumno">
+        <field name="pid">A001</field>
+        <field name="nombre">Ane Etxeberria</field>
+        <field name="dir">Zubia 3</field>
+        <field name="telefonoa">943333333</field>
+        <field name="email">ane@ikasle.eus</field>
+        <field name="exp">EXP-1001</field>
+        <field name="titulacion">Informatika Ingeniaritza</field>
+        <field name="centro_id" ref="demo_centro_1"/>
+    </record>
+    <record id="demo_alumno_2" model="uni.alumno">
+        <field name="pid">A002</field>
+        <field name="nombre">Iker Larrea</field>
+        <field name="dir">Mendi Kalea 8</field>
+        <field name="telefonoa">943444444</field>
+        <field name="email">iker@ikasle.eus</field>
+        <field name="exp">EXP-1002</field>
+        <field name="titulacion">Fisika Gradua</field>
+        <field name="centro_id" ref="demo_centro_2"/>
+    </record>
+
+    <record id="demo_personal_1" model="uni.personal">
+        <field name="pid">L001</field>
+        <field name="nombre">Nerea Ibarra</field>
+        <field name="dir">Plaza Berria 1</field>
+        <field name="telefonoa">943555555</field>
+        <field name="email">nerea@uni.eus</field>
+        <field name="unidad">Idazkaritza</field>
+        <field name="cat">Administraria</field>
+    </record>
+</odoo>

@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_ong_actuacion_list" model="ir.ui.view">
+        <field name="name">ong.actuacion.list</field>
+        <field name="model">ong.actuacion</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="proyecto_cod"/>
+                <field name="poblacion_idpob"/>
+                <field name="inversion"/>
+                <field name="descrp"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ong_actuacion_form" model="ir.ui.view">
+        <field name="name">ong.actuacion.form</field>
+        <field name="model">ong.actuacion</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="proyecto_cod"/>
+                        <field name="poblacion_idpob"/>
+                        <field name="inversion"/>
+                        <field name="descrp"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ong_actuacion" model="ir.actions.act_window">
+        <field name="name">Aktuazioak</field>
+        <field name="res_model">ong.actuacion</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

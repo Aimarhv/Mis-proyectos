@@ -1,0 +1,14 @@
+<odoo>
+    <menuitem id="menu_uni_root" name="UniAimar" sequence="10"/>
+
+    <menuitem id="menu_uni_persona" name="Pertsonak" parent="menu_uni_root"
+              action="action_uni_persona" sequence="10"/>
+    <menuitem id="menu_uni_profesor" name="Irakasleak" parent="menu_uni_root"
+              action="action_uni_profesor" sequence="20"/>
+    <menuitem id="menu_uni_alumno" name="Ikasleak" parent="menu_uni_root"
+              action="action_uni_alumno" sequence="30"/>
+    <menuitem id="menu_uni_personal" name="Langileak" parent="menu_uni_root"
+              action="action_uni_personal" sequence="40"/>
+    <menuitem id="menu_uni_centro" name="Ikastetxeak" parent="menu_uni_root"
+              action="action_uni_centro" sequence="50"/>
+</odoo>

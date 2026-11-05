@@ -1,0 +1,60 @@
+<odoo>
+    <record id="view_ong_poblacion_list" model="ir.ui.view">
+        <field name="name">ong.poblacion.list</field>
+        <field name="model">ong.poblacion</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="idpob"/>
+                <field name="nombre"/>
+                <field name="pais"/>
+                <field name="habs"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ong_poblacion_form" model="ir.ui.view">
+        <field name="name">ong.poblacion.form</field>
+        <field name="model">ong.poblacion</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="idpob"/>
+                        <field name="nombre"/>
+                        <field name="pais"/>
+                        <field name="habs"/>
+                    </group>
+                    <notebook>
+                        <page string="Aktuazioak">
+                            <field name="actuacion_ids">
+                                <list>
+                                    <field name="proyecto_cod"/>
+                                    <field name="inversion"/>
+                                    <field name="descrp"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ong_poblacion_search" model="ir.ui.view">
+        <field name="name">ong.poblacion.search</field>
+        <field name="model">ong.poblacion</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/>
+                  <field name="pais"/>
+                <filter name="group_pais" string="Herrialdea" context="{'group_by': 'pais'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ong_poblacion" model="ir.actions.act_window">
+        <field name="name">Herriak</field>
+        <field name="res_model">ong.poblacion</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

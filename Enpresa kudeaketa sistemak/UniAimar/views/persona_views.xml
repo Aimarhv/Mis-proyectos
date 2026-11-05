@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_uni_persona_list" model="ir.ui.view">
+        <field name="name">uni.persona.list</field>
+        <field name="model">uni.persona</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="pid"/>
+                <field name="nombre"/>
+                <field name="dir"/>
+                <field name="telefonoa"/>
+                <field name="email"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_uni_persona_form" model="ir.ui.view">
+        <field name="name">uni.persona.form</field>
+        <field name="model">uni.persona</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="pid"/>
+                            <field name="nombre"/>
+                            <field name="dir"/>
+                        </group>
+                        <group>
+                            <field name="telefonoa"/>
+                            <field name="email"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_uni_persona" model="ir.actions.act_window">
+        <field name="name">Pertsonak</field>
+        <field name="res_model">uni.persona</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
