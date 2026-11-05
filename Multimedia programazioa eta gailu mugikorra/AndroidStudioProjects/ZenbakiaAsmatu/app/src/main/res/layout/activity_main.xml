@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+
+        <TextView
+            android:id="@+id/Titulua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/titulua"
+            android:textColor="#212121"
+            android:textSize="28sp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/etZenbakia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/zenbakia"
+            android:layout_marginTop="20dp"
+            android:gravity="left"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cbSaiakerak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/saiakerak_10" />
+
+        <CheckBox
+            android:id="@+id/cbLaguntza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/laguntza" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btnEgiaztatu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/egiaztatu" />
+
+        <Button
+            android:id="@+id/btnHustu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/hustu" />
+
+        <Button
+            android:id="@+id/btnIrten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/irten" />
+    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvMezua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="3"
+            android:layout_marginTop="24dp"
+            android:textSize="18sp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+

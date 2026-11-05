@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Zenbakia Asmatu</string>
+    <string name="titulua">Zenbakia Asmatu</string>
+    <string name="zenbakia">zenbaki bat jarri</string>
+
+    <string name="sartu_zenbakia">Sartu zenbaki bat:</string>
+    <string name="saiakerak_10">10 saiakera</string>
+    <string name="laguntza">Laguntza</string>
+    <string name="egiaztatu">EGIAZTATU</string>
+    <string name="hustu">HUSTU</string>
+    <string name="irten">IRTEN</string>
+
+
+    <string name="asmatu_du">Asmatu duzu! %1$d saiakera behar izan dituzu.</string>
+    <string name="muga_gaindituta">Saiakeren muga gainditu da. Zenbakia %1$d zen.</string>
+    <string name="ez_du_asmatu">Ez duzu asmatu.</string>
+    <string name="handiagoa"> Asmatu beharreko zenbakia handiagoa da.</string>
+    <string name="txikiagoa"> Asmatu beharreko zenbakia txikiagoa da.</string>
+</resources>
