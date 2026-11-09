@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Digitu-batura</string>
+    <string name="titulua">Digitu-batura</string>
+    <string name="zenbakia">Zenbakia: </string>
+    <string name="etzenbakia1">Sartu zenbaki bat</string>
+    <string name="exekutatu">EXEKUTATU</string>
+    <string name="hustu">HUSTU</string>
+    <string name="irten">IRTEN</string>
+    <string name="errorBuhoa">Sartu zenbaki bat</string>
+    <string name="errorZenbakia">Zenbaki baliogabea</string>
+</resources>
