@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><Kontzertuak>
+    <kontzertua>
+        <id>1</id>
+        <taldea>DONNY BENET (post-disco, Sydney)</taldea>
+        <dia>2019-02-05</dia>
+        <hora>21:00</hora>
+        <taquilla>7.0</taquilla>
+        <precio>10.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>2</id>
+        <taldea>DAVID PALOMAR + RAFAEL RODRIGUEZ</taldea>
+        <dia>2019-02-07</dia>
+        <hora>20:00</hora>
+        <taquilla>15.0</taquilla>
+        <precio>18.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>3</id>
+        <taldea>FERNANDO ALFARO (pop, indie, rock, Albacete)</taldea>
+        <dia>2019-02-08</dia>
+        <hora>21:00</hora>
+        <taquilla>10.0</taquilla>
+        <precio>13.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>4</id>
+        <taldea>YUNG BEEF DJ SET (trap, reggaeton, dancehall)</taldea>
+        <dia>2019-02-08</dia>
+        <hora>23:59</hora>
+        <taquilla>11.0</taquilla>
+        <precio>15.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>5</id>
+        <taldea>15 YEARS OF PHONICA: ROMAN FLUGEL + SIMONE</taldea>
+        <dia>2019-02-09</dia>
+        <hora>23:59</hora>
+        <taquilla>11.0</taquilla>
+        <precio>15.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>6</id>
+        <taldea>LOS HERMANOS CUBERO (folk, americana, acordeon)</taldea>
+        <dia>2019-02-09</dia>
+        <hora>22:00</hora>
+        <taquilla>8.0</taquilla>
+        <precio>11.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>8</id>
+        <taldea>IZAR &amp; STAR: JUANJO NAVAS (flamenco) + SON</taldea>
+        <dia>2019-02-14</dia>
+        <hora>20:00</hora>
+        <taquilla>8.0</taquilla>
+        <precio>10.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>9</id>
+        <taldea>LOS TIKI PHANTOMS (surf, r'n'r, BCN) + MONTE</taldea>
+        <dia>2019-02-15</dia>
+        <hora>21:00</hora>
+        <taquilla>10.0</taquilla>
+        <precio>13.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>10</id>
+        <taldea>GUS DAPPERTON (new wave, synth, dream-pop)</taldea>
+        <dia>2019-02-16</dia>
+        <hora>21:00</hora>
+        <taquilla>10.0</taquilla>
+        <precio>15.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>11</id>
+        <taldea>ID: GIULIANO LOMONTE (deep, tech, hypnotic)</taldea>
+        <dia>2019-02-16</dia>
+        <hora>23:59</hora>
+        <taquilla>11.0</taquilla>
+        <precio>15.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>12</id>
+        <taldea>ROBBY PEOPLES &amp; THE CONGRESS (rock&amp;roll)</taldea>
+        <dia>2019-02-17</dia>
+        <hora>20:30</hora>
+        <taquilla>10.0</taquilla>
+        <precio>13.0</precio>
+    </kontzertua>
+    <kontzertua>
+        <id>13</id>
+        <taldea>KAMCHATKA (hard rock, stoner, blues, SWE)</taldea>
+        <dia>2019-02-19</dia>
+        <hora>20:30</hora>
+        <taquilla>10.0</taquilla>
+        <precio>13.0</precio>
+    </kontzertua>
+</Kontzertuak>
