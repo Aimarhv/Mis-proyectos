@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tripulazioa_list" model="ir.ui.view">
+        <field name="name">hegazkina.tripulazioa.list</field>
+        <field name="model">hegazkina.tripulazioa</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="hegaldia_id"/>
+                <field name="hegazkina_id"/>
+                <field name="data"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tripulazioa_form" model="ir.ui.view">
+        <field name="name">hegazkina.tripulazioa.form</field>
+        <field name="model">hegazkina.tripulazioa</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="hegaldia_id"/>
+                        <field name="hegazkina_id"/>
+                        <field name="data"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tripulazioa_search" model="ir.ui.view">
+        <field name="name">hegazkina.tripulazioa.search</field>
+        <field name="model">hegazkina.tripulazioa</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="hegaldia_id"/>
+                <field name="hegazkina_id"/>
+                <field name="data"/>
+                <filter name="group_hegazkina" string="Hegazkina" context="{'group_by': 'hegazkina_id'}"/>
+                <filter name="group_data" string="Data" context="{'group_by': 'data'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_tripulazioa" model="ir.actions.act_window">
+        <field name="name">Esleipenak</field>
+        <field name="res_model">hegazkina.tripulazioa</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

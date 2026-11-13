@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hegazkina_list" model="ir.ui.view">
+        <field name="name">hegazkina.hegazkina.list</field>
+        <field name="model">hegazkina.hegazkina</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="matrikula"/>
+                <field name="fabrikatzailea"/>
+                <field name="modeloa"/>
+                <field name="kapazitatea"/>
+                <field name="autonomia"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hegazkina_form" model="ir.ui.view">
+        <field name="name">hegazkina.hegazkina.form</field>
+        <field name="model">hegazkina.hegazkina</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="matrikula"/>
+                            <field name="fabrikatzailea"/>
+                            <field name="modeloa"/>
+                        </group>
+                        <group>
+                            <field name="kapazitatea"/>
+                            <field name="autonomia"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Esleitutako hegaldiak">
+                            <field name="tripulazioa_ids">
+                                <list editable="bottom">
+                                    <field name="hegaldia_id"/>
+                                    <field name="data"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hegazkina_search" model="ir.ui.view">
+        <field name="name">hegazkina.hegazkina.search</field>
+        <field name="model">hegazkina.hegazkina</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="matrikula"/>
+                <field name="fabrikatzailea"/>
+                <field name="modeloa"/>
+                <filter name="group_fabrikatzailea" string="Fabrikatzailea" context="{'group_by': 'fabrikatzailea'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hegazkina" model="ir.actions.act_window">
+        <field name="name">Hegazkinak</field>
+        <field name="res_model">hegazkina.hegazkina</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

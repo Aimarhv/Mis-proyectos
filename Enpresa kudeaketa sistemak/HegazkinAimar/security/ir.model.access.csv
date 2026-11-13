@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hegazkina_aireportua,hegazkina.aireportua,model_hegazkina_aireportua,base.group_user,1,1,1,1
+access_hegazkina_hegaldia,hegazkina.hegaldia,model_hegazkina_hegaldia,base.group_user,1,1,1,1
+access_hegazkina_tripulazioa,hegazkina.tripulazioa,model_hegazkina_tripulazioa,base.group_user,1,1,1,1
+access_hegazkina_hegazkina,hegazkina.hegazkina,model_hegazkina_hegazkina,base.group_user,1,1,1,1
+access_hegazkina_tripulatzailea,hegazkina.tripulatzailea,model_hegazkina_tripulatzailea,base.group_user,1,1,1,1

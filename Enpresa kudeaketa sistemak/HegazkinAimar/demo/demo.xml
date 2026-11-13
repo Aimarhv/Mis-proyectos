@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="demo_aireportua_1" model="hegazkina.aireportua">
+        <field name="ald">BIO</field>
+        <field name="nombre">Bilboko aireportua</field>
+        <field name="ciudad">Bilbo</field>
+        <field name="pais">Espainia</field>
+    </record>
+    <record id="demo_aireportua_2" model="hegazkina.aireportua">
+        <field name="ald">MAD</field>
+        <field name="nombre">Madril-Barajas</field>
+        <field name="ciudad">Madril</field>
+        <field name="pais">Espainia</field>
+    </record>
+
+    <record id="demo_hegazkina_1" model="hegazkina.hegazkina">
+        <field name="matrikula">EC-ABC</field>
+        <field name="fabrikatzailea">Airbus</field>
+        <field name="modeloa">A320</field>
+        <field name="kapazitatea">180</field>
+        <field name="autonomia">6.5</field>
+    </record>
+
+    <record id="demo_hegaldia_1" model="hegazkina.hegaldia">
+        <field name="vld">VY1001</field>
+        <field name="jatorriko_aireportua_id" ref="demo_aireportua_1"/>
+        <field name="helmuga_aireportua_id" ref="demo_aireportua_2"/>
+    </record>
+
+    <record id="demo_esleipena_1" model="hegazkina.tripulazioa">
+        <field name="hegaldia_id" ref="demo_hegaldia_1"/>
+        <field name="hegazkina_id" ref="demo_hegazkina_1"/>
+        <field name="data">2026-11-20</field>
+    </record>
+
+    <record id="demo_tripulatzailea_1" model="hegazkina.tripulatzailea">
+        <field name="izena">Jon</field>
+        <field name="abizena">Etxebarria</field>
+        <field name="jaiotze_data">1985-03-12</field>
+        <field name="nan">12345678A</field>
+        <field name="postua">pilotua</field>
+        <field name="hegaldia_id" ref="demo_hegaldia_1"/>
+    </record>
+    <record id="demo_tripulatzailea_2" model="hegazkina.tripulatzailea">
+        <field name="izena">Ane</field>
+        <field name="abizena">Goikoetxea</field>
+        <field name="jaiotze_data">1990-07-25</field>
+        <field name="nan">87654321B</field>
+        <field name="postua">laguntzailea</field>
+        <field name="hegaldia_id" ref="demo_hegaldia_1"/>
+    </record>
+</odoo>

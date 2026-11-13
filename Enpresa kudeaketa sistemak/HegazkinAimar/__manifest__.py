@@ -1,0 +1,20 @@
+{
+    'name': 'HegazkinAimar',
+    'version': '19.0.1.0.0',
+    'summary': 'Hegazkin-konpainiaren hegaldien, aireportuen, hegazkinen eta tripulazioen kudeaketa',
+    'author': 'Aimar',
+    'license': 'LGPL-3',
+    'depends': ['base'],
+        'data': [
+        'security/ir.model.access.csv',
+        'views/aireportua_views.xml',
+        'views/hegaldia_views.xml',
+        'views/hegazkina_views.xml',
+        'views/tripulazioa_views.xml',
+        'views/tripulatzailea_views.xml',
+        'views/menus.xml',
+        'demo/demo.xml',
+    ],
+    'application': True,
+    'installable': True,
+}

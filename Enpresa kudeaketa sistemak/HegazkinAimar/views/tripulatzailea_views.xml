@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tripulatzailea_list" model="ir.ui.view">
+        <field name="name">hegazkina.tripulatzailea.list</field>
+        <field name="model">hegazkina.tripulatzailea</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="izena"/>
+                <field name="abizena"/>
+                <field name="nan"/>
+                <field name="jaiotze_data"/>
+                <field name="postua"/>
+                <field name="hegaldia_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tripulatzailea_form" model="ir.ui.view">
+        <field name="name">hegazkina.tripulatzailea.form</field>
+        <field name="model">hegazkina.tripulatzailea</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="izena"/>
+                            <field name="abizena"/>
+                            <field name="jaiotze_data"/>
+                        </group>
+                        <group>
+                            <field name="nan"/>
+                            <field name="postua"/>
+                            <field name="hegaldia_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tripulatzailea_search" model="ir.ui.view">
+        <field name="name">hegazkina.tripulatzailea.search</field>
+        <field name="model">hegazkina.tripulatzailea</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="izena"/>
+                <field name="abizena"/>
+                <field name="nan"/>
+                <filter name="f_pilotua" string="Pilotuak" domain="[('postua','=','pilotua')]"/>
+                <filter name="f_kopilotua" string="Kopilotuak" domain="[('postua','=','kopilotua')]"/>
+                <filter name="f_laguntzailea" string="Hegaldi-laguntzaileak" domain="[('postua','=','laguntzailea')]"/>
+                <filter name="group_postua" string="Postua" context="{'group_by': 'postua'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_tripulatzailea" model="ir.actions.act_window">
+        <field name="name">Tripulazioa</field>
+        <field name="res_model">hegazkina.tripulatzailea</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

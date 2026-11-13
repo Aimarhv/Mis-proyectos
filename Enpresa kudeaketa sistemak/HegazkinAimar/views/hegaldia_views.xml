@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hegaldia_list" model="ir.ui.view">
+        <field name="name">hegazkina.hegaldia.list</field>
+        <field name="model">hegazkina.hegaldia</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="vld"/>
+                <field name="jatorriko_aireportua_id"/>
+                <field name="helmuga_aireportua_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hegaldia_form" model="ir.ui.view">
+        <field name="name">hegazkina.hegaldia.form</field>
+        <field name="model">hegazkina.hegaldia</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="vld"/>
+                        </group>
+                        <group>
+                            <field name="jatorriko_aireportua_id"/>
+                            <field name="helmuga_aireportua_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Hegazkina (esleipenak)">
+                            <field name="tripulazioa_ids">
+                                <list editable="bottom">
+                                    <field name="hegazkina_id"/>
+                                    <field name="data"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Tripulazioa">
+                            <field name="tripulatzaile_ids">
+                                <list>
+                                    <field name="izena"/>
+                                    <field name="abizena"/>
+                                    <field name="postua"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hegaldia_search" model="ir.ui.view">
+        <field name="name">hegazkina.hegaldia.search</field>
+        <field name="model">hegazkina.hegaldia</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="vld"/>
+                <field name="jatorriko_aireportua_id"/>
+                <field name="helmuga_aireportua_id"/>
+                <filter name="group_jatorria" string="Jatorria" context="{'group_by': 'jatorriko_aireportua_id'}"/>
+                <filter name="group_helmuga" string="Helmuga" context="{'group_by': 'helmuga_aireportua_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hegaldia" model="ir.actions.act_window">
+        <field name="name">Hegaldiak</field>
+        <field name="res_model">hegazkina.hegaldia</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

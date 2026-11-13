@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_hega_root" name="HegazkinAimar" sequence="10"/>
+    <menuitem id="menu_hega_hegaldia" name="Hegaldiak" parent="menu_hega_root" action="action_hegaldia" sequence="10"/>
+    <menuitem id="menu_hega_esleipena" name="Esleipenak" parent="menu_hega_root" action="action_tripulazioa" sequence="20"/>
+    <menuitem id="menu_hega_hegazkina" name="Hegazkinak" parent="menu_hega_root" action="action_hegazkina" sequence="30"/>
+    <menuitem id="menu_hega_aireportua" name="Aireportuak" parent="menu_hega_root" action="action_aireportua" sequence="40"/>
+    <menuitem id="menu_hega_tripulatzailea" name="Tripulazioa" parent="menu_hega_root" action="action_tripulatzailea" sequence="50"/>
+</odoo>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aireportua_list" model="ir.ui.view">
+        <field name="name">hegazkina.aireportua.list</field>
+        <field name="model">hegazkina.aireportua</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="ald"/>
+                <field name="nombre"/>
+                <field name="ciudad"/>
+                <field name="pais"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aireportua_form" model="ir.ui.view">
+        <field name="name">hegazkina.aireportua.form</field>
+        <field name="model">hegazkina.aireportua</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ald"/>
+                            <field name="nombre"/>
+                        </group>
+                        <group>
+                            <field name="ciudad"/>
+                            <field name="pais"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Irteerak">
+                            <field name="jatorriko_hegaldia_ids" readonly="1">
+                                <list>
+                                    <field name="vld"/>
+                                    <field name="helmuga_aireportua_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Iritsierak">
+                            <field name="helmuga_hegaldia_ids" readonly="1">
+                                <list>
+                                    <field name="vld"/>
+                                    <field name="jatorriko_aireportua_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aireportua_search" model="ir.ui.view">
+        <field name="name">hegazkina.aireportua.search</field>
+        <field name="model">hegazkina.aireportua</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ald"/>
+                <field name="nombre"/>
+                <field name="ciudad"/>
+                <field name="pais"/>
+                <filter name="group_pais" string="Pais" context="{'group_by': 'pais'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_aireportua" model="ir.actions.act_window">
+        <field name="name">Aireportuak</field>
+        <field name="res_model">hegazkina.aireportua</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
