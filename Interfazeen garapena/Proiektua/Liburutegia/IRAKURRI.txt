@@ -1,0 +1,12 @@
+LIBURUTEGIA - .NET MAUI + SQLite
+
+1. Visual Studion: proiektu berria ".NET MAUI App", izena: Liburutegia
+2. Ezabatu MainPage.xaml (eta MainPage.xaml.cs).
+3. NuGet: instalatu "sqlite-net-pcl"
+   (errorerik badago SQLite-rekin: instalatu "SQLitePCLRaw.bundle_green" ere).
+4. Kopiatu: App.xaml, AppShell.xaml(.cs), Models/, Services/, Pages/
+   App.xaml.cs eta MauiProgram.cs ez ukitu.
+5. Exekutatu Windows Machine moduan.
+
+Datu-basea: FileSystem.AppDataDirectory/liburutegia.db3 (lehen aldian sortzen da proba-datuekin).
+Modeloa aldatzen baduzu, ezabatu .db3 fitxategia berriro sor dadin.

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Liburutegia"
+             x:Class="Liburutegia.EgileKudeaketaPage"
+             Title="Egileak kudeatu"
+             BackgroundColor="{StaticResource Hondoa}">
+
+    <Grid ColumnDefinitions="*,1.2*" ColumnSpacing="20" Padding="20,16">
+
+        <Grid Grid.Column="0" RowDefinitions="Auto,*" RowSpacing="10">
+            <Label Text="Egileak" Style="{StaticResource Goiburua}"/>
+            <CollectionView x:Name="EgileZerrenda" Grid.Row="1" SelectionMode="Single"
+                            SelectionChanged="OnEgileaHautatu">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Egilea">
+                        <Border Style="{StaticResource Txartela}" Padding="12">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{Binding IzenOsoa}" FontSize="16" FontAttributes="Bold"
+                                       TextColor="{StaticResource Testua}"/>
+                                <Label Text="{Binding Herrialdea}" FontSize="13" TextColor="{StaticResource Grisa}"/>
+                                <Label Text="{Binding LiburuKopuruaTestua}" FontSize="12" TextColor="{StaticResource Nagusia}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <ScrollView Grid.Column="1">
+            <Border Style="{StaticResource Txartela}" VerticalOptions="Start">
+                <VerticalStackLayout Spacing="6">
+                    <Label x:Name="LblTitulua" Text="Egile berria" Style="{StaticResource Goiburua}" Margin="0,0,0,6"/>
+
+                    <Label Text="Izena *" Style="{StaticResource Etiketa}"/>
+                    <Entry x:Name="EntIzena" Placeholder="Egilearen izena" TextChanged="OnAldatu"/>
+
+                    <Label Text="Abizenak *" Style="{StaticResource Etiketa}"/>
+                    <Entry x:Name="EntAbizenak" Placeholder="Abizenak" TextChanged="OnAldatu"/>
+
+                    <Label Text="Jaiotze-data" Style="{StaticResource Etiketa}"/>
+                    <DatePicker x:Name="DpJaiotza" MinimumDate="1000-01-01"/>
+
+                    <Label Text="Herrialdea *" Style="{StaticResource Etiketa}"/>
+                    <Entry x:Name="EntHerrialdea" Placeholder="Herrialdea" TextChanged="OnAldatu"/>
+
+                    <HorizontalStackLayout Spacing="10" Margin="0,14,0,0">
+                        <Button x:Name="BtnGorde" Text="Gorde" Style="{StaticResource BotoiNagusia}"
+                                IsEnabled="False" Clicked="OnGorde"/>
+                        <Button Text="Berria" Style="{StaticResource BotoiTxikia}" HeightRequest="40"
+                                Clicked="OnBerria"/>
+                        <Button x:Name="BtnEzabatu" Text="Ezabatu" Style="{StaticResource BotoiGorria}"
+                                IsEnabled="False" Clicked="OnEzabatu"/>
+                    </HorizontalStackLayout>
+                    <Label Text="* Nahitaezko eremuak. Gorde botoia izena, abizenak eta herrialdea beteta daudenean aktibatzen da."
+                           FontSize="12" TextColor="{StaticResource Grisa}" Margin="0,6,0,0"/>
+                </VerticalStackLayout>
+            </Border>
+        </ScrollView>
+    </Grid>
+</ContentPage>
