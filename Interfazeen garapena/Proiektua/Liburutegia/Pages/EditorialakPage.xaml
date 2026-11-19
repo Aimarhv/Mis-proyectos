@@ -4,84 +4,140 @@
              xmlns:local="clr-namespace:Liburutegia"
              x:Class="Liburutegia.EditorialakPage"
              Title="Editorialak"
+             Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource Hondoa}">
 
-    <Grid ColumnDefinitions="*,1.4*" ColumnSpacing="20" Padding="20,16">
+    <Grid RowDefinitions="Auto,*" Padding="32,26,32,24" RowSpacing="22">
 
-        <Grid Grid.Column="0" RowDefinitions="Auto,*" RowSpacing="10">
-            <Label Text="Editorialen Zerrenda" Style="{StaticResource Goiburua}"/>
-            <CollectionView x:Name="EditorialZerrenda" Grid.Row="1" SelectionMode="Single"
-                            SelectionChanged="OnEditorialaHautatu">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="local:Editoriala">
-                        <Border Style="{StaticResource Txartela}" Padding="12">
-                            <VerticalStackLayout Spacing="2">
-                                <Label Text="{Binding Izena}" FontSize="17" FontAttributes="Bold"
-                                       TextColor="{StaticResource Testua}"/>
-                                <Label Text="{Binding Herria}" FontSize="13" TextColor="{StaticResource Grisa}"/>
-                                <Label Text="{Binding LiburuKopuruaTestua}" FontSize="13" TextColor="{StaticResource Nagusia}"/>
-                            </VerticalStackLayout>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
+        <VerticalStackLayout Spacing="4">
+            <Label Text="Bilduma" Style="{StaticResource Etiketa}" TextColor="{StaticResource Azentua}"/>
+            <Label Text="Editorialak" Style="{StaticResource OrriIzenburua}"/>
+            <Label Text="Argitaletxeak eta haiek argitaratutako liburuak." Style="{StaticResource OrriAzpititulua}"/>
+        </VerticalStackLayout>
 
-        <Grid Grid.Column="1" RowDefinitions="Auto,Auto,Auto,*" RowSpacing="10">
-            <Label Text="Editorialaren Xehetasunak" Style="{StaticResource Goiburua}"/>
+        <Grid Grid.Row="1" ColumnDefinitions="*,1.45*" ColumnSpacing="28">
 
-            <Border x:Name="HutsaTxartela" Grid.Row="1" Style="{StaticResource Txartela}">
-                <Label Text="Aukeratu editorial bat ezkerreko zerrendan." TextColor="{StaticResource Grisa}"/>
-            </Border>
-
-            <Border x:Name="XehetasunTxartela" Grid.Row="1" Style="{StaticResource Txartela}" IsVisible="False">
-                <Grid ColumnDefinitions="160,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="10">
-                    <Label Grid.Row="0" Text="Izena:" Style="{StaticResource Etiketa}"/>
-                    <Label Grid.Row="0" Grid.Column="1" x:Name="LblIzena" Style="{StaticResource Balioa}"/>
-                    <Label Grid.Row="1" Text="Herria:" Style="{StaticResource Etiketa}"/>
-                    <Label Grid.Row="1" Grid.Column="1" x:Name="LblHerria" Style="{StaticResource Balioa}"/>
-                    <Label Grid.Row="2" Text="Fundazio-urtea:" Style="{StaticResource Etiketa}"/>
-                    <Label Grid.Row="2" Grid.Column="1" x:Name="LblUrtea" Style="{StaticResource Balioa}"/>
-                    <Label Grid.Row="3" Text="Webgunea:" Style="{StaticResource Etiketa}"/>
-                    <Label Grid.Row="3" Grid.Column="1" x:Name="LblWeb" Style="{StaticResource Balioa}"/>
-                </Grid>
-            </Border>
-
-            <Label Grid.Row="2" Text="Editorialaren Liburuak" Style="{StaticResource Goiburua}" Margin="0,8,0,0"/>
-
-            <Grid Grid.Row="3" RowDefinitions="*,Auto" RowSpacing="6">
-                <CollectionView x:Name="LiburuZerrenda" SelectionMode="Single">
+            <Grid Grid.Column="0" RowDefinitions="Auto,*" RowSpacing="12">
+                <Label x:Name="LblKopurua" Style="{StaticResource Laguntza}" Margin="2,0,0,0"/>
+                <CollectionView x:Name="EditorialZerrenda" Grid.Row="1" SelectionMode="Single"
+                                SelectionChanged="OnEditorialaHautatu">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
                     </CollectionView.ItemsLayout>
-                    <CollectionView.EmptyView>
-                        <Label Text="Ez dago libururik." TextColor="{StaticResource Grisa}" Margin="0,10"/>
-                    </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="local:Liburua">
-                            <Border Style="{StaticResource Txartela}" Padding="10">
-                                <Border.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnLiburuaBiklik"/>
-                                </Border.GestureRecognizers>
-                                <Grid ColumnDefinitions="40,*" ColumnSpacing="12">
+                        <DataTemplate x:DataType="local:Editoriala">
+                            <Border Style="{StaticResource Txartela}" Padding="12,10">
+                                <Grid ColumnDefinitions="44,*,Auto" ColumnSpacing="14">
                                     <Border BackgroundColor="{Binding Kolorea}" StrokeThickness="0"
-                                            StrokeShape="RoundRectangle 4" WidthRequest="40" HeightRequest="54"/>
-                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                        <Label Text="{Binding Izenburua}" FontSize="16" FontAttributes="Bold"
-                                               TextColor="{StaticResource Testua}"/>
-                                        <Label Text="{Binding EgileIzena}" FontSize="13"
-                                               TextColor="{StaticResource Grisa}"/>
+                                            StrokeShape="RoundRectangle 10" WidthRequest="44" HeightRequest="44">
+                                        <Label Text="{Binding Inizialak}" TextColor="White" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="{StaticResource Serif}"
+                                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                        <Label Text="{Binding Izena}" FontFamily="{StaticResource Serif}" FontSize="16"
+                                               FontAttributes="Bold" TextColor="{StaticResource Testua}"/>
+                                        <Label Text="{Binding Herria}" FontSize="13" TextColor="{StaticResource Grisa}"/>
                                     </VerticalStackLayout>
+                                    <Border Grid.Column="2" Style="{StaticResource Pilula}"
+                                            BackgroundColor="{StaticResource NagusiaLeuna}">
+                                        <Label Text="{Binding LiburuKopuruaTestua}" FontSize="11" FontAttributes="Bold"
+                                               TextColor="{StaticResource Nagusia}"/>
+                                    </Border>
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Label Grid.Row="1" Text="Klik bikoitza liburu batean: Liburuak pantailan ireki."
-                       FontSize="12" TextColor="{StaticResource Grisa}"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Border x:Name="HutsaTxartela" Style="{StaticResource Hutsa}" VerticalOptions="Start" Padding="24,70">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="&#xE825;" Style="{StaticResource Ikonoa}" FontSize="40"
+                               TextColor="{StaticResource Azentua}"/>
+                        <Label Text="Aukeratu editorial bat" FontFamily="{StaticResource Serif}" FontSize="20"
+                               FontAttributes="Bold" TextColor="{StaticResource Testua}" HorizontalOptions="Center"/>
+                        <Label Text="Bere informazioa eta katalogoa hemen agertuko dira."
+                               Style="{StaticResource OrriAzpititulua}" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid x:Name="XehetasunTxartela" RowDefinitions="Auto,Auto,*" RowSpacing="14" IsVisible="False">
+
+                    <Border Style="{StaticResource Panela}">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="22">
+                            <Border x:Name="Logoa" StrokeThickness="0" StrokeShape="RoundRectangle 18"
+                                    WidthRequest="80" HeightRequest="80" VerticalOptions="Start">
+                                <Label x:Name="LblInizialak" TextColor="White" FontSize="28" FontAttributes="Bold"
+                                       FontFamily="{StaticResource Serif}"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="14">
+                                <Label x:Name="LblIzena" FontFamily="{StaticResource Serif}" FontSize="26"
+                                       FontAttributes="Bold" TextColor="{StaticResource Testua}"/>
+                                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="16" RowSpacing="14">
+                                    <VerticalStackLayout Spacing="3">
+                                        <Label Text="Herria" Style="{StaticResource Etiketa}"/>
+                                        <Label x:Name="LblHerria" Style="{StaticResource Balioa}"/>
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout Grid.Column="1" Spacing="3">
+                                        <Label Text="Fundazio-urtea" Style="{StaticResource Etiketa}"/>
+                                        <Label x:Name="LblUrtea" Style="{StaticResource Balioa}"/>
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Spacing="3">
+                                        <Label Text="Webgunea" Style="{StaticResource Etiketa}"/>
+                                        <Label x:Name="LblWeb" Style="{StaticResource Balioa}" TextColor="{StaticResource NagusiaArina}"/>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
+                    <Grid Grid.Row="1" ColumnDefinitions="*,Auto" Margin="2,10,2,0">
+                        <Label Text="Katalogoa" Style="{StaticResource Goiburua}"/>
+                        <Label Grid.Column="1" Text="Klik bikoitza: liburua ireki" Style="{StaticResource Laguntza}"
+                               VerticalOptions="Center"/>
+                    </Grid>
+
+                    <CollectionView x:Name="LiburuZerrenda" Grid.Row="2" SelectionMode="Single">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.EmptyView>
+                            <Border Style="{StaticResource Hutsa}" Padding="20,24">
+                                <Label Text="Editorial honek ez du libururik oraindik." Style="{StaticResource Laguntza}"
+                                       HorizontalOptions="Center"/>
+                            </Border>
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="local:Liburua">
+                                <Border Style="{StaticResource Txartela}" Padding="12,10">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnLiburuaBiklik"/>
+                                    </Border.GestureRecognizers>
+                                    <Grid ColumnDefinitions="40,*,Auto" ColumnSpacing="14">
+                                        <Border Background="{Binding AzalaBrush}" StrokeThickness="0"
+                                                StrokeShape="RoundRectangle 2,5,2,5" WidthRequest="40" HeightRequest="56">
+                                            <Label Text="{Binding Hizkia}" FontFamily="{StaticResource Serif}" FontSize="18"
+                                                   FontAttributes="Bold" TextColor="White"
+                                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        </Border>
+                                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                            <Label Text="{Binding Izenburua}" FontFamily="{StaticResource Serif}" FontSize="15"
+                                                   FontAttributes="Bold" TextColor="{StaticResource Testua}"/>
+                                            <Label Text="{Binding EgileaEtaUrtea}" FontSize="13"
+                                                   TextColor="{StaticResource Grisa}"/>
+                                        </VerticalStackLayout>
+                                        <Label Grid.Column="2" Text="&#xE76C;" Style="{StaticResource Ikonoa}" FontSize="12"
+                                               TextColor="{StaticResource GrisaArina}"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

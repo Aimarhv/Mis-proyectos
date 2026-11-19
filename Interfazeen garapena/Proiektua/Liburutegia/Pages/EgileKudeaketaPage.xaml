@@ -4,61 +4,111 @@
              xmlns:local="clr-namespace:Liburutegia"
              x:Class="Liburutegia.EgileKudeaketaPage"
              Title="Egileak kudeatu"
+             Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource Hondoa}">
 
-    <Grid ColumnDefinitions="*,1.2*" ColumnSpacing="20" Padding="20,16">
+    <Grid RowDefinitions="Auto,*" Padding="32,26,32,24" RowSpacing="22">
 
-        <Grid Grid.Column="0" RowDefinitions="Auto,*" RowSpacing="10">
-            <Label Text="Egileak" Style="{StaticResource Goiburua}"/>
-            <CollectionView x:Name="EgileZerrenda" Grid.Row="1" SelectionMode="Single"
-                            SelectionChanged="OnEgileaHautatu">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="local:Egilea">
-                        <Border Style="{StaticResource Txartela}" Padding="12">
+        <VerticalStackLayout Spacing="4">
+            <Label Text="Kudeaketa" Style="{StaticResource Etiketa}" TextColor="{StaticResource Azentua}"/>
+            <Label Text="Egileak kudeatu" Style="{StaticResource OrriIzenburua}"/>
+            <Label Text="Sortu, aldatu edo ezabatu egileak." Style="{StaticResource OrriAzpititulua}"/>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,1.3*" ColumnSpacing="28">
+
+            <!-- Zerrenda -->
+            <Grid Grid.Column="0" RowDefinitions="Auto,*" RowSpacing="12">
+                <Label Text="Aukeratu bat editatzeko" Style="{StaticResource Laguntza}" Margin="2,0,0,0"/>
+                <CollectionView x:Name="EgileZerrenda" Grid.Row="1" SelectionMode="Single"
+                                SelectionChanged="OnEgileaHautatu">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Egilea">
+                            <Border Style="{StaticResource Txartela}" Padding="12,10">
+                                <Grid ColumnDefinitions="40,*,Auto" ColumnSpacing="12">
+                                    <Border BackgroundColor="{Binding Kolorea}" StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 20" WidthRequest="40" HeightRequest="40">
+                                        <Label Text="{Binding Inizialak}" TextColor="White" FontSize="14" FontAttributes="Bold"
+                                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                        <Label Text="{Binding IzenOsoa}" FontSize="15" FontAttributes="Bold"
+                                               TextColor="{StaticResource Testua}"/>
+                                        <Label Text="{Binding Herrialdea}" FontSize="12" TextColor="{StaticResource Grisa}"/>
+                                    </VerticalStackLayout>
+                                    <Label Grid.Column="2" Text="{Binding LiburuKopuruaTestua}" FontSize="12"
+                                           TextColor="{StaticResource Grisa}" VerticalOptions="Center"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <!-- Formularioa -->
+            <ScrollView Grid.Column="1">
+                <VerticalStackLayout Spacing="12">
+
+                    <!-- Gordetzean agertzen den oharra -->
+                    <Border x:Name="Oharra" IsVisible="False" Opacity="0" BackgroundColor="{StaticResource ArrakastaLeuna}"
+                            Stroke="#BFDCC9" StrokeShape="RoundRectangle 12" Padding="16,12">
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="&#xE73E;" Style="{StaticResource Ikonoa}" TextColor="{StaticResource Arrakasta}"/>
+                            <Label x:Name="LblOharra" FontSize="14" FontAttributes="Bold"
+                                   TextColor="{StaticResource Arrakasta}" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource Panela}">
+                        <VerticalStackLayout Spacing="18">
                             <VerticalStackLayout Spacing="2">
-                                <Label Text="{Binding IzenOsoa}" FontSize="16" FontAttributes="Bold"
-                                       TextColor="{StaticResource Testua}"/>
-                                <Label Text="{Binding Herrialdea}" FontSize="13" TextColor="{StaticResource Grisa}"/>
-                                <Label Text="{Binding LiburuKopuruaTestua}" FontSize="12" TextColor="{StaticResource Nagusia}"/>
+                                <Label x:Name="LblTitulua" Text="Egile berria" Style="{StaticResource Goiburua}" FontSize="22"/>
+                                <Label x:Name="LblAzpititulua" Text="Bete datuak eta sakatu Gorde." Style="{StaticResource Laguntza}"/>
                             </VerticalStackLayout>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
 
-        <ScrollView Grid.Column="1">
-            <Border Style="{StaticResource Txartela}" VerticalOptions="Start">
-                <VerticalStackLayout Spacing="6">
-                    <Label x:Name="LblTitulua" Text="Egile berria" Style="{StaticResource Goiburua}" Margin="0,0,0,6"/>
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                                <VerticalStackLayout Spacing="6">
+                                    <Label Text="Izena *" Style="{StaticResource Etiketa}"/>
+                                    <Entry x:Name="EntIzena" Placeholder="Adib. Ana" TextChanged="OnAldatu"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                    <Label Text="Abizenak *" Style="{StaticResource Etiketa}"/>
+                                    <Entry x:Name="EntAbizenak" Placeholder="Adib. Telleria" TextChanged="OnAldatu"/>
+                                </VerticalStackLayout>
+                            </Grid>
 
-                    <Label Text="Izena *" Style="{StaticResource Etiketa}"/>
-                    <Entry x:Name="EntIzena" Placeholder="Egilearen izena" TextChanged="OnAldatu"/>
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                                <VerticalStackLayout Spacing="6">
+                                    <Label Text="Jaiotze-data" Style="{StaticResource Etiketa}"/>
+                                    <DatePicker x:Name="DpJaiotza" MinimumDate="1000-01-01" Format="yyyy-MM-dd"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                    <Label Text="Herrialdea *" Style="{StaticResource Etiketa}"/>
+                                    <Entry x:Name="EntHerrialdea" Placeholder="Adib. Euskal Herria" TextChanged="OnAldatu"/>
+                                </VerticalStackLayout>
+                            </Grid>
 
-                    <Label Text="Abizenak *" Style="{StaticResource Etiketa}"/>
-                    <Entry x:Name="EntAbizenak" Placeholder="Abizenak" TextChanged="OnAldatu"/>
+                            <BoxView Style="{StaticResource Bereizlea}"/>
 
-                    <Label Text="Jaiotze-data" Style="{StaticResource Etiketa}"/>
-                    <DatePicker x:Name="DpJaiotza" MinimumDate="1000-01-01"/>
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                                <Button x:Name="BtnEzabatu" Text="Ezabatu" Style="{StaticResource BotoiGorria}"
+                                        IsEnabled="False" Clicked="OnEzabatu"/>
+                                <HorizontalStackLayout Grid.Column="2" Spacing="10">
+                                    <Button Text="Garbitu / Berria" Style="{StaticResource BotoiBigarrena}" Clicked="OnBerria"/>
+                                    <Button x:Name="BtnGorde" Text="Gorde" Style="{StaticResource BotoiNagusia}"
+                                            IsEnabled="False" Clicked="OnGorde" MinimumWidthRequest="110"/>
+                                </HorizontalStackLayout>
+                            </Grid>
 
-                    <Label Text="Herrialdea *" Style="{StaticResource Etiketa}"/>
-                    <Entry x:Name="EntHerrialdea" Placeholder="Herrialdea" TextChanged="OnAldatu"/>
-
-                    <HorizontalStackLayout Spacing="10" Margin="0,14,0,0">
-                        <Button x:Name="BtnGorde" Text="Gorde" Style="{StaticResource BotoiNagusia}"
-                                IsEnabled="False" Clicked="OnGorde"/>
-                        <Button Text="Berria" Style="{StaticResource BotoiTxikia}" HeightRequest="40"
-                                Clicked="OnBerria"/>
-                        <Button x:Name="BtnEzabatu" Text="Ezabatu" Style="{StaticResource BotoiGorria}"
-                                IsEnabled="False" Clicked="OnEzabatu"/>
-                    </HorizontalStackLayout>
-                    <Label Text="* Nahitaezko eremuak. Gorde botoia izena, abizenak eta herrialdea beteta daudenean aktibatzen da."
-                           FontSize="12" TextColor="{StaticResource Grisa}" Margin="0,6,0,0"/>
+                            <Label Text="* Nahitaezko eremuak. Gorde botoia izena, abizenak eta herrialdea beteta daudenean aktibatzen da."
+                                   Style="{StaticResource Laguntza}"/>
+                        </VerticalStackLayout>
+                    </Border>
                 </VerticalStackLayout>
-            </Border>
-        </ScrollView>
+            </ScrollView>
+        </Grid>
     </Grid>
 </ContentPage>

@@ -18,6 +18,7 @@ public partial class EgileakPage : ContentPage
         _d.PendingEgilea = null;
 
         var zerrenda = _d.Egileak.OrderBy(e => e.Abizenak).ThenBy(e => e.Izena).ToList();
+        LblKopurua.Text = $"{zerrenda.Count} egile";
         EgileZerrenda.ItemsSource = zerrenda;
         EgileZerrenda.SelectedItem = zerrenda.FirstOrDefault(e => e.Id == id);
     }
@@ -28,7 +29,7 @@ public partial class EgileakPage : ContentPage
         Erakutsi(_hautatua);
     }
 
-    void Erakutsi(Egilea? e)
+    async void Erakutsi(Egilea? e)
     {
         XehetasunTxartela.IsVisible = e != null;
         HutsaTxartela.IsVisible = e == null;
@@ -38,11 +39,17 @@ public partial class EgileakPage : ContentPage
             return;
         }
 
+        Avatarra.BackgroundColor = e.Kolorea;
+        LblInizialak.Text = e.Inizialak;
+        LblIzenOsoa.Text = e.IzenOsoa;
         LblIzena.Text = e.Izena;
         LblAbizenak.Text = e.Abizenak;
         LblJaiotza.Text = e.JaiotzeDataTestua;
         LblHerrialdea.Text = e.Herrialdea;
         BibliografiaZerrenda.ItemsSource = _d.LiburuakEgileka(e.Id).OrderBy(l => l.ArgitalpenUrtea).ToList();
+
+        XehetasunTxartela.Opacity = 0;
+        await XehetasunTxartela.FadeTo(1, 200, Easing.CubicOut);
     }
 
     // Bibliografiako liburu batean klik bikoitza -> Liburuak pantaila, liburua aukeratuta

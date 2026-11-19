@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell x:Class="Liburutegia.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:Liburutegia"
+       Title="Liburutegi Kudeaketa"
+       FlyoutBehavior="Locked"
+       FlyoutWidth="220"
+       Shell.BackgroundColor="{StaticResource Nagusia}"
+       Shell.ForegroundColor="White"
+       Shell.TitleColor="White">
+
+    <!-- Kontsulta pantailak -->
+    <ShellContent Title="Liburuak" Route="LiburuakPage"
+                  ContentTemplate="{DataTemplate local:LiburuakPage}" />
+    <ShellContent Title="Egileak" Route="EgileakPage"
+                  ContentTemplate="{DataTemplate local:EgileakPage}" />
+    <ShellContent Title="Editorialak" Route="EditorialakPage"
+                  ContentTemplate="{DataTemplate local:EditorialakPage}" />
+
+    <!-- Menua: altak, bajak eta aldaketak -->
+    <ShellContent Title="Liburuak kudeatu" Route="LiburuKudeaketaPage"
+                  ContentTemplate="{DataTemplate local:LiburuKudeaketaPage}" />
+    <ShellContent Title="Egileak kudeatu" Route="EgileKudeaketaPage"
+                  ContentTemplate="{DataTemplate local:EgileKudeaketaPage}" />
+</Shell>

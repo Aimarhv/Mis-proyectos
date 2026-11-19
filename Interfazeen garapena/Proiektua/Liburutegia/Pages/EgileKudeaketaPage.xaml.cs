@@ -29,6 +29,7 @@ public partial class EgileKudeaketaPage : ContentPage
         _editatzen = null;
         EgileZerrenda.SelectedItem = null;
         LblTitulua.Text = "Egile berria";
+        LblAzpititulua.Text = "Bete datuak eta sakatu Gorde.";
         EntIzena.Text = "";
         EntAbizenak.Text = "";
         EntHerrialdea.Text = "";
@@ -41,6 +42,7 @@ public partial class EgileKudeaketaPage : ContentPage
     {
         _editatzen = e;
         LblTitulua.Text = "Egilea editatu";
+        LblAzpititulua.Text = $"{e.IzenOsoa} · {e.LiburuKopuruaTestua}";
         EntIzena.Text = e.Izena;
         EntAbizenak.Text = e.Abizenak;
         EntHerrialdea.Text = e.Herrialdea;
@@ -81,9 +83,9 @@ public partial class EgileKudeaketaPage : ContentPage
         bool berria = _editatzen == null;
         _d.Gorde(eg);
 
-        await DisplayAlert("Gordeta", berria ? "Egilea sortu da." : "Egilea eguneratu da.", "Ados");
         ZerrendaEguneratu();
         Garbitu();
+        await OharraErakutsi(berria ? $"{eg.IzenOsoa} sortu da." : $"{eg.IzenOsoa} eguneratu da.");
     }
 
     void OnBerria(object? sender, EventArgs e) => Garbitu();
@@ -106,8 +108,25 @@ public partial class EgileKudeaketaPage : ContentPage
             $"{_editatzen.IzenOsoa} ezabatu nahi duzu?", "Ezabatu", "Utzi");
         if (!baietz) return;
 
+        var izena = _editatzen.IzenOsoa;
         _d.Ezabatu(_editatzen);
         ZerrendaEguneratu();
         Garbitu();
+        await OharraErakutsi($"{izena} ezabatu da.");
+    }
+
+    // Oharra leunki agertu eta desagertu
+    int _oharraZenb;
+    async Task OharraErakutsi(string mezua)
+    {
+        int zenb = ++_oharraZenb;
+        LblOharra.Text = mezua;
+        Oharra.IsVisible = true;
+        Oharra.TranslationY = -6;
+        await Task.WhenAll(Oharra.FadeTo(1, 200, Easing.CubicOut), Oharra.TranslateTo(0, 0, 200, Easing.CubicOut));
+        await Task.Delay(2200);
+        if (zenb != _oharraZenb) return;   // bitartean beste ohar bat agertu da
+        await Oharra.FadeTo(0, 300);
+        Oharra.IsVisible = false;
     }
 }

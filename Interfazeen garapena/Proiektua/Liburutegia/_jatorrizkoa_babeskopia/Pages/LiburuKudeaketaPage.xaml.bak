@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Liburutegia"
+             x:Class="Liburutegia.LiburuKudeaketaPage"
+             Title="Liburuak kudeatu"
+             BackgroundColor="{StaticResource Hondoa}">
+
+    <Grid ColumnDefinitions="*,1.2*" ColumnSpacing="20" Padding="20,16">
+
+        <!-- Liburuen zerrenda -->
+        <Grid Grid.Column="0" RowDefinitions="Auto,*" RowSpacing="10">
+            <Label Text="Liburuak" Style="{StaticResource Goiburua}"/>
+            <CollectionView x:Name="LiburuZerrenda" Grid.Row="1" SelectionMode="Single"
+                            SelectionChanged="OnLiburuaHautatu">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Liburua">
+                        <Border Style="{StaticResource Txartela}" Padding="12">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{Binding Izenburua}" FontSize="16" FontAttributes="Bold"
+                                       TextColor="{StaticResource Testua}"/>
+                                <Label Text="{Binding EgileIzena}" FontSize="13" TextColor="{StaticResource Grisa}"/>
+                                <Label Text="{Binding ISBN}" FontSize="12" TextColor="{StaticResource Grisa}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <!-- Formularioa -->
+        <ScrollView Grid.Column="1">
+            <Border Style="{StaticResource Txartela}" VerticalOptions="Start">
+                <VerticalStackLayout Spacing="6">
+                    <Label x:Name="LblTitulua" Text="Liburu berria" Style="{StaticResource Goiburua}" Margin="0,0,0,6"/>
+
+                    <Label Text="Izenburua *" Style="{StaticResource Etiketa}"/>
+                    <Entry x:Name="EntIzenburua" Placeholder="Liburuaren izenburua" TextChanged="OnAldatu"/>
+
+                    <Label Text="ISBN *" Style="{StaticResource Etiketa}"/>
+                    <Entry x:Name="EntISBN" Placeholder="978-84-12345-67-8" TextChanged="OnAldatu"/>
+                    <Label x:Name="ErrISBN" Style="{StaticResource Errorea}"/>
+
+                    <Label Text="Argitalpen-urtea *" Style="{StaticResource Etiketa}"/>
+                    <Entry x:Name="EntUrtea" Placeholder="2024" Keyboard="Numeric" MaxLength="4" TextChanged="OnAldatu"/>
+                    <Label x:Name="ErrUrtea" Style="{StaticResource Errorea}"/>
+
+                    <Label Text="Generoa *" Style="{StaticResource Etiketa}"/>
+                    <Picker x:Name="PkGeneroa" Title="Aukeratu generoa" SelectedIndexChanged="OnAldatu"/>
+
+                    <Label Text="Egilea *" Style="{StaticResource Etiketa}"/>
+                    <Picker x:Name="PkEgilea" Title="Aukeratu egilea" ItemDisplayBinding="{Binding IzenOsoa}"
+                            SelectedIndexChanged="OnAldatu"/>
+
+                    <Label Text="Editoriala *" Style="{StaticResource Etiketa}"/>
+                    <Picker x:Name="PkEditoriala" Title="Aukeratu editoriala" ItemDisplayBinding="{Binding Izena}"
+                            SelectedIndexChanged="OnAldatu"/>
+
+                    <HorizontalStackLayout Spacing="10" Margin="0,6,0,0">
+                        <Label Text="Eskuragarri" Style="{StaticResource Etiketa}"/>
+                        <Switch x:Name="SwEskuragarri" IsToggled="True"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10" Margin="0,14,0,0">
+                        <Button x:Name="BtnGorde" Text="Gorde" Style="{StaticResource BotoiNagusia}"
+                                IsEnabled="False" Clicked="OnGorde"/>
+                        <Button Text="Berria" Style="{StaticResource BotoiTxikia}" HeightRequest="40"
+                                Clicked="OnBerria"/>
+                        <Button x:Name="BtnEzabatu" Text="Ezabatu" Style="{StaticResource BotoiGorria}"
+                                IsEnabled="False" Clicked="OnEzabatu"/>
+                    </HorizontalStackLayout>
+                    <Label Text="* Nahitaezko eremuak. Gorde botoia eremu guztiak beteta daudenean aktibatzen da."
+                           FontSize="12" TextColor="{StaticResource Grisa}" Margin="0,6,0,0"/>
+                </VerticalStackLayout>
+            </Border>
+        </ScrollView>
+    </Grid>
+</ContentPage>

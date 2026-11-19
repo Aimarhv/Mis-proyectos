@@ -5,22 +5,89 @@
        xmlns:local="clr-namespace:Liburutegia"
        Title="Liburutegi Kudeaketa"
        FlyoutBehavior="Locked"
-       FlyoutWidth="220"
-       Shell.BackgroundColor="{StaticResource Nagusia}"
-       Shell.ForegroundColor="White"
-       Shell.TitleColor="White">
+       FlyoutWidth="250"
+       FlyoutBackgroundColor="{StaticResource Nagusia}">
+
+    <!-- Menuaren goiburua: logotipoa -->
+    <Shell.FlyoutHeader>
+        <Grid Padding="22,28,22,18" ColumnDefinitions="Auto,*" ColumnSpacing="12">
+            <Border BackgroundColor="{StaticResource Azentua}" StrokeThickness="0"
+                    StrokeShape="RoundRectangle 10" WidthRequest="42" HeightRequest="42">
+                <Label Text="&#xE8F1;" Style="{StaticResource Ikonoa}" FontSize="20" TextColor="White"/>
+            </Border>
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="0">
+                <Label Text="Liburutegia" FontFamily="{StaticResource Serif}" FontSize="20"
+                       FontAttributes="Bold" TextColor="White"/>
+                <Label Text="Kudeaketa sistema" FontSize="12" TextColor="#A9BBC8"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!-- Menuko elementuen itxura -->
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="40,*" Padding="14,10" Margin="10,2" ColumnSpacing="4">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#2E5670"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+                <Image Source="{Binding FlyoutIcon}" WidthRequest="18" HeightRequest="18"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Column="1" Text="{Binding Title}" TextColor="White" FontSize="14"
+                       VerticalOptions="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 
     <!-- Kontsulta pantailak -->
     <ShellContent Title="Liburuak" Route="LiburuakPage"
-                  ContentTemplate="{DataTemplate local:LiburuakPage}" />
+                  ContentTemplate="{DataTemplate local:LiburuakPage}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="{StaticResource Ikonoak}" Glyph="&#xE736;" Color="#E9D2B0" Size="18"/>
+        </ShellContent.Icon>
+    </ShellContent>
     <ShellContent Title="Egileak" Route="EgileakPage"
-                  ContentTemplate="{DataTemplate local:EgileakPage}" />
+                  ContentTemplate="{DataTemplate local:EgileakPage}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="{StaticResource Ikonoak}" Glyph="&#xE716;" Color="#E9D2B0" Size="18"/>
+        </ShellContent.Icon>
+    </ShellContent>
     <ShellContent Title="Editorialak" Route="EditorialakPage"
-                  ContentTemplate="{DataTemplate local:EditorialakPage}" />
+                  ContentTemplate="{DataTemplate local:EditorialakPage}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="{StaticResource Ikonoak}" Glyph="&#xE825;" Color="#E9D2B0" Size="18"/>
+        </ShellContent.Icon>
+    </ShellContent>
 
     <!-- Menua: altak, bajak eta aldaketak -->
     <ShellContent Title="Liburuak kudeatu" Route="LiburuKudeaketaPage"
-                  ContentTemplate="{DataTemplate local:LiburuKudeaketaPage}" />
+                  ContentTemplate="{DataTemplate local:LiburuKudeaketaPage}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="{StaticResource Ikonoak}" Glyph="&#xE70F;" Color="#A9BBC8" Size="18"/>
+        </ShellContent.Icon>
+    </ShellContent>
     <ShellContent Title="Egileak kudeatu" Route="EgileKudeaketaPage"
-                  ContentTemplate="{DataTemplate local:EgileKudeaketaPage}" />
+                  ContentTemplate="{DataTemplate local:EgileKudeaketaPage}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="{StaticResource Ikonoak}" Glyph="&#xE8FA;" Color="#A9BBC8" Size="18"/>
+        </ShellContent.Icon>
+    </ShellContent>
+
+    <!-- Menuaren oina -->
+    <Shell.FlyoutFooter>
+        <Label Text="Liburuak · Egileak · Editorialak" FontSize="11" TextColor="#7F96A6"
+               Padding="24,16" HorizontalOptions="Start"/>
+    </Shell.FlyoutFooter>
 </Shell>

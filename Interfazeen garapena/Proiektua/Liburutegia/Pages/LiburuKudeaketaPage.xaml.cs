@@ -37,6 +37,7 @@ public partial class LiburuKudeaketaPage : ContentPage
         _editatzen = null;
         LiburuZerrenda.SelectedItem = null;
         LblTitulua.Text = "Liburu berria";
+        LblAzpititulua.Text = "Bete datuak eta sakatu Gorde.";
         EntIzenburua.Text = "";
         EntISBN.Text = "";
         EntUrtea.Text = "";
@@ -52,6 +53,7 @@ public partial class LiburuKudeaketaPage : ContentPage
     {
         _editatzen = l;
         LblTitulua.Text = "Liburua editatu";
+        LblAzpititulua.Text = $"«{l.Izenburua}» · {l.EgileIzena}";
         EntIzenburua.Text = l.Izenburua;
         EntISBN.Text = l.ISBN;
         EntUrtea.Text = l.ArgitalpenUrtea.ToString();
@@ -71,6 +73,12 @@ public partial class LiburuKudeaketaPage : ContentPage
     }
 
     void OnAldatu(object? sender, EventArgs e) => Baliozkotu();
+
+    void OnEskuragarriAldatu(object? sender, ToggledEventArgs e)
+    {
+        LblEskuragarri.Text = e.Value ? "Eskuragarri" : "Alokatuta";
+        LblEskuragarri.TextColor = Color.FromArgb(e.Value ? "#2E7D4F" : "#B5541C");
+    }
 
     // ---------- Balidazioak ----------
     bool Baliozkotu()
@@ -132,9 +140,9 @@ public partial class LiburuKudeaketaPage : ContentPage
         bool berria = _editatzen == null;
         _d.Gorde(l);
 
-        await DisplayAlert("Gordeta", berria ? "Liburua sortu da." : "Liburua eguneratu da.", "Ados");
         ZerrendaEguneratu();
         Garbitu();
+        await OharraErakutsi(berria ? $"«{l.Izenburua}» sortu da." : $"«{l.Izenburua}» eguneratu da.");
     }
 
     void OnBerria(object? sender, EventArgs e) => Garbitu();
@@ -147,8 +155,25 @@ public partial class LiburuKudeaketaPage : ContentPage
             $"\"{_editatzen.Izenburua}\" ezabatu nahi duzu?", "Ezabatu", "Utzi");
         if (!baietz) return;
 
+        var izenburua = _editatzen.Izenburua;
         _d.Ezabatu(_editatzen);
         ZerrendaEguneratu();
         Garbitu();
+        await OharraErakutsi($"«{izenburua}» ezabatu da.");
+    }
+
+    // Oharra leunki agertu eta desagertu
+    int _oharraZenb;
+    async Task OharraErakutsi(string mezua)
+    {
+        int zenb = ++_oharraZenb;
+        LblOharra.Text = mezua;
+        Oharra.IsVisible = true;
+        Oharra.TranslationY = -6;
+        await Task.WhenAll(Oharra.FadeTo(1, 200, Easing.CubicOut), Oharra.TranslateTo(0, 0, 200, Easing.CubicOut));
+        await Task.Delay(2200);
+        if (zenb != _oharraZenb) return;   // bitartean beste ohar bat agertu da
+        await Oharra.FadeTo(0, 300);
+        Oharra.IsVisible = false;
     }
 }

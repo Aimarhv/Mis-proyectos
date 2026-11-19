@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Liburutegia"
+             x:Class="Liburutegia.LiburuakPage"
+             Title="Liburutegi Kudeaketa"
+             BackgroundColor="{StaticResource Hondoa}">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <Grid Grid.Row="0" ColumnDefinitions="*,1.4*" ColumnSpacing="20" Padding="20,16">
+
+            <!-- ESKUINA: zerrenda + bilatzailea -->
+            <Grid Grid.Column="0" RowDefinitions="Auto,Auto,*" RowSpacing="10">
+                <Label Text="Liburuen Zerrenda" Style="{StaticResource Goiburua}"/>
+
+                <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                    <SearchBar x:Name="BilatuBarra" Placeholder="Bilatu liburuak..."
+                               TextChanged="OnBilaketaAldatu"/>
+                    <Picker x:Name="IrizpidePicker" Grid.Column="1" WidthRequest="150"
+                            Title="Irizpidea" SelectedIndexChanged="OnIrizpideaAldatu"/>
+                </Grid>
+
+                <CollectionView x:Name="LiburuZerrenda" Grid.Row="2"
+                                SelectionMode="Single" SelectionChanged="OnLiburuaHautatu">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <Label Text="Ez da libururik aurkitu." TextColor="{StaticResource Grisa}"
+                               HorizontalOptions="Center" Margin="0,30"/>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Liburua">
+                            <Border Style="{StaticResource Txartela}" Padding="10">
+                                <Grid ColumnDefinitions="52,*" ColumnSpacing="12">
+                                    <Border BackgroundColor="{Binding Kolorea}" StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 4" WidthRequest="52" HeightRequest="70"
+                                            Padding="3">
+                                        <Label Text="{Binding Izenburua}" FontSize="8" TextColor="White"
+                                               HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                        <Label Text="{Binding Izenburua}" FontSize="17" FontAttributes="Bold"
+                                               TextColor="{StaticResource Testua}"/>
+                                        <Label Text="{Binding EgileIzena}" FontSize="13"
+                                               TextColor="{StaticResource Grisa}"/>
+                                        <Label Text="{Binding EskuragarriTestua}" FontSize="13"
+                                               TextColor="{Binding EskuragarriKolorea}"/>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <!-- EZKERRA: xehetasunak (irakurtzeko soilik) -->
+            <Grid Grid.Column="1" RowDefinitions="Auto,*" RowSpacing="10">
+                <Label Text="Liburuaren Xehetasunak" Style="{StaticResource Goiburua}"/>
+
+                <Border x:Name="HutsaTxartela" Grid.Row="1" Style="{StaticResource Txartela}" VerticalOptions="Start">
+                    <Label Text="Aukeratu liburu bat ezkerreko zerrendan bere datuak ikusteko."
+                           TextColor="{StaticResource Grisa}"/>
+                </Border>
+
+                <Border x:Name="XehetasunTxartela" Grid.Row="1" Style="{StaticResource Txartela}"
+                        IsVisible="False" VerticalOptions="Start">
+                    <Grid ColumnDefinitions="170,*" ColumnSpacing="20">
+                        <Border x:Name="Azala" WidthRequest="160" HeightRequest="230" Padding="10"
+                                StrokeThickness="0" StrokeShape="RoundRectangle 6" VerticalOptions="Start">
+                            <Label x:Name="AzalaTestua" TextColor="White" FontSize="20" FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                        </Border>
+
+                        <Grid Grid.Column="1" ColumnDefinitions="140,*,Auto" ColumnSpacing="10" RowSpacing="12"
+                              RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                            <Label Grid.Row="0" Text="Izenburua:" Style="{StaticResource Etiketa}"/>
+                            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LblIzenburua" Style="{StaticResource Balioa}"/>
+
+                            <Label Grid.Row="1" Text="ISBN:" Style="{StaticResource Etiketa}"/>
+                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LblISBN" Style="{StaticResource Balioa}"/>
+
+                            <Label Grid.Row="2" Text="Argitalpen-urtea:" Style="{StaticResource Etiketa}"/>
+                            <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LblUrtea" Style="{StaticResource Balioa}"/>
+
+                            <Label Grid.Row="3" Text="Generoa:" Style="{StaticResource Etiketa}"/>
+                            <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LblGeneroa" Style="{StaticResource Balioa}"/>
+
+                            <Label Grid.Row="4" Text="Egilea:" Style="{StaticResource Etiketa}"/>
+                            <Label Grid.Row="4" Grid.Column="1" x:Name="LblEgilea" Style="{StaticResource Balioa}"/>
+                            <Button Grid.Row="4" Grid.Column="2" Text="IKUSI EGILEA"
+                                    Style="{StaticResource BotoiTxikia}" Clicked="OnIkusiEgilea"/>
+
+                            <Label Grid.Row="5" Text="Editoriala:" Style="{StaticResource Etiketa}"/>
+                            <Label Grid.Row="5" Grid.Column="1" x:Name="LblEditoriala" Style="{StaticResource Balioa}"
+                                   TextColor="{StaticResource Nagusia}" TextDecorations="Underline">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnIkusiEditoriala"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Button Grid.Row="5" Grid.Column="2" Text="IKUSI EDITORIALA"
+                                    Style="{StaticResource BotoiTxikia}" Clicked="OnIkusiEditoriala"/>
+
+                            <Label Grid.Row="6" Text="Eskuragarri:" Style="{StaticResource Etiketa}"/>
+                            <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LblEskuragarri"
+                                   Style="{StaticResource Balioa}" FontAttributes="Bold"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- BEHEKO BARRA: lasterbideak kudeaketara -->
+        <FlexLayout Grid.Row="1" Wrap="Wrap" BackgroundColor="{StaticResource Nagusia}" Padding="16,10,6,0">
+            <Button Text="+  Liburu berria" Style="{StaticResource BotoiBarra}" Margin="0,0,10,10" Clicked="OnLiburuBerria"/>
+            <Button Text="Editatu liburua" Style="{StaticResource BotoiBarra}" Margin="0,0,10,10" Clicked="OnEditatuLiburua"/>
+            <Button Text="+  Egile berria" Style="{StaticResource BotoiBarra}" Margin="0,0,10,10" Clicked="OnEgileBerria"/>
+        </FlexLayout>
+    </Grid>
+</ContentPage>
