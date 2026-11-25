@@ -1,0 +1,63 @@
+<odoo>
+    <!-- TALDEAK -->
+    <!-- Arduradunak: baimen guztiak -->
+    <record id="group_arduradunak" model="res.groups">
+        <field name="name">ONG Arduradunak</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Idazkariak: irakurtzeko soilik -->
+    <record id="group_idazkariak" model="res.groups">
+        <field name="name">ONG Idazkariak</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Presupuestoa aldatu dezakeena (Iñaxio bakarrik) -->
+    <record id="group_presupuesto" model="res.groups">
+        <field name="name">ONG Presupuesto kudeatzailea</field>
+        <field name="implied_ids" eval="[(4, ref('group_arduradunak'))]"/>
+        <!-- Administratzailea ere bai, menua ikusteko -->
+        <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- ONGaimar-ek erabiltzaile guztiei baimen guztiak ematen zizkien:
+         orain arduradunei bakarrik -->
+    <record id="ONGaimar.access_ong_sede" model="ir.model.access">
+        <field name="group_id" ref="group_arduradunak"/>
+    </record>
+    <record id="ONGaimar.access_ong_proyecto" model="ir.model.access">
+        <field name="group_id" ref="group_arduradunak"/>
+    </record>
+    <record id="ONGaimar.access_ong_actuacion" model="ir.model.access">
+        <field name="group_id" ref="group_arduradunak"/>
+    </record>
+    <record id="ONGaimar.access_ong_poblacion" model="ir.model.access">
+        <field name="group_id" ref="group_arduradunak"/>
+    </record>
+
+    <!-- ERABILTZAILEAK -->
+    <record id="user_inaxio" model="res.users">
+        <field name="name">Iñaxio</field>
+        <field name="login">inaxio</field>
+        <field name="password">inaxio</field>
+        <field name="group_ids" eval="[(4, ref('group_presupuesto'))]"/>
+    </record>
+    <record id="user_maite" model="res.users">
+        <field name="name">Maite</field>
+        <field name="login">maite</field>
+        <field name="password">maite</field>
+        <field name="group_ids" eval="[(4, ref('group_arduradunak'))]"/>
+    </record>
+    <record id="user_bittor" model="res.users">
+        <field name="name">Bittor</field>
+        <field name="login">bittor</field>
+        <field name="password">bittor</field>
+        <field name="group_ids" eval="[(4, ref('group_idazkariak'))]"/>
+    </record>
+    <record id="user_antton" model="res.users">
+        <field name="name">Antton</field>
+        <field name="login">antton</field>
+        <field name="password">antton</field>
+        <field name="group_ids" eval="[(4, ref('group_idazkariak'))]"/>
+    </record>
+</odoo>

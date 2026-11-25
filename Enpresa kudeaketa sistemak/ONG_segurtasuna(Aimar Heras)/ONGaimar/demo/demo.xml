@@ -1,0 +1,67 @@
+<odoo>
+    <!-- Egoitzak -->
+    <record id="demo_sede_1" model="ong.sede">
+        <field name="codigo">S001</field>
+        <field name="ciudad">Donostia</field>
+        <field name="pais">Espainia</field>
+        <field name="direccion">Kale Nagusia 1</field>
+        <field name="telefono">943000001</field>
+        <field name="direct">Ane Etxeberria</field>
+    </record>
+    <record id="demo_sede_2" model="ong.sede">
+        <field name="codigo">S002</field>
+        <field name="ciudad">Paris</field>
+        <field name="pais">Frantzia</field>
+        <field name="direccion">Rue de Rivoli 10</field>
+        <field name="telefono">331000002</field>
+        <field name="direct">Jean Dupont</field>
+    </record>
+
+    <!-- Proiektuak -->
+    <record id="demo_proyecto_1" model="ong.proyecto">
+        <field name="cod">P001</field>
+        <field name="titulo">Ur edangarria</field>
+        <field name="sede_id" ref="demo_sede_1"/>
+        <field name="inicio">2026-01-15</field>
+        <field name="fin">2026-06-30</field>
+        <field name="presup">50000</field>
+        <field name="resp">Mikel Garmendia</field>
+    </record>
+    <record id="demo_proyecto_2" model="ong.proyecto">
+        <field name="cod">P002</field>
+        <field name="titulo">Eskola berria</field>
+        <field name="sede_id" ref="demo_sede_2"/>
+        <field name="inicio">2026-03-01</field>
+        <field name="fin">2026-12-15</field>
+        <field name="presup">120000</field>
+        <field name="resp">Marie Laurent</field>
+    </record>
+
+    <!-- Herriak -->
+    <record id="demo_poblacion_1" model="ong.poblacion">
+        <field name="idpob">H001</field>
+        <field name="nombre">Kigali</field>
+        <field name="pais">Ruanda</field>
+        <field name="habs">1200000</field>
+    </record>
+    <record id="demo_poblacion_2" model="ong.poblacion">
+        <field name="idpob">H002</field>
+        <field name="nombre">Cusco</field>
+        <field name="pais">Peru</field>
+        <field name="habs">430000</field>
+    </record>
+
+    <!-- Aktuazioak -->
+    <record id="demo_actuacion_1" model="ong.actuacion">
+        <field name="proyecto_cod" ref="demo_proyecto_1"/>
+        <field name="poblacion_idpob" ref="demo_poblacion_1"/>
+        <field name="inversion">20000</field>
+        <field name="descrp">Putzuen eraikuntza</field>
+    </record>
+    <record id="demo_actuacion_2" model="ong.actuacion">
+        <field name="proyecto_cod" ref="demo_proyecto_2"/>
+        <field name="poblacion_idpob" ref="demo_poblacion_2"/>
+        <field name="inversion">60000</field>
+        <field name="descrp">Eskola baten eraikuntza</field>
+    </record>
+</odoo>

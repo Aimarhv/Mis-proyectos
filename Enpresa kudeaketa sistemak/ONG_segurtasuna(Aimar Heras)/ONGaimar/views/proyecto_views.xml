@@ -1,0 +1,95 @@
+<odoo>
+    <record id="view_ong_proyecto_list" model="ir.ui.view">
+        <field name="name">ong.proyecto.list</field>
+        <field name="model">ong.proyecto</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="cod"/>
+                <field name="titulo"/>
+                <field name="sede_id"/>
+                <field name="inicio"/>
+                <field name="fin"/>
+                <field name="presup"/>
+                <field name="resp"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ong_proyecto_form" model="ir.ui.view">
+        <field name="name">ong.proyecto.form</field>
+        <field name="model">ong.proyecto</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="cod"/>
+                            <field name="titulo"/>
+                            <field name="sede_id"/>
+                            <field name="resp"/>
+                        </group>
+                        <group>
+                            <field name="inicio"/>
+                            <field name="fin"/>
+                            <field name="presup"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Aktuazioak">
+                            <field name="actuacion_ids">
+                                <list editable="bottom">
+                                    <field name="poblacion_idpob"/>
+                                    <field name="inversion"/>
+                                    <field name="descrp"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ong_proyecto_calendar" model="ir.ui.view">
+        <field name="name">ong.proyecto.calendar</field>
+        <field name="model">ong.proyecto</field>
+        <field name="arch" type="xml">
+            <calendar string="Proiektuak" date_start="inicio" date_stop="fin" mode="month" color="sede_id">
+                <field name="titulo"/>
+                <field name="sede_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_ong_proyecto_graph" model="ir.ui.view">
+        <field name="name">ong.proyecto.graph</field>
+        <field name="model">ong.proyecto</field>
+        <field name="arch" type="xml">
+            <graph string="Aurrekontuen konparaketa" type="bar">
+                <field name="titulo" type="row"/>
+                <field name="presup" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_ong_proyecto_search" model="ir.ui.view">
+        <field name="name">ong.proyecto.search</field>
+        <field name="model">ong.proyecto</field>
+        <field name="arch" type="xml">
+           <search>
+                <field name="cod"/>
+                <field name="titulo"/>
+                <field name="resp"/>
+                <field name="sede_id"/>
+                <filter name="group_sede" string="Egoitza" context="{'group_by': 'sede_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ong_proyecto" model="ir.actions.act_window">
+        <field name="name">Proiektuak</field>
+        <field name="res_model">ong.proyecto</field>
+        <field name="view_mode">list,form,calendar,graph</field>
+    </record>
+</odoo>

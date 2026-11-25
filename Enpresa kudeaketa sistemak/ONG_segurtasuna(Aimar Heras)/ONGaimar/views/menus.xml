@@ -1,0 +1,12 @@
+<odoo>
+    <menuitem id="menu_ong_root" name="ONGaimar" sequence="10"/>
+
+    <menuitem id="menu_ong_sede" name="Egoitzak" parent="menu_ong_root"
+              action="action_ong_sede" sequence="10"/>
+    <menuitem id="menu_ong_proyecto" name="Proiektuak" parent="menu_ong_root"
+              action="action_ong_proyecto" sequence="20"/>
+    <menuitem id="menu_ong_poblacion" name="Herriak" parent="menu_ong_root"
+              action="action_ong_poblacion" sequence="30"/>
+    <menuitem id="menu_ong_actuacion" name="Aktuazioak" parent="menu_ong_root"
+              action="action_ong_actuacion" sequence="40"/>
+</odoo>

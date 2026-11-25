@@ -1,0 +1,54 @@
+<odoo>
+    <!-- Proiektuen zerrenda: presupuestoa arduradunek bakarrik -->
+    <record id="view_ong_proyecto_list_segurtasuna" model="ir.ui.view">
+        <field name="name">ong.proyecto.list.segurtasuna</field>
+        <field name="model">ong.proyecto</field>
+        <field name="inherit_id" ref="ONGaimar.view_ong_proyecto_list"/>
+        <field name="arch" type="xml">
+            <field name="presup" position="attributes">
+                <attribute name="groups">ong_segurtasuna.group_arduradunak</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- Proiektuen formularioa: Iñaxiok aldatu, besteek (Maite) ikusi bakarrik -->
+    <record id="view_ong_proyecto_form_segurtasuna" model="ir.ui.view">
+        <field name="name">ong.proyecto.form.segurtasuna</field>
+        <field name="model">ong.proyecto</field>
+        <field name="inherit_id" ref="ONGaimar.view_ong_proyecto_form"/>
+        <field name="arch" type="xml">
+            <field name="presup" position="replace">
+                <field name="presup" groups="ong_segurtasuna.group_presupuesto"/>
+                <field name="presup" groups="!ong_segurtasuna.group_presupuesto" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Grafikoa -->
+    <record id="view_ong_proyecto_graph_segurtasuna" model="ir.ui.view">
+        <field name="name">ong.proyecto.graph.segurtasuna</field>
+        <field name="model">ong.proyecto</field>
+        <field name="inherit_id" ref="ONGaimar.view_ong_proyecto_graph"/>
+        <field name="arch" type="xml">
+            <field name="presup" position="attributes">
+                <attribute name="groups">ong_segurtasuna.group_arduradunak</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- Egoitzaren formularioko proiektu zerrenda -->
+    <record id="view_ong_sede_form_segurtasuna" model="ir.ui.view">
+        <field name="name">ong.sede.form.segurtasuna</field>
+        <field name="model">ong.sede</field>
+        <field name="inherit_id" ref="ONGaimar.view_ong_sede_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='proyecto_ids']//field[@name='presup']" position="attributes">
+                <attribute name="groups">ong_segurtasuna.group_arduradunak</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Menua bi taldeentzat bakarrik -->
+    <menuitem id="ONGaimar.menu_ong_root" name="ONGaimar" sequence="10"
+              groups="group_arduradunak,group_idazkariak"/>
+</odoo>

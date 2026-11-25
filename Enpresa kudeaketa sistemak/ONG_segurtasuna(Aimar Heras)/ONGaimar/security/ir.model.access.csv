@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ong_sede,access_ong_sede,model_ong_sede,base.group_user,1,1,1,1
+access_ong_proyecto,access_ong_proyecto,model_ong_proyecto,base.group_user,1,1,1,1
+access_ong_actuacion,access_ong_actuacion,model_ong_actuacion,base.group_user,1,1,1,1
+access_ong_poblacion,access_ong_poblacion,model_ong_poblacion,base.group_user,1,1,1,1

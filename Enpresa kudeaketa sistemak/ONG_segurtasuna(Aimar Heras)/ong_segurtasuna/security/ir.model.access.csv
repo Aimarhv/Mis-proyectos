@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ong_sede_idazkariak,access_ong_sede_idazkariak,ONGaimar.model_ong_sede,group_idazkariak,1,0,0,0
+access_ong_proyecto_idazkariak,access_ong_proyecto_idazkariak,ONGaimar.model_ong_proyecto,group_idazkariak,1,0,0,0
+access_ong_actuacion_idazkariak,access_ong_actuacion_idazkariak,ONGaimar.model_ong_actuacion,group_idazkariak,1,0,0,0
+access_ong_poblacion_idazkariak,access_ong_poblacion_idazkariak,ONGaimar.model_ong_poblacion,group_idazkariak,1,0,0,0
